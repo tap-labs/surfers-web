@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+ 
+    <h2>MONA VALE</h2>
+
+    <center>
+        <div style="max-width: 500px;">
+            <video id="my_video_1" class="video-js vjs-default-skin" controls muted preload="none" poster="{{ url_for('static', filename='images/video-icon.png') }}">
+                <source src="https://streamzy.ml/cdn-au/au-monavale/chunklist.m3u8" type="application/x-mpegURL">
+            </video>
+        </div>
+    </center>        
+
+
+    <script>setVideo(1);</script>
+
+    {% endblock %}
+
+
+

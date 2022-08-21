@@ -1,0 +1,41 @@
+<html>
+    <head>
+      {% if title %}
+      <title>Will I Surf- {{ title }}</title>
+      {% else %}
+      <title>Will I Surf</title>
+      {% endif %}
+
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <!-- Main stylesheet -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+      <!-- ChartJS -->
+      <script src="{{ url_for('static', filename='scripts/chart.js') }}"></script>
+      <!-- VideoJS -->
+      <link href="https://vjs.zencdn.net/7.20.2/video-js.css" rel="stylesheet" />
+      <script src="https://vjs.zencdn.net/7.20.2/video.min.js"></script>
+      <!-- Video custom -->
+      <script src="{{ url_for('static', filename='scripts/video.js') }}"></script>
+    </head>
+
+    <header style="background-image: {{ url_for('static', filename='images/wave-large.jpeg') }};">
+      <div class="container" style="background-image: {{ url_for('static', filename='images/wave-large.jpeg') }}">
+        <strong>
+          <nav>
+            <ul class="menu">
+              <li><a href="{{ url_for('main.home') }}">Home</a></li>
+            </ul>
+          </nav>
+        </strong>
+        <h1 class="logo">Will I Surf</h1>
+      </div>
+      
+    </header>
+
+    <body  style="background-image: {{ url_for('static', filename='images/wave-large.jpeg') }}">
+      
+      {% block content %}{% endblock %}
+
+    </body>
+</html>

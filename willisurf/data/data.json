@@ -1,0 +1,97 @@
+{
+    "country": [
+        {
+            "name": "Australia",
+            "state": [
+                {
+                    "name": "New South Wales",
+                    "postal": "NSW",
+                    "region": [
+                        {
+                            "name": "Sydney North",
+                            "location": [
+                                {
+                                    "name": "Avalon",
+                                    "gps": "",
+                                    "cam": [
+                                        {
+                                            "site": "Avalon",
+                                            "url": "https://streamzy.ml/cdn-au/au-avalon/chunklist.m3u8"
+                                        },
+                                        {
+                                            "site": "Little Avalon",
+                                            "url": "https://streamzy.ml/cdn-au/au-littleavalon/chunklist.m3u8"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Mona Vale",
+                                    "gps": "",
+                                    "cam": [
+                                        {
+                                            "site": "Main Beach",
+                                            "url": "https://streamzy.ml/cdn-au/au-monavale/chunklist.m3u8"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Manly",
+                                    "gps": "",
+                                    "cam": [
+                                        {
+                                            "site": "Fairy Bower",
+                                            "url": "https://streamzy.ml/cdn-au/au-manlyfairy/playlist.m3u8"
+                                        },
+                                        {
+                                            "site": "Manly Hotel",
+                                            "url": "https://streamzy.ml/cdn-au/au-manlyhotel/playlist.m3u8"
+                                        },
+                                        {
+                                            "site": "North Manly",
+                                            "url": "https://streamzy.ml/cdn-au/au-manlynorth/playlist.m3u8"
+                                        },
+                                        {
+                                            "site": "Queenscliff",
+                                            "url": "https://streamzy.ml/cdn-au/au-queenscliff/chunklist.m3u8"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Freshwater",
+                                    "gps": "",
+                                    "cam": [
+                                        {
+                                            "site": "Freshwater",
+                                            "url": "https://streamzy.ml/cdn-au/au-freshwater/chunklist.m3u8"
+                                        }
+                                   ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Queensland",
+                    "postal": "Qld",
+                    "region": [
+                        {
+                            "name": "Gold Coast",
+                            "location": [
+                                {
+                                    "name": "Palm Beach",
+                                    "gps": "",
+                                    "cam": [
+                                        {
+                                            "site": "Palm Beach",
+                                            "url": "https://streamzy.ml/cdn-au/au-palmbeachqld/playlist.m3u8"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
