@@ -1,6 +1,6 @@
 import sys
 from flask import Flask
-from willisurf import config
+from surflookout import config
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -12,7 +12,7 @@ def create_app(config_name):
     db.init_app(app)
 
     app.logger.info('Import blueprints')
-    from willisurf.views import main as main_blueprint
+    from surflookout.views import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
     return app

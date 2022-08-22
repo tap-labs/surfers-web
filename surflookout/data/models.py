@@ -7,7 +7,7 @@ from datetime import datetime
 from sqlalchemy.dialects.mysql import insert
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.inspection import inspect
-from willisurf import db, app
+from surflookout import db, app
 
 app.logger.info('Define DB Models')
 
