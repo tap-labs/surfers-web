@@ -7,7 +7,7 @@ import flask
 from flask import Blueprint, render_template, request, jsonify, session
 from flask import current_app as app
 from . import main
-
+from surflookout.data import Country
 
 @main.route('/', methods=["GET"])
 def home():
