@@ -133,7 +133,7 @@ class Cam(db.Model):
 
 
 def importData():
-    with open('surflookout/data/data.json', 'r') as f:
+    with open(app.config['DATA_FILE'], 'r') as f:
         table = json.loads(f.read())
         for _country in table['country']:
             _cn = Country(name=_country['name']).add()
