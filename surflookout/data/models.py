@@ -1,7 +1,6 @@
 import json
 import sys
-from flask import jsonify
-from flask import current_app
+from flask import jsonify, current_app
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from sqlalchemy.dialects.mysql import insert
@@ -17,7 +16,7 @@ class Country(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True, index=True)
 
-    def add(self):
+    def add(self) -> int:
         _id = None
         db.session.add(self)
         try:
@@ -26,8 +25,11 @@ class Country(db.Model):
         except IntegrityError:
             db.session.rollback()
 
-        _resp = Country.query.with_entities(Country.id).filter(Country.name == self.name).first()
-        _id = _resp["id"]
+        if self.id is None:
+            _resp = Country.query.with_entities(Country.id).filter(Country.name == self.name).first()
+            _id = _resp["id"]
+        else:
+            _id = self.id
 
         return _id
 
@@ -40,7 +42,7 @@ class State(db.Model):
     postal = db.Column(db.String(16), unique=True, index=True)
     country_id = db.Column(db.Integer, db.ForeignKey('country.id'))
 
-    def add(self):
+    def add(self) -> int:
         _id = None
         db.session.add(self)
         try:
@@ -54,6 +56,12 @@ class State(db.Model):
 
         return _id
 
+    @staticmethod
+    def get_ByCountry(countryid):
+        _request = State.query.filter(State.country_id == countryid).all()
+        return _request
+
+
 
 ## Table that stores regional data
 class Region(db.Model):
@@ -62,7 +70,7 @@ class Region(db.Model):
     name = db.Column(db.String(64), unique=True, index=True)
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
 
-    def add(self):
+    def add(self) -> int:
         _id = None
         db.session.add(self)
         try:
@@ -75,6 +83,11 @@ class Region(db.Model):
         _id = _resp["id"]
 
         return _id
+
+    @staticmethod
+    def get_ByState(stateid):
+        _request = Region.query.filter(Region.state_id == stateid).all()
+        return _request
 
 
 ## Table that stores or general location information
@@ -89,7 +102,7 @@ class Location(db.Model):
     def __repr__(self):
         return self.id
 
-    def add(self):
+    def add(self) -> int:
         _id = None
         db.session.add(self)
         try:
@@ -98,18 +111,25 @@ class Location(db.Model):
         except IntegrityError:
             db.session.rollback()
 
-        _resp = Location.query.with_entities(Location.id).filter(Location.name == self.name).first()
-        _id = _resp["id"]
+        return self.id
 
-        return _id
-
-    def get_id(self):
+    def get_id(self) -> int:
         _resp = Location.query.with_entities(Location.id).filter(Location.name == self.name).first()
         if(_resp is None):
             _id = self.add()
         else:
             _id = _resp["id"]
         return _id
+
+    @staticmethod
+    def get_ById(locationid):
+        _resp = Location.query.filter(Location.id == locationid).first()
+        return _resp
+
+    @staticmethod
+    def get_ByRegion(regionid):
+        _request = Location.query.filter(Location.region_id == regionid).all()
+        return _request
 
 
 ## Class that stores all camera installations, Locations can have 1 or more cameras
@@ -130,6 +150,11 @@ class Cam(db.Model):
             db.session.rollback()
 
         return self.id
+
+    def get(locationid):
+        _request = Cam.query.filter(Cam.location_id == locationid).all()
+        return _request
+
 
 
 def importData():

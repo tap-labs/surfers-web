@@ -1,19 +1,78 @@
 {% extends "base.html" %}
 
 {% block content %}
- 
-    <h2>MONA VALE</h2>
+    <form method="post" action="/">
 
-    <center>
-        <div style="max-width: 500px;">
-            <video id="my_video_1" class="video-js vjs-default-skin" controls muted preload="none" poster="{{ url_for('static', filename='images/video-icon.png') }}">
-                <source src="https://streamzy.ml/cdn-au/au-monavale/chunklist.m3u8" type="application/x-mpegURL">
-            </video>
-        </div>
-    </center>        
+        <center>
+
+            Country:
+            <select name="country" id="country" class="main-select" onchange="this.form.submit()">
+                <option value="0">--- Select Country ---</option>
+                {% for _country in countries %}
+                    {% if _country.id == countryid %}
+                        <option value={{ _country.id }} selected>{{ _country.name }}</option>
+                    {% else %}
+                        <option value={{ _country.id }}>{{ _country.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+
+            State:
+            <select name="state" id="state" class="main-select" onchange="this.form.submit()">
+                <option value="0">--- Select State ---</option>
+                {% for _state in states %}
+                    {% if _state.id == stateid %}
+                        <option value={{ _state.id }} selected>{{ _state.name }}</option>
+                    {% else %}
+                        <option value={{ _state.id }}>{{ _state.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+
+            Region:
+            <select name="region" id="region" class="main-select" onchange="this.form.submit()">
+                <option value="0">--- Select Region ---</option>
+                {% for _region in regions %}
+                    {% if _region.id == regionid %}
+                        <option value={{ _region.id }} selected>{{ _region.name }}</option>
+                    {% else %}
+                        <option value={{ _region.id }}>{{ _region.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+
+            Location:
+            <select name="location" id="location" class="main-select" onchange="this.form.submit()">
+                <option value="0">--- Select Location ---</option>
+                {% for _location in locations %}
+                    {% if _location.id == locationid %}
+                        <script>document.getElementById('location').innerText = {{ _location.name }}</script>
+                        <option value={{ _location.id }} selected>{{ _location.name }}</option>
+                    {% else %}
+                        <option value={{ _location.id }}>{{ _location.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
 
 
-    <script>setVideo(1);</script>
+            <br>
+
+            <h2 id="location"></h2>
+
+            <div style="max-width: 500px;">
+                {% for _cam in cams %}
+                    <video id="{{ getvideoid(loop.index) }}" class="video-js vjs-default-skin" controls muted preload="none" poster="{{ url_for('static', filename='images/video-icon.png') }}">
+                        <source src="{{ _cam.url }}" type="application/x-mpegURL">
+                    </video>
+                {% endfor %}
+                <br>
+            </div>
+
+        </center>        
+
+    </form>
+
+    <script>setVideo({{ item_count(cams) }});</script>
 
     {% endblock %}
 
