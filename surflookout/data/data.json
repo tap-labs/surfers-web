@@ -12,7 +12,8 @@
                             "location": [
                                 {
                                     "name": "Avalon",
-                                    "gps": "",
+                                    "latitude": "",
+                                    "longitude": "",
                                     "cam": [
                                         {
                                             "site": "Avalon",
@@ -26,8 +27,9 @@
                                 },
                                 {
                                     "name": "Mona Vale",
-                                    "gps": "",
-                                    "cam": [
+                                    "latitude": "",
+                                    "longitude": "",
+                                     "cam": [
                                         {
                                             "site": "Main Beach",
                                             "url": "https://streamzy.ml/cdn-au/au-monavale/chunklist.m3u8"
@@ -36,7 +38,8 @@
                                 },
                                 {
                                     "name": "Manly",
-                                    "gps": "",
+                                    "latitude": "",
+                                    "longitude": "",
                                     "cam": [
                                         {
                                             "site": "Fairy Bower",
@@ -58,7 +61,8 @@
                                 },
                                 {
                                     "name": "Freshwater",
-                                    "gps": "",
+                                    "latitude": "",
+                                    "longitude": "",
                                     "cam": [
                                         {
                                             "site": "Freshwater",
@@ -79,7 +83,8 @@
                             "location": [
                                 {
                                     "name": "Palm Beach",
-                                    "gps": "",
+                                    "latitude": "",
+                                    "longitude": "",
                                     "cam": [
                                         {
                                             "site": "Palm Beach",

@@ -2,7 +2,12 @@ import os
 import sys
 from flask import current_app
 from surflookout import create_app
+from dotenv import load_dotenv
 
+# Load environment variables
+load_dotenv()
+
+# Initialise application context
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 
 if __name__ == "__main__":

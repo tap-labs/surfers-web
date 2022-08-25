@@ -3,8 +3,7 @@
 {% block content %}
     <form method="post" action="/">
 
-        <center>
-
+        <div class="center">
             Country:
             <select name="country" id="country" class="main-select" onchange="this.form.submit()">
                 <option value="0">--- Select Country ---</option>
@@ -53,26 +52,36 @@
                     {% endif %}
                 {% endfor %}
             </select>
+        </div>
 
+        <br>
 
-            <br>
+        <h2><label id='pagetitle'></h2>
 
-            <h2 id="location"></h2>
-
-            <div style="max-width: 500px;">
+        <div class="center">
+            
+            <div class="video-container">
                 {% for _cam in cams %}
-                    <video id="{{ getvideoid(loop.index) }}" class="video-js vjs-default-skin" controls muted preload="none" poster="{{ url_for('static', filename='images/video-icon.png') }}">
-                        <source src="{{ _cam.url }}" type="application/x-mpegURL">
-                    </video>
+                    <div class="video-cell">
+                        <video id="{{ getvideoid(loop.index) }}" class="video-js vjs-default-skin" controls muted preload="none" poster="{{ url_for('static', filename='images/video-icon.png') }}">
+                            <source src="{{ _cam.url }}" type="application/x-mpegURL">
+                        </video>
+                    </div>
                 {% endfor %}
-                <br>
             </div>
 
-        </center>        
+        </div>      
 
     </form>
 
-    <script>setVideo({{ item_count(cams) }});</script>
+    <script>
+        setVideo({{ item_count(cams) }});
+
+        let _location = document.getElementById('location')
+        if (_location.value != "0") {
+            document.getElementById('pagetitle').innerText = _location.options[_location.selectedIndex].text
+        }
+    </script>
 
     {% endblock %}
 

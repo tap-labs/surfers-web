@@ -7,7 +7,7 @@ import flask
 from flask import Blueprint, render_template, request, jsonify, session
 from flask import current_app as app
 from . import main
-from surflookout.data import Country, State, Region, Location, Cam
+from surflookout.data.models import Country, State, Region, Location, Cam
 
 @main.route('/', methods=["GET", "POST"])
 def home():
@@ -28,22 +28,21 @@ def home():
         _countryid = int(request.form["country"])
         if _countryid != 0:
             _states = State.get_ByCountry(_countryid)
-        _stateid = int(request.form["state"])
-        if _stateid != 0:
-            _regions = Region.get_ByState(_stateid)
-        _regionid = int(request.form["region"])
-        if _regionid != 0:
-            _locations = Location.get_ByRegion(_regionid)
-        _locationid = int(request.form["location"])
-        if _locationid != 0:
-            _location = Location.get_ById(_locationid)
-            _cams = Cam.get(_locationid)
+            _stateid = int(request.form["state"])
+            if _stateid != 0:
+                _regions = Region.get_ByState(_stateid)
+                _regionid = int(request.form["region"])
+                if _regionid != 0:
+                    _locations = Location.get_ByRegion(_regionid)
+                    _locationid = int(request.form["location"])
+                    if _locationid != 0:
+                        _location = Location.get_ById(_locationid)
+                        _cams = Cam.get(_locationid)
 
     return render_template('home.html', countries=_countries, countryid=_countryid,
                                         states=_states, stateid=_stateid,
                                         regions=_regions, regionid=_regionid,
-                                        locations=_locations, locationid=_locationid,
-                                        cams=_cams, camcount=len(_cams))
+                                        locations=_locations, locationid=_locationid, cams=_cams)
 
 @main.context_processor
 def utilities():

@@ -7,6 +7,7 @@ from sqlalchemy.dialects.mysql import insert
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.inspection import inspect
 from surflookout import app, db
+from .utilities import DataManager
 
 app.logger.info('Define DB Models')
 
@@ -96,7 +97,8 @@ class Location(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True, index=True)
     cam = db.Column(db.Text)
-    gps = db.Column(db.Text)
+    latitude = db.Column(db.Text)
+    longitude = db.Column(db.Text)
     region_id = db.Column(db.Integer, db.ForeignKey('region.id'))
 
     def __repr__(self):
@@ -157,27 +159,13 @@ class Cam(db.Model):
 
 
 
-def importData():
-    with open(app.config['DATA_FILE'], 'r') as f:
-        table = json.loads(f.read())
-        for _country in table['country']:
-            _cn = Country(name=_country['name']).add()
-            for _state in _country['state']:
-                _st = State(name=_state['name'], postal=_state['postal'], country_id=_cn).add()
-                for _region in _state['region']:
-                    _re = Region(name=_region['name'], state_id=_st).add()
-                    for _location in _region['location']:
-                        _lo = Location(name=_location['name'], gps=_location['gps'], region_id=_re).add()
-                        for _cam in _location['cam']:
-                            _ca = Cam(site=_cam['site'], url=_cam['url'], location_id=_lo).add()
-
 
 app.logger.info('DB URI: %s',app.config['SQLALCHEMY_DATABASE_URI'])
 app.logger.info('Create DB')
 with app.app_context():
     db.create_all()
     db.session.commit()
-    importData()
+    DataManager.importData()
 
 
 

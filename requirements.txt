@@ -3,3 +3,4 @@ flask_sqlalchemy
 pymysql
 mysqldbmodel
 pysqlite3
+python-dotenv
