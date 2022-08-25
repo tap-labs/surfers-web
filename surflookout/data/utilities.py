@@ -19,6 +19,6 @@ class DataManager():
                     for _region in _state['region']:
                         _re = models.Region(name=_region['name'], state_id=_st).add()
                         for _location in _region['location']:
-                            _lo = models.Location(name=_location['name'], longitude=_location['longitude'], latitude=_location['latitude'], region_id=_re).add()
+                            _lo = models.Location(name=_location['name'], longitude=_location['longitude'], latitude=_location['latitude'], wg_site=_location['wg_site'], region_id=_re).add()
                             for _cam in _location['cam']:
                                 _ca = models.Cam(site=_cam['site'], url=_cam['url'], location_id=_lo).add()

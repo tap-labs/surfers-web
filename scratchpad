@@ -1,0 +1,17 @@
+Monavale
+
+<script id="wg_fwdg_208690_100_1661407633273">
+(function (window, document) {
+  var loader = function () {
+    var arg = ["s=208690" ,"m=100","mw=83","uid=wg_fwdg_208690_100_1661407633273" ,"wj=knots" ,"tj=c" ,"waj=ft" ,"odh=0" ,"doh=24" ,"fhours=168" ,"hrsm=2" ,"vt=forecasts" ,"lng=en" ,"idbs=1" ,"ts=2" ,"p=WINDSPD,GUST,SMER,SWELL1,SWPER1,SWDIR1,TMP,WCHILL"];
+    var script = document.createElement("script");
+    var tag = document.getElementsByTagName("script")[0];
+    script.src = "https://www.windguru.cz/js/widget.php?"+(arg.join("&"));
+    tag.parentNode.insertBefore(script, tag);
+  };
+  window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+})(window, document);
+</script>
+
+<iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=-33.871&lon=151.201&detailLat=-33.871&detailLon=151.201&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+<iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=-37.090&lon=151.216&detailLat=-33.871&detailLon=151.201&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=24&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>

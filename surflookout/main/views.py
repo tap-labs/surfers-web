@@ -21,7 +21,7 @@ def home():
     _locations={}
     _locationid = 0
     _cams={}
-    _camcount=0
+    _wgsite=0
 
     if request.method == "POST":
         app.logger.info("Form Post")
@@ -37,12 +37,14 @@ def home():
                     _locationid = int(request.form["location"])
                     if _locationid != 0:
                         _location = Location.get_ById(_locationid)
+                        _wgsite = _location.wg_site
                         _cams = Cam.get(_locationid)
 
     return render_template('home.html', countries=_countries, countryid=_countryid,
                                         states=_states, stateid=_stateid,
                                         regions=_regions, regionid=_regionid,
-                                        locations=_locations, locationid=_locationid, cams=_cams)
+                                        locations=_locations, locationid=_locationid, 
+                                        cams=_cams, wgsite=_wgsite)
 
 @main.context_processor
 def utilities():
@@ -58,4 +60,8 @@ def utilities():
     def getvideoid(id):
         return 'video-{0}'.format(id)
 
-    return dict(camlist=camlist, item_count=item_count, getvideoid=getvideoid)
+    def getwgsite(locationid):
+        _location = Location.get_id(locationid)
+        return _location.wg_site
+
+    return dict(camlist=camlist, item_count=item_count, getvideoid=getvideoid, getwgsite=getwgsite)

@@ -99,6 +99,7 @@ class Location(db.Model):
     cam = db.Column(db.Text)
     latitude = db.Column(db.Text)
     longitude = db.Column(db.Text)
+    wg_site = db.Column(db.Text)
     region_id = db.Column(db.Integer, db.ForeignKey('region.id'))
 
     def __repr__(self):

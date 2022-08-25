@@ -14,6 +14,7 @@
                                     "name": "Avalon",
                                     "latitude": "",
                                     "longitude": "",
+                                    "wg_site": "208692",
                                     "cam": [
                                         {
                                             "site": "Avalon",
@@ -26,9 +27,50 @@
                                     ]
                                 },
                                 {
+                                    "name": "Collaroy",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "wg_site": "208683",
+                                    "cam": [
+                                        {
+                                            "site": "Collaroy",
+                                            "url": "https://streamzy.ml/cdn-au/au-collaroy/chunklist.m3u8"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Curl Curl",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "wg_site": "208683",
+                                    "cam": [
+                                        {
+                                            "site": "Curl Curl",
+                                            "url": "https://streamzy.ml/cdn-au/au-curlcurl/chunklist.m3u8"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Dee Why",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "wg_site": "208683",
+                                    "cam": [
+                                        {
+                                            "site": "Dee Why",
+                                            "url": "https://streamzy.ml/cdn-au/au-deewhy/chunklist.m3u8"
+                                        },
+                                        {
+                                            "site": "Dee Why Point",
+                                            "url": "https://streamzy.ml/cdn-au/au-deewhypoint/chunklist.m3u8"
+                                        }
+                                    ]
+                                },
+                                {
                                     "name": "Mona Vale",
                                     "latitude": "",
                                     "longitude": "",
+                                    "wg_site": "208690",
                                      "cam": [
                                         {
                                             "site": "Main Beach",
@@ -40,6 +82,7 @@
                                     "name": "Manly",
                                     "latitude": "",
                                     "longitude": "",
+                                    "wg_site": "208702",
                                     "cam": [
                                         {
                                             "site": "Fairy Bower",
@@ -60,13 +103,62 @@
                                     ]
                                 },
                                 {
+                                    "name": "Narrabeen",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "wg_site": "208689",
+                                    "cam": [
+                                        {
+                                            "site": "Narrabeen",
+                                            "url": "https://streamzy.ml/cdn-au/au-narrabeen/playlist.m3u8"
+                                        },
+                                        {
+                                            "site": "Narrabeen Club",
+                                            "url": "http://streamer.swellnet.com.au/surfcams/narrabeen.stream/playlist.m3u8"
+                                        },
+                                        {
+                                            "site": "Narrabeen South",
+                                            "url": "https://streamzy.ml/cdn-au/au-narrabeensouth/playlist.m3u8"
+                                        }
+                                   ]
+                                },
+                                {
                                     "name": "Freshwater",
                                     "latitude": "",
                                     "longitude": "",
+                                    "wg_site": "208702",
                                     "cam": [
                                         {
                                             "site": "Freshwater",
                                             "url": "https://streamzy.ml/cdn-au/au-freshwater/chunklist.m3u8"
+                                        }
+                                   ]
+                                },
+                                {
+                                    "name": "Palm Beach",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "wg_site": "208692",
+                                    "cam": [
+                                        {
+                                            "site": "Palm Beach",
+                                            "url": "https://streamzy.ml/cdn-au/au-palmbeachnsw/playlist.m3u8"
+                                        }
+                                   ]
+                                },
+                                {
+                                    "name": "Newport",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "wg_site": "208690",
+                                    "cam": [
+                                        {
+                                            "site": "Newport",
+                                            "url": "https://streamzy.ml/cdn-au/au-newport/chunklist.m3u8"
+                                        },
+                                        {
+                                            "site": "Newport Peak",
+                                            "url": "https://streamzy.ml/cdn-au/au-newportpeak/chunklist.m3u8"
                                         }
                                    ]
                                 }
@@ -85,6 +177,7 @@
                                     "name": "Palm Beach",
                                     "latitude": "",
                                     "longitude": "",
+                                    "wg_site": "62159",
                                     "cam": [
                                         {
                                             "site": "Palm Beach",

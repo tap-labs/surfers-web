@@ -54,7 +54,6 @@
             </select>
         </div>
 
-        <br>
 
         <h2><label id='pagetitle'></h2>
 
@@ -69,6 +68,26 @@
                     </div>
                 {% endfor %}
             </div>
+
+            <div class="weather-container">
+
+                {% if wgsite != 0 %}
+                    <script id="windguru_widget">
+                        (function (window, document) {
+                        var loader = function () {
+                            var arg = ["s={{ wgsite }}" ,"m=100","mw=83","uid=windguru_widget" ,"wj=kmh" ,"tj=c" ,"waj=ft" ,"odh=0" ,"doh=24" ,"fhours=168" ,"hrsm=2" ,"vt=forecasts" ,"lng=en" ,"idbs=1" ,"ts=2" ,"p=WINDSPD,GUST,SMER,SWELL1,SWPER1,SWDIR1,TMP,WCHILL"];
+                            var script = document.createElement("script");
+                            var tag = document.getElementsByTagName("script")[0];
+                            script.src = "https://www.windguru.cz/js/widget.php?"+(arg.join("&"));
+                            tag.parentNode.insertBefore(script, tag);
+                        };
+                        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+                        })(window, document);
+                    </script>
+                {% endif %}
+
+            </div>
+    
 
         </div>      
 

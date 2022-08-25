@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: surflookout
+  description: Surf Condition Web Reporter and Cams
+  tags:
+    - app-accelerator
+    - python
+    - web
+    - tanzu
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=surflookout'
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default-team
