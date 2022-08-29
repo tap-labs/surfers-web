@@ -46,7 +46,8 @@ def sites():
     return render_template('sites.html', countries=_countries, countryid=_countryid,
                                         states=_states, stateid=_stateid,
                                         regions=_regions, regionid=_regionid,
-                                        locations=_locations)
+                                        locations=_locations, 
+                                        googleapikey=app.config['GOOGLE_API_KEY'])
 
 
 @main.route('/location/<locationid>', methods=["GET"])
@@ -61,7 +62,8 @@ def location(locationid):
         _cams = Cam.get(locationid)
 
     return render_template('location.html', locationid=locationid, location=_location, 
-                                            locations=_locations, cams=_cams)
+                                            locations=_locations, cams=_cams) 
+
 
 @main.route('/tools', methods=["GET"])
 def tools():
@@ -99,7 +101,7 @@ def utilities():
             return f'</td></tr>'
         else:
             return f'</td>'
- 
+
     return dict(camlist=camlist, item_count=item_count, getvideoid=getvideoid, getwgsite=getwgsite, rowstart=rowstart, rowend=rowend)
 
 

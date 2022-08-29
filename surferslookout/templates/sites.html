@@ -6,8 +6,8 @@
 
         <div class="center">
 
-            <div>
-                Country:
+            <div class="searchbox">
+                Country: 
                 <select name="country" id="country" class="main-select" onchange="this.form.submit()">
                     <option value="0">--- Select Country ---</option>
                     {% for _country in countries %}
@@ -19,8 +19,8 @@
                     {% endfor %}
                 </select>
 
-                State:
-                <select name="state" id="state" class="main-select" onchange="this.form.submit()">
+                State: 
+                <select name="state" id="state" class="main-select" title="State" onchange="this.form.submit()">
                     <option value="0">--- Select State ---</option>
                     {% for _state in states %}
                         {% if _state.id == stateid %}
@@ -31,8 +31,8 @@
                     {% endfor %}
                 </select>
 
-                Region:
-                <select name="region" id="region" class="main-select" onchange="this.form.submit()">
+                Region: 
+                <select name="region" id="region" class="main-select" title="Region" onchange="this.form.submit()">
                     <option value="0">--- Select Region ---</option>
                     {% for _region in regions %}
                         {% if _region.id == regionid %}
@@ -43,8 +43,8 @@
                     {% endfor %}
                 </select>
 
-                Location:
-                <select name="location" id="location" class="main-select" onchange="this.form.submit()">
+                Location: 
+                <select name="location" id="location" class="main-select" title="Location" onchange="this.form.submit()">
                     <option value="0">--- Select Location ---</option>
                     {% for _location in locations %}
                         {% if _location.id == locationid %}
@@ -56,14 +56,16 @@
                     {% endfor %}
                 </select>
             </div>
-            <div>
-                <h2><label id='pagetitle'></h2><br>
-            </div>
         </div>
 
+        <div class="center">
+            <div id="map"></div>
+        </div>
 
     </form>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ googleapikey }}&callback=initMap&v=weekly" defer></script>
+   
     <script>
 
     function registerLocation() {
@@ -75,7 +77,27 @@
         }
     }
 
+
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        const uluru = { lat: -25.344, lng: 131.031 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+        });
+    }
+
+    window.initMap = initMap;
+
     </script>
+
 
     {% endblock %}
 

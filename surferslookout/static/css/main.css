@@ -228,7 +228,7 @@ table.location-table {
   text-align: center;
   border: none;
   bottom: 200px;
-  margin-top: 100px;
+  margin-top: 50px;
   /*
   position:absolute;
   */
@@ -252,4 +252,21 @@ table.location-table {
   position: absolute;
   margin: auto;
   */
+}
+
+.searchbox {
+  margin: 10px;
+  padding: 10px;
+  background-color: #444;
+  color: white;
+  width: fit-content;
+  margin: auto;
+  margin-top: 100px;
+}
+
+#map {
+  margin: auto;
+  margin-top: 100px;
+  height: 400px;
+  width: 60%;
 }
