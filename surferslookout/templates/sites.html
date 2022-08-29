@@ -47,12 +47,7 @@
                 <select name="location" id="location" class="main-select" title="Location" onchange="this.form.submit()">
                     <option value="0">--- Select Location ---</option>
                     {% for _location in locations %}
-                        {% if _location.id == locationid %}
-                            <script>document.getElementById('location').innerText = {{ _location.name }}</script>
-                            <option value={{ _location.id }} selected>{{ _location.name }}</option>
-                        {% else %}
-                            <option value={{ _location.id }}>{{ _location.name }}</option>
-                        {% endif %}
+                        <option value={{ _location.id }}>{{ _location.name }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -85,15 +80,35 @@
             zoom: {{ zoom }},
             center: place,
         });
-        {% if zoom > 0 %}
-            const marker = new google.maps.Marker({
-                position: place,
-                map: map,
-            });
+        {% if zoom == 10 %}
+            {% for _location in locations %}
+
+                new google.maps.Marker({
+                                position: { lat: {{ _location.latitude }}, lng: {{ _location.longitude }} },
+                                map,
+                                title: {{ _location.name }},
+                                zIndex: {{ _location.id }},
+                                });
+            {% endfor %}
+
         {% endif %}
     }
 
     window.initMap = initMap;
+
+ 
+         // Create a marker for each location.
+         const markers = locator.locations.map(function(location, index) {
+          const marker = new google.maps.Marker({
+            position: location.coords,
+            map: locator.map,
+            title: location.title,
+          });
+          marker.addListener('click', function() {
+            selectResultItem(index, false, true);
+          });
+          return marker;
+        });   
 
     </script>
 

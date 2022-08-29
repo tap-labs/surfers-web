@@ -12,7 +12,7 @@ stringData:
   database: surferslookout
   # demo credentials
   username: user
-  password: pass
+  password: setdbpasswordhere
   
   
 ---
@@ -77,7 +77,10 @@ spec:
               name: surferslookout-db
               key: database
         - name: MYSQL_ROOT_PASSWORD
-          value: root
+          valueFrom:
+            secretKeyRef:
+              name: surferslookout-db
+              key: password
         ports:
         - containerPort: 3306
           name: mysql

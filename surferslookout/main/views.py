@@ -46,7 +46,7 @@ def sites():
                         _locations = Location.get_ByRegion(_regionid)
                         _x = Region.query.get(_regionid).latitude
                         _y = Region.query.get(_regionid).longitude
-                        _zoom = 11
+                        _zoom = 10
                     else:
                         _x = State.query.get(_stateid).latitude
                         _y = State.query.get(_stateid).longitude
