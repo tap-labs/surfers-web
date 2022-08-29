@@ -79,7 +79,7 @@ class DevelopmentConfig(Config):
     DEBUG = True
     ENV = 'development'
     if Config.SQLALCHEMY_DATABASE_URI is None:
-        SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+        SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'sqlite.data')
 
 class TestingConfig(Config):
     TESTING = True
