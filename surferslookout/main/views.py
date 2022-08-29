@@ -3,7 +3,6 @@ import socket
 import os
 import time
 from datetime import datetime
-from wtforms import Form, BooleanField, StringField, validators
 import flask
 from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
 from flask import current_app as app
@@ -26,6 +25,9 @@ def sites():
     _regions={}
     _regionid = 0
     _locations={}
+    _x = "-24.971391128601727"
+    _y = "135.88779862421478"
+    _zoom = 0
 
     if request.method == "POST":
         app.logger.info("Form Post")
@@ -42,12 +44,25 @@ def sites():
                     _regionid = int(request.form["region"])
                     if _regionid != 0:
                         _locations = Location.get_ByRegion(_regionid)
+                        _x = Region.query.get(_regionid).latitude
+                        _y = Region.query.get(_regionid).longitude
+                        _zoom = 11
+                    else:
+                        _x = State.query.get(_stateid).latitude
+                        _y = State.query.get(_stateid).longitude
+                        _zoom = 6
+                else:
+                    _x = Country.query.get(_countryid).latitude
+                    _y = Country.query.get(_countryid).longitude
+                    _zoom = 4
+
 
     return render_template('sites.html', countries=_countries, countryid=_countryid,
                                         states=_states, stateid=_stateid,
                                         regions=_regions, regionid=_regionid,
-                                        locations=_locations, 
-                                        googleapikey=app.config['GOOGLE_API_KEY'])
+                                        locations=_locations, x=_x, y=_y,
+                                        googleapikey=app.config['GOOGLE_API_KEY'], 
+                                        zoom=_zoom)
 
 
 @main.route('/location/<locationid>', methods=["GET"])
@@ -104,6 +119,3 @@ def utilities():
     return dict(camlist=camlist, item_count=item_count, getvideoid=getvideoid, getwgsite=getwgsite, rowstart=rowstart, rowend=rowend)
 
 
-##class SearchForm(Form):
-##    location     = StringField('Location', [validators.Length(min=1, max=60)])
-##    accept_rules = BooleanField('Search', [validators.InputRequired()])

@@ -174,10 +174,14 @@
                 },
                 {
                     "name": "Queensland",
+                    "latitude": "-22.79687003592675",
+                    "longitude": "144.370387259504",
                     "postal": "Qld",
                     "region": [
                         {
                             "name": "Gold Coast",
+                            "latitude": "-27.991213549344554",
+                            "longitude": "153.40369367308483",
                             "location": [
                                 {
                                     "name": "Palm Beach",

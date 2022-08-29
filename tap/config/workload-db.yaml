@@ -31,5 +31,5 @@ spec:
         kind: Secret
         name: surferslookout-db
   env:
-  - name: USERENV
-    value: test
+  - name: GOOGLE_API_KEY
+    value: yourapikey

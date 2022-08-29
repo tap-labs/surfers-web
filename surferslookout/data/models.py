@@ -16,6 +16,8 @@ class Country(db.Model):
     __tablename__ = 'country'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True, index=True)
+    latitude = db.Column(db.Text)
+    longitude = db.Column(db.Text)
 
     def add(self) -> int:
         _id = None
@@ -41,6 +43,8 @@ class State(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True, index=True)
     postal = db.Column(db.String(16), unique=True, index=True)
+    latitude = db.Column(db.Text)
+    longitude = db.Column(db.Text)
     country_id = db.Column(db.Integer, db.ForeignKey('country.id'))
 
     def add(self) -> int:
@@ -69,6 +73,8 @@ class Region(db.Model):
     __tablename__ = 'region'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True, index=True)
+    latitude = db.Column(db.Text)
+    longitude = db.Column(db.Text)
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
 
     def add(self) -> int:

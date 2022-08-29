@@ -24,3 +24,6 @@ spec:
       url: https://github.com/davlloyd/surferslookout
       ref:
         branch: main
+  env:
+  - name: GOOGLE_API_KEY
+    value: yourapikey
