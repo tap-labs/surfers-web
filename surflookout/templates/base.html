@@ -19,18 +19,23 @@
       <script src="{{ url_for('static', filename='scripts/video.js') }}"></script>
     </head>
 
-    <header style="background-image: {{ url_for('static', filename='images/wave-large.jpeg') }};">
-      <div class="container" style="background-image: {{ url_for('static', filename='images/wave-large.jpeg') }}">
-        <strong>
-          <nav>
-            <ul class="menu">
-              <li><a href="{{ url_for('main.home') }}">Home</a></li>
-            </ul>
-          </nav>
-        </strong>
-        <h1 class="logo">Surf Lookout</h1>
-      </div>
-      
+    <header>
+      <strong>
+        <nav>
+          <ul class="menu">
+            <li><a href="{{ url_for('main.home') }}">Home</a></li>
+            <li><a href="{{ url_for('main.sites') }}">Sites</a></li>
+            <li><a href="{{ url_for('main.tools') }}">Tools</a></li>
+
+            <li style="float:right">
+              <label id="searchLabel">Search:</label>
+              <input id="searchtext">
+            </li>
+          </ul>
+        </nav>
+      </strong>
+      <img class="logo" src="{{ url_for('static', filename='images/surferslookout-logo.png') }}">
+
     </header>
 
     <body  style="background-image: {{ url_for('static', filename='images/wave-large.jpeg') }}">

@@ -1,114 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form method="post" action="/">
 
-    <div class="page-rows">
+    <form id="main" method="post" action="/">
 
         <div>
-
-            <div class="center">
-                Country:
-                <select name="country" id="country" class="main-select" onchange="this.form.submit()">
-                    <option value="0">--- Select Country ---</option>
-                    {% for _country in countries %}
-                        {% if _country.id == countryid %}
-                            <option value={{ _country.id }} selected>{{ _country.name }}</option>
-                        {% else %}
-                            <option value={{ _country.id }}>{{ _country.name }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
-
-                State:
-                <select name="state" id="state" class="main-select" onchange="this.form.submit()">
-                    <option value="0">--- Select State ---</option>
-                    {% for _state in states %}
-                        {% if _state.id == stateid %}
-                            <option value={{ _state.id }} selected>{{ _state.name }}</option>
-                        {% else %}
-                            <option value={{ _state.id }}>{{ _state.name }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
-
-                Region:
-                <select name="region" id="region" class="main-select" onchange="this.form.submit()">
-                    <option value="0">--- Select Region ---</option>
-                    {% for _region in regions %}
-                        {% if _region.id == regionid %}
-                            <option value={{ _region.id }} selected>{{ _region.name }}</option>
-                        {% else %}
-                            <option value={{ _region.id }}>{{ _region.name }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
-
-                Location:
-                <select name="location" id="location" class="main-select" onchange="this.form.submit()">
-                    <option value="0">--- Select Location ---</option>
-                    {% for _location in locations %}
-                        {% if _location.id == locationid %}
-                            <script>document.getElementById('location').innerText = {{ _location.name }}</script>
-                            <option value={{ _location.id }} selected>{{ _location.name }}</option>
-                        {% else %}
-                            <option value={{ _location.id }}>{{ _location.name }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
-            </div>
-            <div>
-                <h2><label id='pagetitle'></h2><br>
-            </div>
+            <img class="mainlogo" src="{{ url_for('static', filename='images/surferslookout-logo.png') }}">
         </div>
-
-        <div class="center">
-                
-            <div class="video-container">
-                {% for _cam in cams %}
-                    <div class="video-cell">
-                        <video id="{{ getvideoid(loop.index) }}" class="video-js vjs-default-skin" controls muted preload="none" poster="{{ url_for('static', filename='images/video-icon.png') }}">
-                            <source src="{{ _cam.url }}" type="application/x-mpegURL">
-                        </video>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-
-        <div class="center">
-        
-            <div class="weather-container">
-
-                {% if wgsite != 0 %}
-                    <script id="windguru_widget">
-                        (function (window, document) {
-                        var loader = function () {
-                            var arg = ["s={{ wgsite }}" ,"m=100","mw=83","uid=windguru_widget" ,"wj=kmh" ,"tj=c" ,"waj=ft" ,"odh=0" ,"doh=24" ,"fhours=168" ,"hrsm=2" ,"vt=forecasts" ,"lng=en" ,"idbs=1" ,"ts=2" ,"p=WINDSPD,GUST,SMER,SWELL1,SWPER1,SWDIR1,TMP,WCHILL"];
-                            var script = document.createElement("script");
-                            var tag = document.getElementsByTagName("script")[0];
-                            script.src = "https://www.windguru.cz/js/widget.php?"+(arg.join("&"));
-                            tag.parentNode.insertBefore(script, tag);
-                        };
-                        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
-                        })(window, document);
-                    </script>
-                {% endif %}
-
-            </div>
     
-
-        </div>      
 
     </form>
 
-    <script>
-        setVideo({{ item_count(cams) }});
-
-        let _location = document.getElementById('location')
-        if (_location.value != "0") {
-            document.getElementById('pagetitle').innerText = _location.options[_location.selectedIndex].text
-        }
-    </script>
 
     {% endblock %}
 

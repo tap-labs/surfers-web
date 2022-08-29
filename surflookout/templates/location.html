@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="page-rows">
+
+        <div class="center">
+            <label id='pagetitle'>{{ location.name }}</label>
+        </div>
+
+        <div class="center">
+                
+            <table class="video-table">
+                {% for _cam in cams %}
+                    {{ rowstart(loop.index)|safe }}
+                    <div class="video-cell">
+                        <video id="{{ getvideoid(loop.index) }}" class="video-js vjs-default-skin" controls muted preload="none" poster="{{ url_for('static', filename='images/video-icon.png') }}">
+                            <source src="{{ _cam.url }}" type="application/x-mpegURL">
+                        </video>
+                    </div>
+                    <label class="video-title">{{ _cam.site }}</label>
+                    {{ rowend(loop.index)|safe }}
+                {% endfor %}
+            </table>
+        </div>
+        <div class="center">
+            <table class="location-table">
+                <tr>
+                    {% for _location in locations %}
+                        {% if _location.name != location.name %}
+                            <td>
+                                <a href="/location/{{ _location.id }}">{{ _location.name }}</a>
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+        <div class="center">
+        
+            <div class="weather-container">
+
+                {% if location.wg_site != 0 %}
+                    <script id="windguru_widget">
+                        (function (window, document) {
+                        var loader = function () {
+                            var arg = ["s={{ location.wg_site }}" ,"m=100","mw=83","uid=windguru_widget" ,"wj=kmh" ,"tj=c" ,"waj=ft" ,"odh=0" ,"doh=24" ,"fhours=168" ,"hrsm=2" ,"vt=forecasts" ,"lng=en" ,"idbs=1" ,"ts=2" ,"p=WINDSPD,GUST,SMER,SWELL1,SWPER1,SWDIR1,TMP,WCHILL"];
+                            var script = document.createElement("script");
+                            var tag = document.getElementsByTagName("script")[0];
+                            script.src = "https://www.windguru.cz/js/widget.php?"+(arg.join("&"));
+                            tag.parentNode.insertBefore(script, tag);
+                        };
+                        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+                        })(window, document);
+                    </script>
+                {% endif %}
+
+            </div>
+    
+
+        </div>
+
+    </div>
+
+    <script>
+
+        setVideo({{ item_count(cams) }});
+
+    </script>
+
+    {% endblock %}
+
+
+

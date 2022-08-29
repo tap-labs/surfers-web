@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form id="search" method="post" action="/sites">
+
+
+        <div class="center">
+
+            <div>
+                Country:
+                <select name="country" id="country" class="main-select" onchange="this.form.submit()">
+                    <option value="0">--- Select Country ---</option>
+                    {% for _country in countries %}
+                        {% if _country.id == countryid %}
+                            <option value={{ _country.id }} selected>{{ _country.name }}</option>
+                        {% else %}
+                            <option value={{ _country.id }}>{{ _country.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+
+                State:
+                <select name="state" id="state" class="main-select" onchange="this.form.submit()">
+                    <option value="0">--- Select State ---</option>
+                    {% for _state in states %}
+                        {% if _state.id == stateid %}
+                            <option value={{ _state.id }} selected>{{ _state.name }}</option>
+                        {% else %}
+                            <option value={{ _state.id }}>{{ _state.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+
+                Region:
+                <select name="region" id="region" class="main-select" onchange="this.form.submit()">
+                    <option value="0">--- Select Region ---</option>
+                    {% for _region in regions %}
+                        {% if _region.id == regionid %}
+                            <option value={{ _region.id }} selected>{{ _region.name }}</option>
+                        {% else %}
+                            <option value={{ _region.id }}>{{ _region.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+
+                Location:
+                <select name="location" id="location" class="main-select" onchange="this.form.submit()">
+                    <option value="0">--- Select Location ---</option>
+                    {% for _location in locations %}
+                        {% if _location.id == locationid %}
+                            <script>document.getElementById('location').innerText = {{ _location.name }}</script>
+                            <option value={{ _location.id }} selected>{{ _location.name }}</option>
+                        {% else %}
+                            <option value={{ _location.id }}>{{ _location.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <h2><label id='pagetitle'></h2><br>
+            </div>
+        </div>
+
+
+    </form>
+
+    <script>
+
+    function registerLocation() {
+        if (this.item > 0){
+            var frm = document.getElementById("search");
+            frm.action = '/location';
+            frm.submit()
+            return true;
+        }
+    }
+
+    </script>
+
+    {% endblock %}
+
+
+

@@ -4,3 +4,4 @@ pymysql
 mysqldbmodel
 pysqlite3
 python-dotenv
+WTForms
