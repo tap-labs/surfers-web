@@ -8,7 +8,7 @@ import flask
 from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
 from flask import current_app as app
 from . import main
-from surflookout.data.models import Country, State, Region, Location, Cam
+from surferslookout.data.models import Country, State, Region, Location, Cam
 
 @main.route('/', methods=["GET"])
 def home():

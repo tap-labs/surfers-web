@@ -6,7 +6,7 @@ from datetime import datetime
 from sqlalchemy.dialects.mysql import insert
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.inspection import inspect
-from surflookout import app, db
+from surferslookout import app, db
 from .utilities import DataManager
 
 app.logger.info('Define DB Models')

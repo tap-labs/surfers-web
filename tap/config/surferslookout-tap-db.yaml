@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: surflookout-db
+  name: surferslookout-db
 type: servicebinding.io/mysql
 stringData:
   type: mysql
   provider: mariadb
-  host: surflookout-db
+  host: surferslookout-db
   port: "3306"
-  database: surflookout
+  database: surferslookout
   # demo credentials
   username: user
   password: pass
@@ -19,31 +19,44 @@ stringData:
 apiVersion: v1
 kind: Service
 metadata:
-  name: surflookout-db
+  name: surferslookout-db
 spec:
   type: LoadBalancer
   ports:
   - port: 3306
   selector:
-    app: surflookout-db
-  
+    app: surferslookout-db
+
+---
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: surferslookout-db-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+
+
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: surflookout-db
+  name: surferslookout-db
   labels:
-    app: surflookout-db
+    app: surferslookout-db
 spec:
   selector:
     matchLabels:
-      app: surflookout-db
+      app: surferslookout-db
   template:
     metadata:
       labels:
-        app: surflookout-db
+        app: surferslookout-db
     spec:
-      # no persistance configured, the database will be reset when the pod terminates
       containers:
       - image: mariadb:10.5
         name: mysql
@@ -51,17 +64,17 @@ spec:
         - name: MYSQL_USER
           valueFrom:
             secretKeyRef:
-              name: surflookout-db
+              name: surferslookout-db
               key: username
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: surflookout-db
+              name: surferslookout-db
               key: password
         - name: MYSQL_DATABASE
           valueFrom:
             secretKeyRef:
-              name: surflookout-db
+              name: surferslookout-db
               key: database
         - name: MYSQL_ROOT_PASSWORD
           value: root
@@ -77,3 +90,10 @@ spec:
         startupProbe:
           tcpSocket:
             port: mysql
+        volumeMounts:
+        - name: db-data
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: db-data
+        persistentVolumeClaim:
+          claimName: surferslookout-db-data

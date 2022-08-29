@@ -1,7 +1,7 @@
 import os
 import sys
 from flask import current_app
-from surflookout import create_app
+from surferslookout import create_app
 from dotenv import load_dotenv
 
 # Load environment variables

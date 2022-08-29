@@ -53,8 +53,8 @@ class Config:
     ENV = 'unset'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('DB_TRACK_MODIFICATIONS') or False
-    DATA_FILE = os.environ.get('DATA_FILE') or 'surflookout/data/data.json'
-    SERVICE_BINDING = os.environ.get('BINDING_NAME') or 'surflookout-binding'
+    DATA_FILE = os.environ.get('DATA_FILE') or 'surferslookout/data/data.json'
+    SERVICE_BINDING = os.environ.get('BINDING_NAME') or 'surferslookout-binding'
     BINDING_ASSIGNED = False
     if os.path.exists("bindings"):
         BINDING_ROOT = "bindings/"
@@ -73,7 +73,7 @@ class Config:
 class ProductionConfig(Config):
     ENV = 'production'
     if Config.SQLALCHEMY_DATABASE_URI is None:
-        SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://user:user@192.168.0.10/surflookout'    
+        SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://user:user@192.168.0.10/surferslookout'    
 
 class DevelopmentConfig(Config):
     DEBUG = True

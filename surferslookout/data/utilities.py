@@ -1,7 +1,7 @@
 import json
 import sys
-from surflookout import app
-import surflookout
+from surferslookout import app
+import surferslookout
 from . import models
 
 
