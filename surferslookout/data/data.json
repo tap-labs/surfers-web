@@ -2,18 +2,24 @@
     "country": [
         {
             "name": "Australia",
+            "latitude": "-24.971391128601727",
+            "longitude": "133.77842376588208",
             "state": [
                 {
                     "name": "New South Wales",
+                    "latitude": "-33.97696141021535",
+                    "longitude": "148.2804029601918",
                     "postal": "NSW",
                     "region": [
                         {
-                            "name": "Sydney North",
+                            "name": "Northern Beaches",
+                            "latitude": "-33.67969610422479",
+                            "longitude": "151.26695035355962",
                             "location": [
                                 {
                                     "name": "Avalon",
-                                    "latitude": "",
-                                    "longitude": "",
+                                    "latitude": "-33.63571535967256",
+                                    "longitude": "151.33153769859788",
                                     "wg_site": "208692",
                                     "cam": [
                                         {
@@ -28,8 +34,8 @@
                                 },
                                 {
                                     "name": "Collaroy",
-                                    "latitude": "",
-                                    "longitude": "",
+                                    "latitude": "-33.73089052296938",
+                                    "longitude": "151.30147757751726",
                                     "wg_site": "208683",
                                     "cam": [
                                         {
@@ -40,8 +46,8 @@
                                 },
                                 {
                                     "name": "Curl Curl",
-                                    "latitude": "",
-                                    "longitude": "",
+                                    "latitude": "-33.76913419178806",
+                                    "longitude": "151.29575020153453",
                                     "wg_site": "208683",
                                     "cam": [
                                         {
@@ -52,8 +58,8 @@
                                 },
                                 {
                                     "name": "Dee Why",
-                                    "latitude": "",
-                                    "longitude": "",
+                                    "latitude": "-33.75107979347602",
+                                    "longitude": "151.29762957052793",
                                     "wg_site": "208683",
                                     "cam": [
                                         {
@@ -68,8 +74,8 @@
                                 },
                                 {
                                     "name": "Mona Vale",
-                                    "latitude": "",
-                                    "longitude": "",
+                                    "latitude": "-33.67880572818772",
+                                    "longitude": "151.31355677497828",
                                     "wg_site": "208690",
                                      "cam": [
                                         {
@@ -80,8 +86,8 @@
                                 },
                                 {
                                     "name": "Manly",
-                                    "latitude": "",
-                                    "longitude": "",
+                                    "latitude": "-33.79230526521201",
+                                    "longitude": "151.28760745895053",
                                     "wg_site": "208702",
                                     "cam": [
                                         {
@@ -104,8 +110,8 @@
                                 },
                                 {
                                     "name": "Narrabeen",
-                                    "latitude": "",
-                                    "longitude": "",
+                                    "latitude": "-33.708507910969246",
+                                    "longitude": "151.3032101464047",
                                     "wg_site": "208689",
                                     "cam": [
                                         {
@@ -124,8 +130,8 @@
                                 },
                                 {
                                     "name": "Freshwater",
-                                    "latitude": "",
-                                    "longitude": "",
+                                    "latitude": "-33.77957645534376",
+                                    "longitude": "151.29046493925392",
                                     "wg_site": "208702",
                                     "cam": [
                                         {
@@ -136,8 +142,8 @@
                                 },
                                 {
                                     "name": "Palm Beach",
-                                    "latitude": "",
-                                    "longitude": "",
+                                    "latitude": "-33.596334320018286",
+                                    "longitude": "151.32482384467247",
                                     "wg_site": "208692",
                                     "cam": [
                                         {
@@ -148,8 +154,8 @@
                                 },
                                 {
                                     "name": "Newport",
-                                    "latitude": "",
-                                    "longitude": "",
+                                    "latitude": "-33.652437900980466",
+                                    "longitude": "151.32341889693063",
                                     "wg_site": "208690",
                                     "cam": [
                                         {
@@ -175,8 +181,8 @@
                             "location": [
                                 {
                                     "name": "Palm Beach",
-                                    "latitude": "",
-                                    "longitude": "",
+                                    "latitude": "-28.10796776799599",
+                                    "longitude": "153.46699564706034",
                                     "wg_site": "62159",
                                     "cam": [
                                         {

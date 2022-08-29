@@ -95,7 +95,6 @@ def utilities():
         else:
             return f'<tr><td style="border:none;">'
 
-
     def rowend(entry):
         if entry%2 == 0:
             return f'</td></tr>'
