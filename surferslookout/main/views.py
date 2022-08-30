@@ -27,7 +27,7 @@ def sites():
     _locations={}
     _x = "-24.971391128601727"
     _y = "135.88779862421478"
-    _zoom = 0
+    _zoom = 2
 
     if request.method == "POST":
         app.logger.info("Form Post")
@@ -50,7 +50,7 @@ def sites():
                     else:
                         _x = State.query.get(_stateid).latitude
                         _y = State.query.get(_stateid).longitude
-                        _zoom = 6
+                        _zoom = 5
                 else:
                     _x = Country.query.get(_countryid).latitude
                     _y = Country.query.get(_countryid).longitude
