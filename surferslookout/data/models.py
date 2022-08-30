@@ -140,6 +140,20 @@ class Location(db.Model):
         _request = Location.query.filter(Location.region_id == regionid).all()
         return _request
 
+    @staticmethod
+    def get_ByRegionSerialized(regionid):
+        _request = Location.query.filter(Location.region_id == regionid).all()
+        _json = []
+        for _row in _request:
+            _json.append({'name': _row.name,
+                          'latitude': _row.latitude,
+                          'longitude': _row.longitude,
+                          'id': _row.id
+                          })
+
+        return json.dumps(_json)
+        
+
 
 ## Class that stores all camera installations, Locations can have 1 or more cameras
 class Cam(db.Model):

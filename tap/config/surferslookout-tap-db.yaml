@@ -10,7 +10,6 @@ stringData:
   host: surferslookout-db
   port: "3306"
   database: surferslookout
-  # demo credentials
   username: user
   password: setdbpasswordhere
   

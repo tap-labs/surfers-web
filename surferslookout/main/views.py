@@ -116,6 +116,11 @@ def utilities():
         else:
             return f'</td>'
 
-    return dict(camlist=camlist, item_count=item_count, getvideoid=getvideoid, getwgsite=getwgsite, rowstart=rowstart, rowend=rowend)
+    def locationsasdict(regionid):
+        _request = Location.get_ByRegionSerialized(regionid)
+        return _request
+
+
+    return dict(camlist=camlist, item_count=item_count, getvideoid=getvideoid, getwgsite=getwgsite, rowstart=rowstart, rowend=rowend, locationsasdict=locationsasdict)
 
 
