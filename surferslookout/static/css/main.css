@@ -178,7 +178,7 @@ table, th, td {
 
 .video-container {
   display: inline-grid;
-  width: 900px;
+  width: 1050px;
   grid-template-columns: auto;
   justify-content: space-between;
   /*
@@ -214,7 +214,7 @@ table.video-table > td {
 .video-cell {
   margin: 10px;
   padding: 10px;
-  width: 450px;
+  width: 500;
   text-align: center;
   /*
   border-style: solid;
@@ -230,7 +230,7 @@ table.video-table > td {
   .video-cell {
     margin: 10px;
     padding: 10px;
-    width: 350px;
+    width: 300px;
     text-align: center;
   }
 }
@@ -304,3 +304,11 @@ table.location-table {
   height: 171px;
   border: 0;
 }
+
+@media screen and (max-width: 800px) {
+  .weather-frame {
+    width: 250px;
+    height: 171px;
+    border: 0;
+  }
+} 
