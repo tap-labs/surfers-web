@@ -19,7 +19,7 @@ def home():
 def sites():
     app.logger.info("Accessing sites page")
     _countries = Country.query.all()
-    _countryid = 1
+    _countryid = 0
     _states={}
     _stateid = 0
     _regions={}
