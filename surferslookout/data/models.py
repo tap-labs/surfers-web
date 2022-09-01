@@ -101,10 +101,14 @@ class Region(db.Model):
 class Location(db.Model):
     __tablename__ = 'location'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), unique=True, index=True)
+    name = db.Column(db.String(64), unique=False, index=True)
     cam = db.Column(db.Text)
     latitude = db.Column(db.Text)
     longitude = db.Column(db.Text)
+    willy_weather = db.Column(db.Text)
+    willy_wind = db.Column(db.Text)
+    willy_tide = db.Column(db.Text)
+    willy_swell = db.Column(db.Text)
     wg_site = db.Column(db.Text)
     region_id = db.Column(db.Integer, db.ForeignKey('region.id'))
 
@@ -159,7 +163,7 @@ class Location(db.Model):
 class Cam(db.Model):
     __tablename__ = 'cam'
     id = db.Column(db.Integer, primary_key=True)
-    site = db.Column(db.String(64), unique=True, index=True)
+    site = db.Column(db.String(64), unique=False, index=True)
     url = db.Column(db.Text)
     location_id = db.Column(db.Integer, db.ForeignKey('location.id'))
 

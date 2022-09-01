@@ -12,7 +12,81 @@
                     "postal": "NSW",
                     "region": [
                         {
-                            "name": "Northern Beaches",
+                            "name": "Sydney East",
+                            "latitude": "-33.943568812867056",
+                            "longitude": "151.2110862204764",
+                            "location": [
+                                {
+                                    "name": "Bondi",
+                                    "latitude": "-33.89114044220872",
+                                    "longitude": "151.2766101247122",
+                                    "willy_weather": "69046",
+                                    "willy_wind": "69047",
+                                    "willy_tide": "69049",
+                                    "willy_swell": "69048",
+                                    "wg_site": "823",
+                                    "cam": [
+                                        {
+                                            "site": "Bondi Main",
+                                            "url": "https://streamzy.ml/cdn-au/au-midbondi/chunklist.m3u8"
+                                        },
+                                        {
+                                            "site": "Bondi North",
+                                            "url": "https://streamzy.ml/cdn-au/au-bondinorth/chunklist.m3u8"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Maroubra",
+                                    "latitude": "-33.94641692927373",
+                                    "longitude": "151.2570914672804",
+                                    "willy_weather": "69050",
+                                    "willy_wind": "69051",
+                                    "willy_tide": "69053",
+                                    "willy_swell": "69052",
+                                    "wg_site": "823",
+                                    "cam": [
+                                        {
+                                            "site": "Maroubra South",
+                                            "url": "https://streamzy.ml/cdn-au/au-southmaroubra/chunklist.m3u8"
+                                        },
+                                        {
+                                            "site": "Maroubra North",
+                                            "url": "https://streamzy.ml/cdn-au/au-northmaroubra/chunklist.m3u8"
+                                        },
+                                        {
+                                            "site": "Maroubra",
+                                            "url": "https://streamzy.ml/cdn-au/au-maroubra/chunklist.m3u8"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Sydney South",
+                            "latitude": "-33.95840160756529",
+                            "longitude": "151.12673107883532",
+                            "location": [
+                                {
+                                    "name": "Cronulla",
+                                    "latitude": "-34.035136730682495",
+                                    "longitude": "151.17416259083097",
+                                    "willy_weather": "68992",
+                                    "willy_wind": "68993",
+                                    "willy_tide": "68995",
+                                    "willy_swell": "68994",
+                                    "wg_site": "889975",
+                                    "cam": [
+                                        {
+                                            "site": "Wanda",
+                                            "url": "https://streamzy.ml/cdn-au/au-cronullawanda/chunklist.m3u8"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Sydney North",
                             "latitude": "-33.67969610422479",
                             "longitude": "151.26695035355962",
                             "location": [
@@ -20,6 +94,10 @@
                                     "name": "Avalon",
                                     "latitude": "-33.63571535967256",
                                     "longitude": "151.33153769859788",
+                                    "willy_weather": "69004",
+                                    "willy_wind": "69005",
+                                    "willy_tide": "69006",
+                                    "willy_swell": "69007",
                                     "wg_site": "208692",
                                     "cam": [
                                         {
@@ -36,6 +114,10 @@
                                     "name": "Collaroy",
                                     "latitude": "-33.73089052296938",
                                     "longitude": "151.30147757751726",
+                                    "willy_weather": "69008",
+                                    "willy_wind": "69009",
+                                    "willy_tide": "69011",
+                                    "willy_swell": "69010",
                                     "wg_site": "208683",
                                     "cam": [
                                         {
@@ -48,6 +130,10 @@
                                     "name": "Curl Curl",
                                     "latitude": "-33.76913419178806",
                                     "longitude": "151.29575020153453",
+                                    "willy_weather": "69012",
+                                    "willy_wind": "69013",
+                                    "willy_tide": "69014",
+                                    "willy_swell": "69015",
                                     "wg_site": "208683",
                                     "cam": [
                                         {
@@ -60,6 +146,10 @@
                                     "name": "Dee Why",
                                     "latitude": "-33.75107979347602",
                                     "longitude": "151.29762957052793",
+                                    "willy_weather": "69016",
+                                    "willy_wind": "69018",
+                                    "willy_tide": "69019",
+                                    "willy_swell": "69020",
                                     "wg_site": "208683",
                                     "cam": [
                                         {
@@ -76,6 +166,10 @@
                                     "name": "Mona Vale",
                                     "latitude": "-33.67880572818772",
                                     "longitude": "151.31355677497828",
+                                    "willy_weather": "68984",
+                                    "willy_wind": "68989",
+                                    "willy_tide": "68991",
+                                    "willy_swell": "68990",
                                     "wg_site": "208690",
                                      "cam": [
                                         {
@@ -88,6 +182,10 @@
                                     "name": "Manly",
                                     "latitude": "-33.79230526521201",
                                     "longitude": "151.28760745895053",
+                                    "willy_weather": "69000",
+                                    "willy_wind": "69001",
+                                    "willy_tide": "69003",
+                                    "willy_swell": "69002",
                                     "wg_site": "208702",
                                     "cam": [
                                         {
@@ -112,6 +210,10 @@
                                     "name": "Narrabeen",
                                     "latitude": "-33.708507910969246",
                                     "longitude": "151.3032101464047",
+                                    "willy_weather": "69021",
+                                    "willy_wind": "69022",
+                                    "willy_tide": "69023",
+                                    "willy_swell": "69024",
                                     "wg_site": "208689",
                                     "cam": [
                                         {
@@ -132,6 +234,10 @@
                                     "name": "Freshwater",
                                     "latitude": "-33.77957645534376",
                                     "longitude": "151.29046493925392",
+                                    "willy_weather": "69025",
+                                    "willy_wind": "69026",
+                                    "willy_tide": "69027",
+                                    "willy_swell": "69028",
                                     "wg_site": "208702",
                                     "cam": [
                                         {
@@ -144,6 +250,10 @@
                                     "name": "Palm Beach",
                                     "latitude": "-33.596334320018286",
                                     "longitude": "151.32482384467247",
+                                    "willy_weather": "69029",
+                                    "willy_wind": "69030",
+                                    "willy_tide": "69032",
+                                    "willy_swell": "69033",
                                     "wg_site": "208692",
                                     "cam": [
                                         {
@@ -156,6 +266,10 @@
                                     "name": "Newport",
                                     "latitude": "-33.652437900980466",
                                     "longitude": "151.32341889693063",
+                                    "willy_weather": "69034",
+                                    "willy_wind": "69035",
+                                    "willy_tide": "69036",
+                                    "willy_swell": "69037",
                                     "wg_site": "208690",
                                     "cam": [
                                         {
@@ -184,14 +298,54 @@
                             "longitude": "153.40369367308483",
                             "location": [
                                 {
+                                    "name": "Burleigh Heads",
+                                    "latitude": "-28.08117286575337",
+                                    "longitude": "153.44985807962456",
+                                    "willy_weather": "69042",
+                                    "willy_wind": "69043",
+                                    "willy_tide": "69045",
+                                    "willy_swell": "69044",
+                                    "wg_site": "",
+                                    "cam": [
+                                        {
+                                            "site": "Burleigh Heads",
+                                            "url": "https://streamzy.ml/cdn-au/au-burleighheadsov/playlist.m3u8"
+                                        }
+                                    ]
+                                },
+                                {
                                     "name": "Palm Beach",
                                     "latitude": "-28.10796776799599",
                                     "longitude": "153.46699564706034",
+                                    "willy_weather": "68996",
+                                    "willy_wind": "68997",
+                                    "willy_tide": "68999",
+                                    "willy_swell": "68998",
                                     "wg_site": "62159",
                                     "cam": [
                                         {
                                             "site": "Palm Beach",
                                             "url": "https://streamzy.ml/cdn-au/au-palmbeachqld/playlist.m3u8"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Snapper Rocks",
+                                    "latitude": "-28.163138896002245",
+                                    "longitude": "153.54875762779741",
+                                    "willy_weather": "69038",
+                                    "willy_wind": "69039",
+                                    "willy_tide": "69041",
+                                    "willy_swell": "69040",
+                                    "wg_site": "63299",
+                                    "cam": [
+                                        {
+                                            "site": "North",
+                                            "url": "https://streamzy.ml/cdn-au/au-snapperrocksnorth/playlist.m3u8"
+                                        },
+                                        {
+                                            "site": "South",
+                                            "url": "https://streamzy.ml/cdn-au/au-snapperoverview/playlist.m3u8"
                                         }
                                     ]
                                 }

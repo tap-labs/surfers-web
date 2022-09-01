@@ -1,5 +1,4 @@
 
-
 header {
   background-color: black;
   height: 40px;
@@ -177,10 +176,9 @@ table, th, td {
   border: none;
 }
 
-
 .video-container {
   display: inline-grid;
-  width: 700px;
+  width: 900px;
   grid-template-columns: auto;
   justify-content: space-between;
   /*
@@ -192,6 +190,15 @@ table, th, td {
   flex-direction: row;
   bottom: 200px;
   */
+}
+
+@media screen and (max-width: 800px) {
+  .video-container {
+    display: inline-grid;
+    width: 700px;
+    grid-template-columns: auto;
+    justify-content: space-between;
+  }
 }
 
 table.video-table {
@@ -207,7 +214,7 @@ table.video-table > td {
 .video-cell {
   margin: 10px;
   padding: 10px;
-  width: 300px;
+  width: 450px;
   text-align: center;
   /*
   border-style: solid;
@@ -217,6 +224,15 @@ table.video-table > td {
   flex-direction: row;
   justify-content: space-between;
   */
+}
+
+@media screen and (max-width: 800px) {
+  .video-cell {
+    margin: 10px;
+    padding: 10px;
+    width: 350px;
+    text-align: center;
+  }
 }
 
 label.video-title {
@@ -236,11 +252,11 @@ table.location-table {
 
 .weather-container {
   position:absolute;
-  width:80%;
-  height:150px;
+  width:300px;
+  height:200px;
   bottom:0px;
-  right:10%;
-  left:10%;
+  right:-50%;
+  left:50%;
   /*
   margin-left:-150px;
   bottom: 0px;  
@@ -269,4 +285,22 @@ table.location-table {
   margin-top: 100px;
   height: 400px;
   width: 800px;
+}
+
+.weather-row {
+  display:inline-flex;
+  margin: 0 auto;
+}
+
+.weather-column {
+  padding-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: auto;
+}
+
+.weather-frame {
+  width: 300px;
+  height: 171px;
+  border: 0;
 }

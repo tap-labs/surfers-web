@@ -26,8 +26,10 @@ Looking at the viability of creating a Surf report web site, including Live CAMs
 - [Videojs](https://videojs.com/): *(javascript)* CAM footage player is provided by videojs
 
 ### Embedded web widgets
+- Willy Weather https://www.willyweather.com.au/widget/create.html
 
-**Currently Under Investigation
+
+**Currently Under Investigation**
 - Google Maps for embbedded location maps
 - Windguru / weatherwidget.io for weather information (also looking at self made options)
 - Various Wave Buoy feeds for swell and tidal information

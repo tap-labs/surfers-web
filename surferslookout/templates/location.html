@@ -37,10 +37,27 @@
             </table>
         </div>
         <div class="center">
-        
+            <div class="weather-row">
+                <div class="weather-column">
+                    <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_weather}}" class="weather-frame"></iframe>
+                </div>
+                <div class="weather-column">
+                    <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_wind}}" class="weather-frame"></iframe>
+                </div>
+                <div class="weather-column">
+                    <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_swell}}" class="weather-frame"></iframe>
+                </div>
+                <div class="weather-column">
+                    <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_tide}}" class="weather-frame"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="center">
+
             <div class="weather-container">
 
-                {% if location.wg_site != 0 %}
+                {% if location.wg_site == 99 %}
                     <script id="windguru_widget">
                         (function (window, document) {
                         var loader = function () {
