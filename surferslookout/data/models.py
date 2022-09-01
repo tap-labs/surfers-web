@@ -111,6 +111,9 @@ class Location(db.Model):
     willy_swell = db.Column(db.Text)
     wg_site = db.Column(db.Text)
     region_id = db.Column(db.Integer, db.ForeignKey('region.id'))
+    __table_args__ = (
+        db.UniqueConstraint('name', 'region_id'),
+    )
 
     def __repr__(self):
         return self.id
@@ -166,6 +169,9 @@ class Cam(db.Model):
     site = db.Column(db.String(64), unique=False, index=True)
     url = db.Column(db.Text)
     location_id = db.Column(db.Integer, db.ForeignKey('location.id'))
+    __table_args__ = (
+        db.UniqueConstraint('site', 'location_id'),
+    )
 
     def add(self):
         _id = None
