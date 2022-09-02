@@ -55,6 +55,14 @@ def sites():
                     _x = Country.query.get(_countryid).latitude
                     _y = Country.query.get(_countryid).longitude
                     _zoom = 4
+    else:
+        # added logic to default to Australia if first access
+        _countryid = 1
+        _states = State.get_ByCountry(_countryid)
+        _x = Country.query.get(_countryid).latitude
+        _y = Country.query.get(_countryid).longitude
+        _zoom = 4
+
 
 
     return render_template('sites.html', countries=_countries, countryid=_countryid,

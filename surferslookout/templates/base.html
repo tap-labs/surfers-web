@@ -1,9 +1,9 @@
 <html>
     <head>
       {% if title %}
-      <title>Surf Lookout - {{ title }}</title>
+      <title>Surfers Lookout - {{ title }}</title>
       {% else %}
-      <title>Surf Lookout</title>
+      <title>Surfers Lookout</title>
       {% endif %}
 
       <meta charset="utf-8">
@@ -28,9 +28,9 @@
             <li><a href="{{ url_for('main.tools') }}">Tools</a></li>
 
             <li style="float:right">
-              <label id="searchLabel">Search:</label>
+              <label>Search:</label>
               <input id="searchtext">
-              <img style="height:22px; width:22px; margin-bottom: 0px;" src="{{ url_for('static', filename='images/search.png') }}">
+              <img class="search" src="{{ url_for('static', filename='images/search.png') }}">
             </li>
           </ul>
         </nav>

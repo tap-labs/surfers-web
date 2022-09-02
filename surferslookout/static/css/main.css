@@ -280,6 +280,30 @@ table.location-table {
   margin-top: 100px;
 }
 
+
+label.search {
+  float:inline-end;
+  margin: 0 auto;
+}
+
+input.search {
+  float: inline-end;
+  margin: 0 auto;
+}
+
+img.search {
+  height: 18px;
+  width: 18px;
+  margin-right: 10px;
+  /*
+  padding: 14px 16px;
+  */
+}
+
+img.search:hover {
+  background-color: red;
+}
+
 #map {
   margin: auto;
   margin-top: 100px;

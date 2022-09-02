@@ -84,11 +84,13 @@
         {% if regionid > 0 %}
 
             const _locations = JSON.parse({{ locationsasdict(regionid) | tojson }});
+
             for (const _location of _locations){
                 const marker = new google.maps.Marker({
                                         position: { lat: parseFloat(_location.latitude), lng: parseFloat(_location.longitude) },
                                         map,
                                         title: _location.name,
+                                        icon:  "{{ url_for('static', filename='images/surfer_icon_32.png') }}",
                                     });
 
                     marker.addListener('click', function() {
