@@ -81,10 +81,20 @@
                         center: place,
                     });
 
+        let setmarkers=false;
+
         {% if regionid > 0 %}
+            const _locations = JSON.parse({{ locations_asdict(regionid) | tojson }});
+            setmarkers=true;
+        {% elif stateid > 0 %}
+            const _locations = JSON.parse({{ locationsbystate_asdict(stateid) | tojson }});
+            setmarkers=true;
+        {% elif countryid > 0 %}
+            const _locations = JSON.parse({{ locationsbycountry_asdict(countryid) | tojson }});
+            setmarkers=true;
+        {% endif %}
 
-            const _locations = JSON.parse({{ locationsasdict(regionid) | tojson }});
-
+        if (setmarkers){
             for (const _location of _locations){
                 const marker = new google.maps.Marker({
                                         position: { lat: parseFloat(_location.latitude), lng: parseFloat(_location.longitude) },
@@ -97,8 +107,7 @@
                         window.location.replace('/location/' + _location.id);
                     });
                 }
-
-        {% endif %}
+            }
     }
 
     window.initMap = initMap;

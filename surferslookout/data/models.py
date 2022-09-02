@@ -144,12 +144,12 @@ class Location(db.Model):
 
     @staticmethod
     def get_ByRegion(regionid):
-        _request = Location.query.filter(Location.region_id == regionid).all()
+        _request = Location.query.filter(Location.region_id == regionid).order_by(Location.name.asc()).all()
         return _request
 
     @staticmethod
     def get_ByRegionSerialized(regionid):
-        _request = Location.query.filter(Location.region_id == regionid).all()
+        _request = Location.query.filter(Location.region_id == regionid).order_by(Location.name.asc()).all()
         _json = []
         for _row in _request:
             _json.append({'name': _row.name,
@@ -159,7 +159,38 @@ class Location(db.Model):
                           })
 
         return json.dumps(_json)
+    
+    @staticmethod
+    def get_ByCountrySerialized(countryid):
+        _resp = db.session.query(Location, Region, State, Country).filter(
+                                                            Country.id==State.country_id, 
+                                                            State.id==Region.state_id, 
+                                                            Region.id==Location.region_id,
+                                                            Country.id==countryid).all()
+        _json = []
+        for _row in _resp:
+            _json.append({'name': _row.Location.name,
+                          'latitude': _row.Location.latitude,
+                          'longitude': _row.Location.longitude,
+                          'id': _row.Location.id
+                          })
+        return json.dumps(_json)
         
+    
+    @staticmethod
+    def get_ByStateSerialized(stateid):
+        _resp = db.session.query(Location, Region, State).filter(
+                                                            State.id==Region.state_id, 
+                                                            Region.id==Location.region_id,
+                                                            State.id==stateid).all()
+        _json = []
+        for _row in _resp:
+            _json.append({'name': _row.Location.name,
+                          'latitude': _row.Location.latitude,
+                          'longitude': _row.Location.longitude,
+                          'id': _row.Location.id
+                          })
+        return json.dumps(_json)
 
 
 ## Class that stores all camera installations, Locations can have 1 or more cameras

@@ -124,11 +124,23 @@ def utilities():
         else:
             return f'</td>'
 
-    def locationsasdict(regionid):
+    def locations_asdict(regionid):
         _request = Location.get_ByRegionSerialized(regionid)
         return _request
 
+    def locationsbycountry_asdict(countryid):
+        _request = Location.get_ByCountrySerialized(countryid)
+        return _request
 
-    return dict(camlist=camlist, item_count=item_count, getvideoid=getvideoid, getwgsite=getwgsite, rowstart=rowstart, rowend=rowend, locationsasdict=locationsasdict)
+    def locationsbystate_asdict(stateid):
+        _request = Location.get_ByStateSerialized(stateid)
+        return _request
+
+    return dict(camlist=camlist, item_count=item_count, 
+                    getvideoid=getvideoid, getwgsite=getwgsite, 
+                    rowstart=rowstart, rowend=rowend, 
+                    locations_asdict=locations_asdict, 
+                    locationsbycountry_asdict=locationsbycountry_asdict,
+                    locationsbystate_asdict=locationsbystate_asdict)
 
 
