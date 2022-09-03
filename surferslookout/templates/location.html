@@ -2,11 +2,13 @@
 
 {% block content %}
 
-    <div class="page-rows">
+<section class="waveheader">
+    <div class="wavetitle">
+        <h2>{{ location.name }}</h2>
+    </div>
+</section>
 
-        <div class="center">
-            <label id='pagetitle'>{{ location.name }}</label>
-        </div>
+    <div class="page-rows">
 
         <div class="center">
                 
@@ -24,7 +26,7 @@
             </table>
         </div>
         <div class="center">
-            <div class="searchbox">
+            <div class="standout">
                 Other Local Breaks: 
                 <select name="breaks" id="breaks" class="main-select" title="Location" onchange="changeBreak();">
                     <option value="0">--- Select Break ---</option>
@@ -41,15 +43,19 @@
             <div class="weather-row">
                 <div class="weather-column">
                     <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_weather}}" class="weather-frame" title="Weather"></iframe>
+                    <br><label>Weather</label>
                 </div>
                 <div class="weather-column">
                     <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_wind}}" class="weather-frame" title="Wind"></iframe>
+                    <br><label>Wind</label>
                 </div>
                 <div class="weather-column">
                     <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_swell}}" class="weather-frame" title="Swell"></iframe>
+                    <br><label>Swell</label>
                 </div>
                 <div class="weather-column">
                     <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_tide}}" class="weather-frame" title="Tide"></iframe>
+                    <br><label>Tide</label>
                 </div>
             </div>
         </div>
