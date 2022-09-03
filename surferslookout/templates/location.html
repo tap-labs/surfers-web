@@ -27,8 +27,8 @@
         </div>
         <div class="center">
             <div class="standout">
-                Other Local Breaks: 
-                <select name="breaks" id="breaks" class="main-select" title="Location" onchange="changeBreak();">
+                <label>Other Local Breaks: </label>
+                <select id="breaks" class="fancy" title="Location" onchange="changeBreak();">
                     <option value="0">--- Select Break ---</option>
                     {% for _location in locations %}
                         {% if _location.name != location.name %}
