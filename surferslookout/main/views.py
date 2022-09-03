@@ -15,8 +15,8 @@ def home():
 
     return render_template('home.html')
 
-@main.route('/sites', methods=["GET", "POST"])
-def sites():
+@main.route('/beaches', methods=["GET", "POST"])
+def beaches():
     app.logger.info("Accessing sites page")
     _countries = Country.query.all()
     _countryid = 0
@@ -65,7 +65,7 @@ def sites():
 
 
 
-    return render_template('sites.html', countries=_countries, countryid=_countryid,
+    return render_template('beaches.html', countries=_countries, countryid=_countryid,
                                         states=_states, stateid=_stateid,
                                         regions=_regions, regionid=_regionid,
                                         locations=_locations, x=_x, y=_y,
@@ -87,6 +87,11 @@ def location(locationid):
     return render_template('location.html', locationid=locationid, location=_location, 
                                             locations=_locations, cams=_cams) 
 
+
+@main.route('/forum', methods=["GET", "POST"])
+def forum():
+    app.logger.info("Accessing Forum page")
+    return render_template('forum.html')
 
 @main.route('/tools', methods=["GET"])
 def tools():

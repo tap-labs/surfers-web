@@ -24,18 +24,19 @@
             </table>
         </div>
         <div class="center">
-            <table class="location-table">
-                <tr>
+            <div class="searchbox">
+                Other Local Breaks: 
+                <select name="breaks" id="breaks" class="main-select" title="Location" onchange="changeBreak();">
+                    <option value="0">--- Select Break ---</option>
                     {% for _location in locations %}
                         {% if _location.name != location.name %}
-                            <td>
-                                <a href="/location/{{ _location.id }}">{{ _location.name }}</a>
-                            </td>
+                            <option value={{ _location.id }}>{{ _location.name }}</option>
                         {% endif %}
                     {% endfor %}
-                </tr>
-            </table>
+                </select>
+            </div>
         </div>
+
         <div class="center">
             <div class="weather-row">
                 <div class="weather-column">
@@ -80,6 +81,13 @@
     </div>
 
     <script>
+
+        function changeBreak(){
+            var _breaks = document.getElementById('breaks');
+            if (_breaks.value > 0){ 
+                window.location.replace('/location/' + document.getElementById('breaks').value);
+            }
+        }
 
         setVideo({{ item_count(cams) }});
 
