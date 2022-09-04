@@ -228,29 +228,6 @@ table.location-table {
 }
 
 
-.standout {
-  padding: 5px;
-  background-color: #444;
-  color: white;
-  width: fit-content;
-  margin: auto;
-  margin-top: 20px;
-}
-
-
-.standout select {
-  background-color: #222324;
-  color: white;
-  padding: 8px;
-  width: fit-content;
-  border: none;
-  font-size: 16px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-  -webkit-appearance: button;
-  appearance: button;
-  outline: none;
-}
-
 
 
 img.search {
@@ -436,4 +413,72 @@ input.search {
   margin: 0 auto;
 }
 
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
+select:focus {
+  outline: none;
+}
+
+
+.standout {
+  padding: 5px;
+  background-color: #444;
+  color: white;
+  width: fit-content;
+  margin: auto;
+  margin-top: 20px;
+  position:relative;
+}
+
+.standout select {
+  background-color: #222324;
+  color: white;
+  padding: 8px;
+  width: fit-content;
+  border: none;
+  font-size: 16px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  align-items: center;
+}
+
+/*
+.standout select::before {
+  content: "\f13a";
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(14, 4, 4, 0.1);
+  pointer-events: none;
+  justify-self: end;
+}
 */

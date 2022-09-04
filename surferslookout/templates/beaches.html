@@ -4,53 +4,50 @@
     <form id="search" method="post" action="/beaches">
 
 
-        <div class="center">
+        <div class="standout">
+            <label for="country">Country:</label> 
+            <select name="country" id="country" class="main-select" onchange="this.form.submit()">
+                <option value="0">--- Select Country ---</option>
+                {% for _country in countries %}
+                    {% if _country.id == countryid %}
+                        <option value={{ _country.id }} selected>{{ _country.name }}</option>
+                    {% else %}
+                        <option value={{ _country.id }}>{{ _country.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
 
-            <div class="filters">
-                Country: 
-                <select name="country" id="country" class="main-select" onchange="this.form.submit()">
-                    <option value="0">--- Select Country ---</option>
-                    {% for _country in countries %}
-                        {% if _country.id == countryid %}
-                            <option value={{ _country.id }} selected>{{ _country.name }}</option>
-                        {% else %}
-                            <option value={{ _country.id }}>{{ _country.name }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
+            <label for="state">State:</label> 
+            <select name="state" id="state" class="main-select" title="State" onchange="this.form.submit()">
+                <option value="0">--- Select State ---</option>
+                {% for _state in states %}
+                    {% if _state.id == stateid %}
+                        <option value={{ _state.id }} selected>{{ _state.name }}</option>
+                    {% else %}
+                        <option value={{ _state.id }}>{{ _state.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
 
-                State: 
-                <select name="state" id="state" class="main-select" title="State" onchange="this.form.submit()">
-                    <option value="0">--- Select State ---</option>
-                    {% for _state in states %}
-                        {% if _state.id == stateid %}
-                            <option value={{ _state.id }} selected>{{ _state.name }}</option>
-                        {% else %}
-                            <option value={{ _state.id }}>{{ _state.name }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
+            <label for="region">Region:</label> 
+            <select name="region" id="region" class="main-select" title="Region" onchange="this.form.submit()">
+                <option value="0">--- Select Region ---</option>
+                {% for _region in regions %}
+                    {% if _region.id == regionid %}
+                        <option value={{ _region.id }} selected>{{ _region.name }}</option>
+                    {% else %}
+                        <option value={{ _region.id }}>{{ _region.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
 
-                Region: 
-                <select name="region" id="region" class="main-select" title="Region" onchange="this.form.submit()">
-                    <option value="0">--- Select Region ---</option>
-                    {% for _region in regions %}
-                        {% if _region.id == regionid %}
-                            <option value={{ _region.id }} selected>{{ _region.name }}</option>
-                        {% else %}
-                            <option value={{ _region.id }}>{{ _region.name }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
-
-                Location: 
-                <select name="location" id="location" class="main-select" title="Location" onchange="this.form.submit()">
-                    <option value="0">--- Select Location ---</option>
-                    {% for _location in locations %}
-                        <option value={{ _location.id }}>{{ _location.name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
+            <label for="location">Location:</label> 
+            <select name="location" id="location" class="main-select" title="Location" onchange="this.form.submit()">
+                <option value="0">--- Select Location ---</option>
+                {% for _location in locations %}
+                    <option value={{ _location.id }}>{{ _location.name }}</option>
+                {% endfor %}
+            </select>
         </div>
 
         <div class="center">
