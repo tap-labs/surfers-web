@@ -2,16 +2,12 @@
 
 {% block content %}
 
-<section class="waveheader">
-    <div class="wavetitle">
-        <h2>{{ location.name }}</h2>
-    </div>
-</section>
-
+    <h1><a href="#0">{{ location.name }}</a></h1>
+    
     <div class="page-rows">
 
         <div class="center">
-                
+
             <table class="video-table">
                 {% for _cam in cams %}
                     {{ rowstart(loop.index)|safe }}
@@ -25,10 +21,13 @@
                 {% endfor %}
             </table>
         </div>
+
+
         <div class="center">
             <div class="standout">
-                <label>Other Local Breaks: </label>
-                <select id="breaks" class="fancy" title="Location" onchange="changeBreak();">
+                <label>Other Local Breaks:</label>
+
+                <select id="breaks" title="Location" onchange="changeBreak();">
                     <option value="0">--- Select Break ---</option>
                     {% for _location in locations %}
                         {% if _location.name != location.name %}
@@ -38,6 +37,7 @@
                 </select>
             </div>
         </div>
+
 
         <div class="center">
             <div class="weather-row">
