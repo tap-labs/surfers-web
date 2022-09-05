@@ -56,7 +56,7 @@
 
     </form>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ googleapikey }}&callback=initMap&v=weekly" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config.GOOGLE_API_KEY }}&callback=initMap&v=weekly" defer></script>
    
     <script>
 
@@ -72,24 +72,29 @@
 
     // Initialize and add the map
     function initMap() {
+        let setmarkers=false;
+        let zoom=2;
+
+        {% if regionid > 0 %}
+            const _locations = JSON.parse({{ locationsbyregion_asdict(regionid) | tojson }});
+            setmarkers=true;
+            zoom=10;
+        {% elif stateid > 0 %}
+            const _locations = JSON.parse({{ locationsbystate_asdict(stateid) | tojson }});
+            setmarkers=true;
+            zoom=5;
+        {% elif countryid > 0 %}
+            const _locations = JSON.parse({{ locationsbycountry_asdict(countryid) | tojson }});
+            setmarkers=true;
+            zoom=4;
+        {% endif %}
+
         const place = { lat: {{ x }}, lng: {{ y }} };
         const map = new google.maps.Map(document.getElementById("map"), {
                         zoom: {{ zoom }},
                         center: place,
                     });
 
-        let setmarkers=false;
-
-        {% if regionid > 0 %}
-            const _locations = JSON.parse({{ locations_asdict(regionid) | tojson }});
-            setmarkers=true;
-        {% elif stateid > 0 %}
-            const _locations = JSON.parse({{ locationsbystate_asdict(stateid) | tojson }});
-            setmarkers=true;
-        {% elif countryid > 0 %}
-            const _locations = JSON.parse({{ locationsbycountry_asdict(countryid) | tojson }});
-            setmarkers=true;
-        {% endif %}
 
         if (setmarkers){
             for (const _location of _locations){

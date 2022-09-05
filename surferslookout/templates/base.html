@@ -14,6 +14,10 @@
       <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
       <!-- Main stylesheet -->
       <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+      <!-- jquery -->
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
       <!-- ChartJS -->
       <script src="{{ url_for('static', filename='scripts/chart.js') }}"></script>
       <!-- VideoJS -->
@@ -32,9 +36,9 @@
             <li><a href="{{ url_for('main.forum') }}">Forum</a></li>
             <li><a href="{{ url_for('main.tools') }}">Test</a></li>
             <li style="float:right">
-              <label>Search:</label>
+              <label for="searchtext">Search: </label>
               <input id="searchtext">
-              <img class="search" src="{{ url_for('static', filename='images/search.png') }}">
+              <img id="searchbutton" class="search" src="{{ url_for('static', filename='images/search.png') }}">
             </li>
           </ul>
         </nav>
@@ -42,6 +46,35 @@
       <img class="logo" src="{{ url_for('static', filename='images/surferslookout-logo.png') }}">
 
     </header>
+    <script>
+
+      $( function() {
+        const _locations = JSON.parse({{ locationnames_asdict() | tojson }});
+        var availableLocations = [];
+        for (const _location of _locations){
+          availableLocations.push(_location.name + ', ' + _location.postal);
+        }
+        $( "#searchtext" ).autocomplete({
+          source: availableLocations
+        });
+      } );
+
+      $('#searchtext').keypress(function(event) {
+        if (event.keyCode == 13) {
+          find();
+        }
+      });
+
+      $('#searchbutton').click(function(event) {
+        find();
+      });
+
+      function find(){
+        var _val = document.getElementById('searchtext').value;
+        window.open('/search/' + _val);
+      }
+
+    </script>
 
     <body  style="background-image: {{ url_for('static', filename='images/wave-large.jpeg') }}">
       

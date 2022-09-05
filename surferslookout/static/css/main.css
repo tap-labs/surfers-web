@@ -227,21 +227,16 @@ table.location-table {
   margin-top: 100px;
 }
 
-
-
-
 img.search {
   height: 18px;
   width: 18px;
   margin-right: 10px;
+  cursor: pointer;
   /*
   padding: 14px 16px;
   */
 }
 
-img.search:hover {
-  border-color: red;
-}
 
 /*
 ***********************************

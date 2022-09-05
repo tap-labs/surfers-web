@@ -138,6 +138,24 @@ class Location(db.Model):
         return _id
 
     @staticmethod
+    def find(location, state='%'):
+        _loccon = '{}%'.format(location) 
+        _resp = db.session.query(Location, Region, State).filter(
+                                                            State.id==Region.state_id, 
+                                                            Region.id==Location.region_id,
+                                                            Location.name.like(_loccon),
+                                                            State.postal.like(state)).all()
+        _json = []
+        for _row in _resp:
+            _json.append({'name': _row.Location.name,
+                        'id': _row.Location.id,
+                        'state': _row.State.name
+                        })
+
+        return json.dumps(_json)
+
+
+    @staticmethod
     def get_ById(locationid):
         _resp = Location.query.filter(Location.id == locationid).first()
         return _resp
@@ -146,6 +164,19 @@ class Location(db.Model):
     def get_ByRegion(regionid):
         _request = Location.query.filter(Location.region_id == regionid).order_by(Location.name.asc()).all()
         return _request
+
+    @staticmethod
+    def get_AllNamesSerialized():
+        _resp = db.session.query(Location, Region, State).filter(
+                                        State.id==Region.state_id, 
+                                        Region.id==Location.region_id).all()
+        _json = []
+        for _row in _resp:
+            _json.append({'name': _row.Location.name,
+                        'postal': _row.State.postal
+                        })
+
+        return json.dumps(_json)
 
     @staticmethod
     def get_ByRegionSerialized(regionid):

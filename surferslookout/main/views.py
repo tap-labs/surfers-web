@@ -2,6 +2,7 @@ import datetime
 import socket
 import os
 import time
+import json
 from datetime import datetime
 import flask
 from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
@@ -46,31 +47,23 @@ def beaches():
                         _locations = Location.get_ByRegion(_regionid)
                         _x = Region.query.get(_regionid).latitude
                         _y = Region.query.get(_regionid).longitude
-                        _zoom = 10
                     else:
                         _x = State.query.get(_stateid).latitude
                         _y = State.query.get(_stateid).longitude
-                        _zoom = 5
                 else:
                     _x = Country.query.get(_countryid).latitude
                     _y = Country.query.get(_countryid).longitude
-                    _zoom = 4
     else:
         # added logic to default to Australia if first access
         _countryid = 1
         _states = State.get_ByCountry(_countryid)
         _x = Country.query.get(_countryid).latitude
         _y = Country.query.get(_countryid).longitude
-        _zoom = 4
-
-
 
     return render_template('beaches.html', countries=_countries, countryid=_countryid,
                                         states=_states, stateid=_stateid,
                                         regions=_regions, regionid=_regionid,
-                                        locations=_locations, x=_x, y=_y,
-                                        googleapikey=app.config['GOOGLE_API_KEY'], 
-                                        zoom=_zoom)
+                                        locations=_locations, x=_x, y=_y)
 
 
 @main.route('/location/<locationid>', methods=["GET"])
@@ -97,6 +90,23 @@ def forum():
 def tools():
     app.logger.info("Accessing Tools page")
     return render_template('tools.html')
+
+
+@main.route('/search/<location>', methods=["GET"])
+def search(location):
+    app.logger.info("Search requested - {}".format(location))
+    if "," in location:
+        _entries = location.split(',')
+        _town = _entries[0].strip()
+        _state = _entries[1].strip()
+        _results = Location.find(_town, _state)
+    else:
+        _results = Location.find(location.strip())
+    
+    for item in json.loads(_results):
+        _url = '/location/{}'.format(item['id'])
+    return redirect(_url)
+
 
 
 @main.context_processor
@@ -129,7 +139,7 @@ def utilities():
         else:
             return f'</td>'
 
-    def locations_asdict(regionid):
+    def locationsbyregion_asdict(regionid):
         _request = Location.get_ByRegionSerialized(regionid)
         return _request
 
@@ -141,11 +151,16 @@ def utilities():
         _request = Location.get_ByStateSerialized(stateid)
         return _request
 
+    def locationnames_asdict():
+        _request = Location.get_AllNamesSerialized()
+        return _request
+
     return dict(camlist=camlist, item_count=item_count, 
                     getvideoid=getvideoid, getwgsite=getwgsite, 
                     rowstart=rowstart, rowend=rowend, 
-                    locations_asdict=locations_asdict, 
+                    locationsbyregion_asdict=locationsbyregion_asdict, 
                     locationsbycountry_asdict=locationsbycountry_asdict,
-                    locationsbystate_asdict=locationsbystate_asdict)
+                    locationsbystate_asdict=locationsbystate_asdict,
+                    locationnames_asdict=locationnames_asdict)
 
 
