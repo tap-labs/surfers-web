@@ -9,11 +9,11 @@
 
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <!-- Main stylesheet -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?ver=2">
       <!-- Addiitional fonts -->
       <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
       <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-      <!-- Main stylesheet -->
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
       <!-- jquery -->
       <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
       <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -34,7 +34,7 @@
             <li><a href="{{ url_for('main.home') }}">Home</a></li>
             <li><a href="{{ url_for('main.beaches') }}">Beaches</a></li>
             <li><a href="{{ url_for('main.forum') }}">Forum</a></li>
-            <li><a href="{{ url_for('main.tools') }}">Test</a></li>
+            <li><a href="{{ url_for('main.about') }}">About</a></li>
             <li style="float:right">
               <label for="searchtext">Search: </label>
               <input id="searchtext">
@@ -71,7 +71,7 @@
 
       function find(){
         var _val = document.getElementById('searchtext').value;
-        window.open('/search/' + _val);
+        window.location.replace('/search/' + _val);
       }
 
     </script>

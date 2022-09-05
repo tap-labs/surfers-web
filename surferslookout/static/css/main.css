@@ -460,6 +460,42 @@ select:focus {
   align-items: center;
 }
 
+.info {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #b7bac1;
+  padding: 20px;
+  color: #dbdfe2; 
+  font-family: 'Verdana', sans-serif; 
+}
+
+.info ul {
+  list-style-type: square;
+  list-style-position: outside;
+  list-style-image: none;
+  margin-left:30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.info p {
+  font-size: 16px; 
+  line-height: 26px; 
+  margin: 0;
+  /*
+  text-indent: 30px; 
+  */
+}
+
+.info a { 
+  color: #c64119; 
+  border-bottom: 
+  1px solid #c64119; 
+  text-decoration: none; 
+}
+
 /*
 .standout select::before {
   content: "\f13a";

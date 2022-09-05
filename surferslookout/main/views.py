@@ -86,10 +86,10 @@ def forum():
     app.logger.info("Accessing Forum page")
     return render_template('forum.html')
 
-@main.route('/tools', methods=["GET"])
-def tools():
-    app.logger.info("Accessing Tools page")
-    return render_template('tools.html')
+@main.route('/about', methods=["GET"])
+def about():
+    app.logger.info("Accessing About page")
+    return render_template('about.html')
 
 
 @main.route('/search/<location>', methods=["GET"])
