@@ -181,7 +181,7 @@ table.video-table > td {
 .video-cell {
   margin: 10px;
   padding: 10px;
-  width: 500px;
+  width: 400px;
   text-align: center;
   /*
   border-style: solid;
@@ -243,11 +243,22 @@ img.search {
 Map layoout
 */
 
-#map {
+.map {
   margin: auto;
   margin-top: 100px;
   height: 400px;
   width: 800px;
+}
+
+
+.sidemap {
+  height: 300px;
+  width:150px;
+  margin:50px ;
+  top:-40px;
+  position:absolute;
+  top:100px;
+  right:0;
 }
 
 /*
@@ -442,7 +453,7 @@ select:focus {
   color: white;
   width: fit-content;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 40px;
   position:relative;
 }
 

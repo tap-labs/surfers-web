@@ -355,5 +355,42 @@
                 }
             ]
         }
+    ],
+    "feed": [
+        {
+            "name": "NSW Marine Warnings",
+            "category": "weather",
+            "url": "http://www.bom.gov.au/fwo/IDZ00068.warnings_marine_nsw.xml"
+        },
+        {
+            "name": "Qld Marine Warnings",
+            "category": "weather",
+            "url": "http://www.bom.gov.au/fwo/IDZ00070.warnings_marine_qld.xml"
+        },
+        {
+            "name": "Vic Marine Warnings",
+            "category": "weather",
+            "url": "http://www.bom.gov.au/fwo/IDZ00073.warnings_marine_vic.xml"
+        },
+        {
+            "name": "WA Marine Warnings",
+            "category": "weather",
+            "url": "http://www.bom.gov.au/fwo/IDZ00074.warnings_marine_wa.xml"
+        },
+        {
+            "name": "SA Marine Warnings",
+            "category": "weather",
+            "url": "http://www.bom.gov.au/fwo/IDZ00071.warnings_marine_sa.xml"
+        },
+        {
+            "name": "Tas Marine Warnings",
+            "category": "weather",
+            "url": "http://www.bom.gov.au/fwo/IDZ00072.warnings_marine_tas.xml"
+        },
+        {
+            "name": "NT Marine Warnings",
+            "category": "weather",
+            "url": "http://www.bom.gov.au/fwo/IDZ00069.warnings_marine_nt.xml"
+        }
     ]
 }

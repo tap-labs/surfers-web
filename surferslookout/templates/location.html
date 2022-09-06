@@ -22,6 +22,8 @@
             </table>
         </div>
 
+        <div class="sidemap" id="map"></div>
+
 
         <div class="standout">
             <label for="breaks">Other Local Breaks:</label>
@@ -84,6 +86,8 @@
 
     </div>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config.GOOGLE_API_KEY }}&callback=initMap&v=weekly" defer></script>
+
     <script>
 
         function changeBreak(){
@@ -94,6 +98,33 @@
         }
 
         setVideo({{ item_count(cams) }});
+
+        function initMap() {
+            let zoom=10;
+            const _locations = JSON.parse({{ locationsbyregion_asdict(location.region_id) | tojson }});
+
+            const place = { lat: {{ location.latitude }}, lng: {{ location.longitude }} };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                            zoom: zoom,
+                            center: place,
+                        });
+
+
+            for (const _location of _locations){
+                const marker = new google.maps.Marker({
+                                        position: { lat: parseFloat(_location.latitude), lng: parseFloat(_location.longitude) },
+                                        map,
+                                        title: _location.name,
+                                        icon:  "{{ url_for('static', filename='images/surfer_icon_32.png') }}",
+                                    });
+
+                marker.addListener('click', function() {
+                    window.location.replace('/location/' + _location.id);
+                });
+            }
+        }
+
+    window.initMap = initMap;
 
     </script>
 

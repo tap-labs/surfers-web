@@ -70,11 +70,9 @@ def beaches():
 def location(locationid):
     app.logger.info("Accessing Location page for locationid {0}", str(locationid))
     _cams={}
-    _wgsite=0
     if locationid != 0:
         _location = Location.get_ById(locationid)
         _locations = Location.get_ByRegion(_location.region_id)
-        _wgsite = _location.wg_site
         _cams = Cam.get(locationid)
 
     return render_template('location.html', locationid=locationid, location=_location, 
