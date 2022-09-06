@@ -153,12 +153,15 @@ def utilities():
         _request = Location.get_AllNamesSerialized()
         return _request
 
-    return dict(camlist=camlist, item_count=item_count, 
-                    getvideoid=getvideoid, getwgsite=getwgsite, 
-                    rowstart=rowstart, rowend=rowend, 
-                    locationsbyregion_asdict=locationsbyregion_asdict, 
-                    locationsbycountry_asdict=locationsbycountry_asdict,
-                    locationsbystate_asdict=locationsbystate_asdict,
-                    locationnames_asdict=locationnames_asdict)
+    return dict(camlist=camlist, 
+                item_count=item_count, 
+                getvideoid=getvideoid, 
+                getwgsite=getwgsite, 
+                rowstart=rowstart, 
+                rowend=rowend, 
+                locationsbyregion_asdict=locationsbyregion_asdict, 
+                locationsbycountry_asdict=locationsbycountry_asdict,
+                locationsbystate_asdict=locationsbystate_asdict,
+                locationnames_asdict=locationnames_asdict)
 
 
