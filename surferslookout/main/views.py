@@ -8,13 +8,14 @@ import flask
 from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
 from flask import current_app as app
 from . import main
-from surferslookout.data.models import Country, State, Region, Location, Cam
+from surferslookout.data.models import *
 
 @main.route('/', methods=["GET"])
 def home():
     app.logger.info("Accessing home page")
 
-    return render_template('home.html')
+    message = "This is a test message"
+    return render_template('home.html', message=message)
 
 @main.route('/beaches', methods=["GET", "POST"])
 def beaches():
@@ -106,7 +107,13 @@ def search(location):
     return redirect(_url)
 
 
+## Jinja Variables
+@main.context_processor
+def inject_locationnames():
+    _request = Location.get_AllNamesSerialized()
+    return dict(locationnames=_request)
 
+## Jinja Functions 
 @main.context_processor
 def utilities():
     def item_count(list):
@@ -149,9 +156,6 @@ def utilities():
         _request = Location.get_ByStateSerialized(stateid)
         return _request
 
-    def locationnames_asdict():
-        _request = Location.get_AllNamesSerialized()
-        return _request
 
     return dict(camlist=camlist, 
                 item_count=item_count, 
@@ -161,7 +165,6 @@ def utilities():
                 rowend=rowend, 
                 locationsbyregion_asdict=locationsbyregion_asdict, 
                 locationsbycountry_asdict=locationsbycountry_asdict,
-                locationsbystate_asdict=locationsbystate_asdict,
-                locationnames_asdict=locationnames_asdict)
+                locationsbystate_asdict=locationsbystate_asdict)
 
 

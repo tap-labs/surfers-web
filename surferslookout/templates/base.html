@@ -10,7 +10,7 @@
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <!-- Main stylesheet -->
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?ver=3">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?ver=4">
       <!-- Addiitional fonts -->
       <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
       <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
@@ -43,13 +43,14 @@
           </ul>
         </nav>
       </strong>
-      <img class="logo" src="{{ url_for('static', filename='images/surferslookout-logo.png') }}">
+      <img class="logo" src={{ url_for('static', filename='images/surferslookout-logo.png') }}>
 
     </header>
     <script>
 
       $( function() {
-        const _locations = JSON.parse({{ locationnames_asdict() | tojson }});
+        const _locations = JSON.parse({{ locationnames | tojson }});
+
         var availableLocations = [];
         for (const _location of _locations){
           availableLocations.push(_location.name + ', ' + _location.postal);

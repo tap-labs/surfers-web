@@ -352,13 +352,16 @@ h1 a {
   color: white;
 }
 
-/*
 h2 {
   font-size: 2em;
   margin-top: 30px;
   text-align: center;
   letter-spacing: -2px;
+  color: white;
 }
+
+/*
+
 
 h3 {
   font-size: 1.7em;
@@ -420,6 +423,57 @@ input.search {
 }
 
 */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.banner div {
+  background-color: #1c87c9;
+  color: #fff;
+  padding: 5px;
+}
+
+.banner p {
+  -moz-animation: marquee 10s linear infinite;
+  -webkit-animation: marquee 10s linear infinite;
+  animation: marquee 10s linear infinite;
+  color: #eee;
+}
+
+@-moz-keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@-webkit-keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes marquee {
+  0% {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%)
+  }
+  100% {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
 
 *,
 *::before,
@@ -502,8 +556,7 @@ select:focus {
 
 .info a { 
   color: #c64119; 
-  border-bottom: 
-  1px solid #c64119; 
+  border-bottom: 1px solid #c64119; 
   text-decoration: none; 
 }
 

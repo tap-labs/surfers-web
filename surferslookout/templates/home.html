@@ -2,17 +2,18 @@
 
 {% block content %}
 
-    <form id="main" method="post" action="/">
 
-        <div>
-            <img class="mainlogo" src="{{ url_for('static', filename='images/surferslookout-logo.png') }}">
+    <div class="center">
+        <img class="mainlogo" src="{{ url_for('static', filename='images/surferslookout-logo.png') }}">
+    </div>
+
+    <div class="footer">
+        <div class="banner">
+            <p>{{ message }}</p>
         </div>
-    
+    </div>
 
-    </form>
-
-
-    {% endblock %}
+{% endblock %}
 
 
 
