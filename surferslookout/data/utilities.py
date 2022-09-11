@@ -13,11 +13,6 @@ class DataManager():
         with open(app.config['DATA_FILE'], 'r') as f:
             app.logger.info('Importing data')
             table = json.loads(f.read())
-            for _feed in table['feed']:
-                models.Feed(name=_feed['name'],
-                            category=_feed['category'],
-                            url=_feed['url']).add()
-                
 
             for _country in table['country']:
                 _cn = models.Country(name=_country['name'], 

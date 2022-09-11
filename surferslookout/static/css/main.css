@@ -439,10 +439,24 @@ input.search {
 }
 
 .banner p {
-  -moz-animation: marquee 10s linear infinite;
+  -moz-animation: marquee 35s linear infinite;
   -webkit-animation: marquee 10s linear infinite;
-  animation: marquee 10s linear infinite;
-  color: #eee;
+  animation: marquee 35s linear infinite;
+  color: rgb(211, 211, 233);
+  white-space: nowrap;
+}
+
+.banner a {
+  color: rgb(131, 162, 219);
+  font-weight: normal;
+}
+
+.banner a:link {
+  text-decoration:none;
+}
+
+.banner a:hover { 
+  text-decoration: underline; 
 }
 
 @-moz-keyframes marquee {
@@ -474,6 +488,7 @@ input.search {
   }
 }
 
+/*
 
 *,
 *::before,
@@ -519,11 +534,72 @@ select:focus {
   border: none;
   font-size: 16px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-  -webkit-appearance: button;
-  appearance: button;
   outline: none;
-  align-items: center;
+  align-items: center;  -webkit-appearance: button;
+  appearance: button;
 }
+*/
+
+:root {
+  --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+  --gray: #34495e;
+  --darkgray: #2c3e50;
+}
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: var(--darkgray);
+  background-image: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+
+/* Custom Select wrapper */
+.select {
+  margin: auto;
+  margin-top: 1em;
+  padding: 5px;
+  position: relative;
+  display: flex;
+  width: max-content;
+  height: 2em;
+  border-radius: .20em;
+  overflow: hidden;
+  background-color: rgb(0, 15, 29);
+}
+
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px;
+  background-color: #05273c;
+  transition: .25s all ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Transition */
+.select:hover::after {
+  color: cyan;
+}
+
+
 
 .info {
   position: absolute;

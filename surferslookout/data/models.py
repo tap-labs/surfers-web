@@ -76,6 +76,7 @@ class Region(db.Model):
     name = db.Column(db.String(64), unique=True, index=True)
     latitude = db.Column(db.Text)
     longitude = db.Column(db.Text)
+    bom_geo_tag = db.Column(db.Text)
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
 
     def add(self) -> int:
@@ -187,6 +188,7 @@ class Location(db.Model):
             _json.append({'name': _row.name,
                           'latitude': _row.latitude,
                           'longitude': _row.longitude,
+                          'bom_geo_tag': _row.bom_geo_tag,
                           'id': _row.id
                           })
 
@@ -250,27 +252,6 @@ class Cam(db.Model):
     def get(locationid):
         _request = Cam.query.filter(Cam.location_id == locationid).all()
         return _request
-
-class Feed(db.Model):
-    __tablename__ = 'feed'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), unique=True, index=True)
-    category = db.Column(db.String(64), unique=False, index=True)
-    url = db.Column(db.Text)
-
-    def __repr__(self):
-        return self.id
-
-    def add(self):
-        _id = None
-        db.session.add(self)
-        try:
-            db.session.commit()
-            app.logger.info('Feed Record Added: %s', self.name)
-        except IntegrityError:
-            db.session.rollback()
-
-        return self.id
 
 
 app.logger.info('DB URI: %s',app.config['SQLALCHEMY_DATABASE_URI'])

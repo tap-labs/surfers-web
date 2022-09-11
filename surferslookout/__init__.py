@@ -12,7 +12,7 @@ def create_app(config_name):
     db.init_app(app)
 
     app.logger.info('Import blueprints')
-    from surferslookout.main import main as main_blueprint
+    from surferslookout.blueprints import bp as main_blueprint
     app.register_blueprint(main_blueprint)
 
     return app

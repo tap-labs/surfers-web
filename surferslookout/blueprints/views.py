@@ -3,21 +3,32 @@ import socket
 import os
 import time
 import json
+import urllib.request
 from datetime import datetime
 import flask
 from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
 from flask import current_app as app
-from . import main
+from .enum import API_URL
+from . import bp
 from surferslookout.data.models import *
 
-@main.route('/', methods=["GET"])
+
+@bp.route('/', methods=["GET"])
 def home():
     app.logger.info("Accessing home page")
+    
+    #url = 'http://{}:{}/api/v1/forecast/alert'.format(app.config['API_HOST'], app.config['API_PORT'])
+    url = API_URL.ALERTS
+    response = urllib.request.urlopen(url)
+    _alerts = json.loads(response.read())
+    _message = "<b>Current Marine Weather Warnings:<b>&emsp;&emsp;&emsp;&emsp;"
+    for _alert in _alerts:
+        _message = _message + "<a href='" + _alert['link'] + "'>" + _alert['title'] + "</a>&emsp;&emsp;&emsp;&emsp;"
+    app.logger.info("Weather Banner: {}".format(_message))
+    
+    return render_template('home.html', message=_message)
 
-    message = "This is a test message"
-    return render_template('home.html', message=message)
-
-@main.route('/beaches', methods=["GET", "POST"])
+@bp.route('/beaches', methods=["GET", "POST"])
 def beaches():
     app.logger.info("Accessing sites page")
     _countries = Country.query.all()
@@ -67,7 +78,7 @@ def beaches():
                                         locations=_locations, x=_x, y=_y)
 
 
-@main.route('/location/<locationid>', methods=["GET"])
+@bp.route('/location/<locationid>', methods=["GET"])
 def location(locationid):
     app.logger.info("Accessing Location page for locationid {0}", str(locationid))
     _cams={}
@@ -80,18 +91,18 @@ def location(locationid):
                                             locations=_locations, cams=_cams) 
 
 
-@main.route('/forum', methods=["GET", "POST"])
+@bp.route('/forum', methods=["GET", "POST"])
 def forum():
     app.logger.info("Accessing Forum page")
     return render_template('forum.html')
 
-@main.route('/about', methods=["GET"])
+@bp.route('/about', methods=["GET"])
 def about():
     app.logger.info("Accessing About page")
     return render_template('about.html')
 
 
-@main.route('/search/<location>', methods=["GET"])
+@bp.route('/search/<location>', methods=["GET"])
 def search(location):
     app.logger.info("Search requested - {}".format(location))
     if "," in location:
@@ -108,13 +119,13 @@ def search(location):
 
 
 ## Jinja Variables
-@main.context_processor
+@bp.context_processor
 def inject_locationnames():
     _request = Location.get_AllNamesSerialized()
     return dict(locationnames=_request)
 
 ## Jinja Functions 
-@main.context_processor
+@bp.context_processor
 def utilities():
     def item_count(list):
         return len(list)

@@ -15,6 +15,7 @@
                             "name": "Sydney East",
                             "latitude": "-33.943568812867056",
                             "longitude": "151.2110862204764",
+                            "bom_geo_tag": "r3gx2s",
                             "location": [
                                 {
                                     "name": "Bondi",
@@ -66,6 +67,7 @@
                             "name": "Sydney South",
                             "latitude": "-33.95840160756529",
                             "longitude": "151.12673107883532",
+                            "bom_geo_tag": "r3gx2s",
                             "location": [
                                 {
                                     "name": "Cronulla",
@@ -89,6 +91,7 @@
                             "name": "Sydney North",
                             "latitude": "-33.67969610422479",
                             "longitude": "151.26695035355962",
+                            "bom_geo_tag": "r3gx2s",
                             "location": [
                                 {
                                     "name": "Avalon",
@@ -102,11 +105,11 @@
                                     "cam": [
                                         {
                                             "site": "Avalon",
-                                            "url": "https://streamzy.ml/cdn-au/au-avalon/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-avalon/chunklist.m3u8"
                                         },
                                         {
                                             "site": "Little Avalon",
-                                            "url": "https://streamzy.ml/cdn-au/au-littleavalon/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-littleavalon/chunklist.m3u8"
                                         }
                                     ]
                                 },
@@ -296,6 +299,7 @@
                             "name": "Gold Coast",
                             "latitude": "-27.991213549344554",
                             "longitude": "153.40369367308483",
+                            "bom_geo_tag": "r7hgdm",
                             "location": [
                                 {
                                     "name": "Burleigh Heads",
@@ -354,43 +358,6 @@
                     ]
                 }
             ]
-        }
-    ],
-    "feed": [
-        {
-            "name": "NSW Marine Warnings",
-            "category": "weather",
-            "url": "http://www.bom.gov.au/fwo/IDZ00068.warnings_marine_nsw.xml"
-        },
-        {
-            "name": "Qld Marine Warnings",
-            "category": "weather",
-            "url": "http://www.bom.gov.au/fwo/IDZ00070.warnings_marine_qld.xml"
-        },
-        {
-            "name": "Vic Marine Warnings",
-            "category": "weather",
-            "url": "http://www.bom.gov.au/fwo/IDZ00073.warnings_marine_vic.xml"
-        },
-        {
-            "name": "WA Marine Warnings",
-            "category": "weather",
-            "url": "http://www.bom.gov.au/fwo/IDZ00074.warnings_marine_wa.xml"
-        },
-        {
-            "name": "SA Marine Warnings",
-            "category": "weather",
-            "url": "http://www.bom.gov.au/fwo/IDZ00071.warnings_marine_sa.xml"
-        },
-        {
-            "name": "Tas Marine Warnings",
-            "category": "weather",
-            "url": "http://www.bom.gov.au/fwo/IDZ00072.warnings_marine_tas.xml"
-        },
-        {
-            "name": "NT Marine Warnings",
-            "category": "weather",
-            "url": "http://www.bom.gov.au/fwo/IDZ00069.warnings_marine_nt.xml"
         }
     ]
 }

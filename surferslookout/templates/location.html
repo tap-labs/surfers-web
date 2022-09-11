@@ -4,85 +4,81 @@
 
     <h1><a href="#0">{{ location.name }}</a></h1>
 
-    <div class="page-rows">
 
-        <div class="center">
+    <div class="center">
 
-            <table class="video-table">
-                {% for _cam in cams %}
-                    {{ rowstart(loop.index)|safe }}
-                    <div class="video-cell">
-                        <video id="{{ getvideoid(loop.index) }}" class="video-js vjs-default-skin" controls muted preload="none" poster="{{ url_for('static', filename='images/video-icon.png') }}">
-                            <source src="{{ _cam.url }}" type="application/x-mpegURL">
-                        </video>
-                    </div>
-                    <label class="video-title">{{ _cam.site }}</label>
-                    {{ rowend(loop.index)|safe }}
-                {% endfor %}
-            </table>
-        </div>
-
-        <div class="sidemap" id="map"></div>
-
-
-        <div class="standout">
-            <label for="breaks">Other Local Breaks:</label>
-
-            <select id="breaks" title="Location" onchange="changeBreak();">
-                <option value="0">--- Select Break ---</option>
-                {% for _location in locations %}
-                    {% if _location.name != location.name %}
-                        <option value={{ _location.id }}>{{ _location.name }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select>
-        </div>
-
-
-        <div class="center">
-            <div class="weather-row">
-                <div class="weather-column">
-                    <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_weather}}" class="weather-frame" title="Weather"></iframe>
-                    <br><label>Weather</label>
+        <table class="video-table">
+            {% for _cam in cams %}
+                {{ rowstart(loop.index)|safe }}
+                <div class="video-cell">
+                    <video id="{{ getvideoid(loop.index) }}" class="video-js vjs-default-skin" controls muted preload="none" poster="{{ url_for('static', filename='images/video-icon.png') }}">
+                        <source src="{{ _cam.url }}" type="application/x-mpegURL">
+                    </video>
                 </div>
-                <div class="weather-column">
-                    <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_wind}}" class="weather-frame" title="Wind"></iframe>
-                    <br><label>Wind</label>
-                </div>
-                <div class="weather-column">
-                    <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_swell}}" class="weather-frame" title="Swell"></iframe>
-                    <br><label>Swell</label>
-                </div>
-                <div class="weather-column">
-                    <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_tide}}" class="weather-frame" title="Tide"></iframe>
-                    <br><label>Tide</label>
-                </div>
-            </div>
-        </div>
+                <label class="video-title">{{ _cam.site }}</label>
+                {{ rowend(loop.index)|safe }}
+            {% endfor %}
+        </table>
+    </div>
 
-        <div class="center">
+    <div class="sidemap" id="map"></div>
 
-            <div class="weather-container">
 
-                {% if location.wg_site == 99 %}
-                    <script id="windguru_widget">
-                        (function (window, document) {
-                        var loader = function () {
-                            var arg = ["s={{ location.wg_site }}" ,"m=100","mw=83","uid=windguru_widget" ,"wj=kmh" ,"tj=c" ,"waj=ft" ,"odh=0" ,"doh=24" ,"fhours=168" ,"hrsm=2" ,"vt=forecasts" ,"lng=en" ,"idbs=1" ,"ts=2" ,"p=WINDSPD,GUST,SMER,SWELL1,SWPER1,SWDIR1,TMP,WCHILL"];
-                            var script = document.createElement("script");
-                            var tag = document.getElementsByTagName("script")[0];
-                            script.src = "https://www.windguru.cz/js/widget.php?"+(arg.join("&"));
-                            tag.parentNode.insertBefore(script, tag);
-                        };
-                        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
-                        })(window, document);
-                    </script>
+    <div class="select">
+        <label for="breaks">Other Local Breaks:</label>
+        &emsp;&emsp;&emsp;
+        <select id="breaks" title="Location" onchange="changeBreak();">
+            <option value="0">--- Select Break ---</option>
+            {% for _location in locations %}
+                {% if _location.name != location.name %}
+                    <option value={{ _location.id }}>{{ _location.name }}</option>
                 {% endif %}
+            {% endfor %}
+        </select>
+    </div>
 
+    <div class="center">
+        <div class="weather-row">
+            <div class="weather-column">
+                <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_weather}}" class="weather-frame" title="Weather"></iframe>
+                <br><label>Weather</label>
             </div>
-    
+            <div class="weather-column">
+                <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_wind}}" class="weather-frame" title="Wind"></iframe>
+                <br><label>Wind</label>
+            </div>
+            <div class="weather-column">
+                <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_swell}}" class="weather-frame" title="Swell"></iframe>
+                <br><label>Swell</label>
+            </div>
+            <div class="weather-column">
+                <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_tide}}" class="weather-frame" title="Tide"></iframe>
+                <br><label>Tide</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="center">
+
+        <div class="weather-container">
+
+            {% if location.wg_site == 99 %}
+                <script id="windguru_widget">
+                    (function (window, document) {
+                    var loader = function () {
+                        var arg = ["s={{ location.wg_site }}" ,"m=100","mw=83","uid=windguru_widget" ,"wj=kmh" ,"tj=c" ,"waj=ft" ,"odh=0" ,"doh=24" ,"fhours=168" ,"hrsm=2" ,"vt=forecasts" ,"lng=en" ,"idbs=1" ,"ts=2" ,"p=WINDSPD,GUST,SMER,SWELL1,SWPER1,SWDIR1,TMP,WCHILL"];
+                        var script = document.createElement("script");
+                        var tag = document.getElementsByTagName("script")[0];
+                        script.src = "https://www.windguru.cz/js/widget.php?"+(arg.join("&"));
+                        tag.parentNode.insertBefore(script, tag);
+                    };
+                    window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+                    })(window, document);
+                </script>
+            {% endif %}
 
         </div>
+
 
     </div>
 
@@ -90,14 +86,14 @@
 
     <script>
 
+        setVideo({{ item_count(cams) }});
+
         function changeBreak(){
             var _breaks = document.getElementById('breaks');
             if (_breaks.value > 0){ 
                 window.location.replace('/location/' + document.getElementById('breaks').value);
             }
         }
-
-        setVideo({{ item_count(cams) }});
 
         function initMap() {
             let zoom=10;

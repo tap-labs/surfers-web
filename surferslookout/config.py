@@ -51,9 +51,12 @@ class Config:
     SESSION_COOKIE_HTTPONLY = False
     GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
     ENV = 'unset'
+    PORT = os.environ.get('PORT') or 80
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('DB_TRACK_MODIFICATIONS') or False
     DATA_FILE = os.environ.get('DATA_FILE') or 'surferslookout/data/data.json'
+    API_HOST = os.environ.get('API_HOST') or "localhost"
+    API_PORT = os.environ.get('API_PORT') or "80"
     SERVICE_BINDING = os.environ.get('BINDING_NAME') or 'surferslookout-binding'
     BINDING_ASSIGNED = False
     if os.path.exists("bindings"):
