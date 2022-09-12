@@ -1,4 +1,5 @@
 import datetime
+from enum import Enum, unique
 import socket
 import os
 import time
@@ -6,9 +7,11 @@ import json
 import urllib.request
 from datetime import datetime
 import flask
+
+import surferslookout
+from surferslookout.services import web
 from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
 from flask import current_app as app
-from .enum import API_URL
 from . import bp
 from surferslookout.data.models import *
 
@@ -16,16 +19,18 @@ from surferslookout.data.models import *
 @bp.route('/', methods=["GET"])
 def home():
     app.logger.info("Accessing home page")
-    
-    #url = 'http://{}:{}/api/v1/forecast/alert'.format(app.config['API_HOST'], app.config['API_PORT'])
-    url = API_URL.ALERTS
-    response = urllib.request.urlopen(url)
-    _alerts = json.loads(response.read())
-    _message = "<b>Current Marine Weather Warnings:<b>&emsp;&emsp;&emsp;&emsp;"
-    for _alert in _alerts:
-        _message = _message + "<a href='" + _alert['link'] + "'>" + _alert['title'] + "</a>&emsp;&emsp;&emsp;&emsp;"
-    app.logger.info("Weather Banner: {}".format(_message))
-    
+
+    try:
+        _alerts = web.get(API_URL.ALERTS.value)
+        _message = "<b>Current Marine Weather Warnings:<b>&emsp;&emsp;&emsp;&emsp;"
+        for _alert in _alerts:
+            _message = _message + "<a href='" + _alert['link'] + "'>" + _alert['title'] + "</a>&emsp;&emsp;&emsp;&emsp;"
+        app.logger.info("Weather Banner: {}".format(_message))
+    except:
+        app.logger.error("Weather Banner Generation failed")
+        _message = ""
+
+
     return render_template('home.html', message=_message)
 
 @bp.route('/beaches', methods=["GET", "POST"])
@@ -82,13 +87,17 @@ def beaches():
 def location(locationid):
     app.logger.info("Accessing Location page for locationid {0}", str(locationid))
     _cams={}
+
     if locationid != 0:
         _location = Location.get_ById(locationid)
         _locations = Location.get_ByRegion(_location.region_id)
         _cams = Cam.get(locationid)
+        _swell = web.get(API_URL.SWELL.set_location(_location.bom_geo_tag))
+        _water = web.get(API_URL.WATER.set_location(_location.bom_geo_tag))
 
     return render_template('location.html', locationid=locationid, location=_location, 
-                                            locations=_locations, cams=_cams) 
+                                            locations=_locations, cams=_cams, 
+                                            swell=_swell, water=_water) 
 
 
 @bp.route('/forum', methods=["GET", "POST"])
@@ -178,4 +187,13 @@ def utilities():
                 locationsbycountry_asdict=locationsbycountry_asdict,
                 locationsbystate_asdict=locationsbystate_asdict)
 
+@unique
+class API_URL(Enum):
+    ALERTS = 'http://{}:{}/api/v1/forecast/alert'.format(app.config['API_HOST'], app.config['API_PORT'])
+    SWELL = 'http://{}:{}/api/v1/forecast/swell/'.format(app.config['API_HOST'], app.config['API_PORT'])
+    WATER = 'http://{}:{}/api/v1/forecast/water/'.format(app.config['API_HOST'], app.config['API_PORT'])
+    WEATHER = 'http://{}:{}/api/v1/forecast/weather/'.format(app.config['API_HOST'], app.config['API_PORT'])
 
+    def set_location(self, locationid):
+        _url = f"{self.value}{locationid}"
+        return _url

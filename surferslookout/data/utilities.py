@@ -38,6 +38,7 @@ class DataManager():
                                                 willy_tide=_location['willy_tide'], 
                                                 willy_swell=_location['willy_swell'], 
                                                 wg_site=_location['wg_site'], 
+                                                bom_geo_tag=_location['bom_geo_tag'],
                                                 region_id=_re).add()
                             for _cam in _location['cam']:
                                 _ca = models.Cam(site=_cam['site'], url=_cam['url'], location_id=_lo).add()

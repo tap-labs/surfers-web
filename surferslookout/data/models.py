@@ -76,7 +76,6 @@ class Region(db.Model):
     name = db.Column(db.String(64), unique=True, index=True)
     latitude = db.Column(db.Text)
     longitude = db.Column(db.Text)
-    bom_geo_tag = db.Column(db.Text)
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
 
     def add(self) -> int:
@@ -92,6 +91,11 @@ class Region(db.Model):
         _id = _resp["id"]
 
         return _id
+
+    @staticmethod
+    def get_ById(regionid):
+        _resp = Region.query.filter(Region.id == regionid).first()
+        return _resp
 
     @staticmethod
     def get_ByState(stateid):
@@ -111,6 +115,7 @@ class Location(db.Model):
     willy_wind = db.Column(db.Text)
     willy_tide = db.Column(db.Text)
     willy_swell = db.Column(db.Text)
+    bom_geo_tag = db.Column(db.Text)
     wg_site = db.Column(db.Text)
     region_id = db.Column(db.Integer, db.ForeignKey('region.id'))
     __table_args__ = (
@@ -188,7 +193,6 @@ class Location(db.Model):
             _json.append({'name': _row.name,
                           'latitude': _row.latitude,
                           'longitude': _row.longitude,
-                          'bom_geo_tag': _row.bom_geo_tag,
                           'id': _row.id
                           })
 

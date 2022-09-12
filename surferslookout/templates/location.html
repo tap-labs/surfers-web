@@ -21,6 +21,25 @@
         </table>
     </div>
 
+    <div class="grid-container">
+        <div class="grid-cointainer-child">
+            <img class="forecast" src="{{ url_for('static', filename='images/wave-icon.png') }}">
+            <label class="forcast">{{ swell[0]['height'] }}</label>
+        </div>
+        <div class="grid-cointainer-child">
+            <img class="forecast" src="{{ url_for('static', filename='images/compass.png') }}">
+            <label class="forcast">{{ swell[0]['direction'] }}</label>
+        </div>
+        <div class="grid-cointainer-child">
+            <img class="forecast" src="{{ url_for('static', filename='images/hourglass.png') }}">
+            <label class="forcast">{{ swell[0]['interval'] }}</label>
+        </div>
+        <div class="grid-cointainer-child">
+            <img class="forecast" src="{{ url_for('static', filename='images/watertemp-icon.png') }}">
+            <label class="forcast">{{ water[0]['temperature'] }}</label>
+        </div>
+    </div>
+
     <div class="sidemap" id="map"></div>
 
 

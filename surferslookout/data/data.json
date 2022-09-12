@@ -15,7 +15,6 @@
                             "name": "Sydney East",
                             "latitude": "-33.943568812867056",
                             "longitude": "151.2110862204764",
-                            "bom_geo_tag": "r3gx2s",
                             "location": [
                                 {
                                     "name": "Bondi",
@@ -25,6 +24,7 @@
                                     "willy_wind": "69047",
                                     "willy_tide": "69049",
                                     "willy_swell": "69048",
+                                    "bom_geo_tag": "r3gx2s",
                                     "wg_site": "823",
                                     "cam": [
                                         {
@@ -45,6 +45,7 @@
                                     "willy_wind": "69051",
                                     "willy_tide": "69053",
                                     "willy_swell": "69052",
+                                    "bom_geo_tag": "r3gx2s",
                                     "wg_site": "823",
                                     "cam": [
                                         {
@@ -67,7 +68,6 @@
                             "name": "Sydney South",
                             "latitude": "-33.95840160756529",
                             "longitude": "151.12673107883532",
-                            "bom_geo_tag": "r3gx2s",
                             "location": [
                                 {
                                     "name": "Cronulla",
@@ -78,6 +78,7 @@
                                     "willy_tide": "68995",
                                     "willy_swell": "68994",
                                     "wg_site": "889975",
+                                    "bom_geo_tag": "r3gx2s",
                                     "cam": [
                                         {
                                             "site": "Wanda",
@@ -101,6 +102,7 @@
                                     "willy_wind": "69005",
                                     "willy_tide": "69006",
                                     "willy_swell": "69007",
+                                    "bom_geo_tag": "r3gx2s",
                                     "wg_site": "208692",
                                     "cam": [
                                         {
@@ -122,6 +124,7 @@
                                     "willy_tide": "69011",
                                     "willy_swell": "69010",
                                     "wg_site": "208683",
+                                    "bom_geo_tag": "r3gx2s",
                                     "cam": [
                                         {
                                             "site": "Collaroy",
@@ -138,6 +141,7 @@
                                     "willy_tide": "69014",
                                     "willy_swell": "69015",
                                     "wg_site": "208683",
+                                    "bom_geo_tag": "r3gx2s",
                                     "cam": [
                                         {
                                             "site": "Curl Curl",
@@ -154,6 +158,7 @@
                                     "willy_tide": "69019",
                                     "willy_swell": "69020",
                                     "wg_site": "208683",
+                                    "bom_geo_tag": "r3gx2s",
                                     "cam": [
                                         {
                                             "site": "Dee Why",
@@ -174,7 +179,8 @@
                                     "willy_tide": "68991",
                                     "willy_swell": "68990",
                                     "wg_site": "208690",
-                                     "cam": [
+                                    "bom_geo_tag": "r3gx2s",
+                                    "cam": [
                                         {
                                             "site": "Main Beach",
                                             "url": "https://streamzy.ml/cdn-au/au-monavale/chunklist.m3u8"
@@ -190,6 +196,7 @@
                                     "willy_tide": "69003",
                                     "willy_swell": "69002",
                                     "wg_site": "208702",
+                                    "bom_geo_tag": "r3gx2s",
                                     "cam": [
                                         {
                                             "site": "Fairy Bower",
@@ -217,6 +224,7 @@
                                     "willy_wind": "69022",
                                     "willy_tide": "69023",
                                     "willy_swell": "69024",
+                                    "bom_geo_tag": "r3gx2s",
                                     "wg_site": "208689",
                                     "cam": [
                                         {
@@ -241,6 +249,7 @@
                                     "willy_wind": "69026",
                                     "willy_tide": "69027",
                                     "willy_swell": "69028",
+                                    "bom_geo_tag": "r3gx2s",
                                     "wg_site": "208702",
                                     "cam": [
                                         {
@@ -258,6 +267,7 @@
                                     "willy_tide": "69032",
                                     "willy_swell": "69033",
                                     "wg_site": "208692",
+                                    "bom_geo_tag": "r3gx2s",
                                     "cam": [
                                         {
                                             "site": "Palm Beach",
@@ -274,6 +284,7 @@
                                     "willy_tide": "69036",
                                     "willy_swell": "69037",
                                     "wg_site": "208690",
+                                    "bom_geo_tag": "r3gx2s",
                                     "cam": [
                                         {
                                             "site": "Newport",
@@ -299,7 +310,6 @@
                             "name": "Gold Coast",
                             "latitude": "-27.991213549344554",
                             "longitude": "153.40369367308483",
-                            "bom_geo_tag": "r7hgdm",
                             "location": [
                                 {
                                     "name": "Burleigh Heads",
@@ -309,6 +319,7 @@
                                     "willy_wind": "69043",
                                     "willy_tide": "69045",
                                     "willy_swell": "69044",
+                                    "bom_geo_tag": "r7hgdm",
                                     "wg_site": "",
                                     "cam": [
                                         {
@@ -325,6 +336,7 @@
                                     "willy_wind": "68997",
                                     "willy_tide": "68999",
                                     "willy_swell": "68998",
+                                    "bom_geo_tag": "r7hgdm",
                                     "wg_site": "62159",
                                     "cam": [
                                         {
@@ -341,6 +353,7 @@
                                     "willy_wind": "69039",
                                     "willy_tide": "69041",
                                     "willy_swell": "69040",
+                                    "bom_geo_tag": "r7hgdm",
                                     "wg_site": "63299",
                                     "cam": [
                                         {
