@@ -54,7 +54,8 @@ class Config:
     PORT = os.environ.get('PORT') or 80
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('DB_TRACK_MODIFICATIONS') or False
-    DATA_FILE = os.environ.get('DATA_FILE') or 'surferslookout/data/data.json'
+    DATA_FILE = os.environ.get('DATA_FILE') or f'{basedir}/surfersweb/data/data.json'
+
     API_HOST = os.environ.get('API_HOST') or "surfersapi"
     API_PORT = os.environ.get('API_PORT') or "80"
     SERVICE_BINDING = os.environ.get('BINDING_NAME') or 'surferslookout-db'
