@@ -38,7 +38,7 @@ class Binding:
                         i = i + 1
             if i >= 4:
                 self.SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{self.USERNAME}:{self.PASSWORD}@{self.HOST}:{self.PORT}/{self.DATABASE}"
-                print('Binding DB URI: {0}'.format(self.SQLALCHEMY_DATABASE_URI), file=sys.stdout)
+                print(f'Binding DB URI: {self.SQLALCHEMY_DATABASE_URI}', file=sys.stdout)
                 return self.SQLALCHEMY_DATABASE_URI
             else:
                 return None
@@ -55,7 +55,6 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('DB_TRACK_MODIFICATIONS') or False
     DATA_FILE = os.environ.get('DATA_FILE') or f'{basedir}/surfersweb/data/data.json'
-
     API_HOST = os.environ.get('API_HOST') or "surfersapi"
     API_PORT = os.environ.get('API_PORT') or "80"
     SERVICE_BINDING = os.environ.get('BINDING_NAME') or 'surferslookout-db'
@@ -64,10 +63,17 @@ class Config:
         BINDING_ROOT = "bindings/"
     else:
         BINDING_ROOT = "/bindings/"
+    print(f'Binding list: {os.listdir(BINDING_ROOT)}', file=sys.stdout)
+
     BINDING_FOLDER = BINDING_ROOT + SERVICE_BINDING
     if path.exists(BINDING_FOLDER):
+        print(f'Binding root found: {BINDING_FOLDER}', file=sys.stdout)
         _binding = Binding()
         SQLALCHEMY_DATABASE_URI = _binding.getDBURL(BINDING_FOLDER)
+    else:
+        print(f'No binding found: {BINDING_FOLDER}', file=sys.stdout)
+        print(f'Binding list: {os.listdir(BINDING_ROOT)}', file=sys.stdout)
+        
 
     @staticmethod
     def init_app(app):

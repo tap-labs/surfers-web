@@ -6,4 +6,4 @@ pysqlite3
 python-dotenv
 WTForms
 redis
-
+pyservicebinding
