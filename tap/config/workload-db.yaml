@@ -25,11 +25,21 @@ spec:
       ref:
         branch: main
   serviceClaims:
-    - name: surferslookout-binding
+    - name: surferslookout-db
       ref:
         apiVersion: v1
         kind: Secret
         name: surferslookout-db
+    - name: surferslookout-api
+      ref:
+        apiVersion: v1
+        kind: Secret
+        name: surferslookout-api
   env:
   - name: GOOGLE_API_KEY
     value: yourapikey
+  - name: API_HOST
+    value: "surfersapi.alpha.apps.tap2.tanzu.rocks"
+  - name: API_PORT
+    value: "80"
+    

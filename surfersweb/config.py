@@ -55,9 +55,9 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('DB_TRACK_MODIFICATIONS') or False
     DATA_FILE = os.environ.get('DATA_FILE') or 'surferslookout/data/data.json'
-    API_HOST = os.environ.get('API_HOST') or "surfersreport"
+    API_HOST = os.environ.get('API_HOST') or "surfersapi"
     API_PORT = os.environ.get('API_PORT') or "80"
-    SERVICE_BINDING = os.environ.get('BINDING_NAME') or 'surferslookout-binding'
+    SERVICE_BINDING = os.environ.get('BINDING_NAME') or 'surferslookout-db'
     BINDING_ASSIGNED = False
     if os.path.exists("bindings"):
         BINDING_ROOT = "bindings/"

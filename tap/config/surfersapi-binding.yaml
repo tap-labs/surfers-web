@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: surferslookout-api
+type: servicebinding.io/api
+stringData:
+  type: api
+  host: surfersapi.alpha.apps.tap2.tanzu.rocks
+  port: "80"
+  
