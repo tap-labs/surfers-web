@@ -1,6 +1,6 @@
 import sys
 from flask import Flask
-from surferslookout import config
+from surfersweb import config
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -12,7 +12,7 @@ def create_app(config_name):
     db.init_app(app)
 
     app.logger.info('Import blueprints')
-    from surferslookout.blueprints import bp as main_blueprint
+    from surfersweb.blueprints import bp as main_blueprint
     app.register_blueprint(main_blueprint)
 
     return app

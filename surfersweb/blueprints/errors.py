@@ -1,6 +1,6 @@
 from flask import current_app, render_template
 from . import bp
-from surferslookout.data.models import Location
+from surfersweb.data.models import Location
 
 @bp.app_errorhandler(404)
 def page_not_found(e):

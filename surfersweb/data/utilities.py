@@ -1,8 +1,8 @@
 import json
 import sys
 from unicodedata import category
-from surferslookout import app
-import surferslookout
+from surfersweb import app
+import surfersweb
 from . import models
 
 

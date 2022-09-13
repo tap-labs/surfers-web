@@ -8,12 +8,12 @@ import urllib.request
 from datetime import datetime
 import flask
 
-import surferslookout
-from surferslookout.services import web
+import surfersweb
+from surfersweb.services import web
 from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
 from flask import current_app as app
 from . import bp
-from surferslookout.data.models import *
+from surfersweb.data.models import *
 
 
 @bp.route('/', methods=["GET"])
