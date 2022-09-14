@@ -1,9 +1,9 @@
-SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='us.gcr.io/lloyd-266015/supply-chain/surferslookout-source')
+SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='us.gcr.io/lloyd-266015/supply-chain/surfersweb-source')
 LOCAL_PATH = os.getenv("LOCAL_PATH", default='.')
 NAMESPACE = os.getenv("NAMESPACE", default='alpha')
-APP_NAME = "surferslookout"
+APP_NAME = "surfersweb"
 K8S_CONTEXT = os.getenv("K8S_CONTEXT", default="tap-aus-2")
-WORKLOAD_FILE = "../surferslookout-workload-db.yaml"
+WORKLOAD_FILE = "../surfersweb-workload-db.yaml"
 
 k8s_custom_deploy(
     APP_NAME,
@@ -21,7 +21,7 @@ k8s_custom_deploy(
     ]
 )
 
-k8s_resource(APP_NAME, port_forwards=["8000"],
+k8s_resource(APP_NAME, port_forwards=["8080"],
             extra_pod_selectors=[{'serving.knative.dev/service': APP_NAME}])
 
 allow_k8s_contexts(K8S_CONTEXT)

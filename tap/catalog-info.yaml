@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: surferslookout
+  name: surfersweb
   description: Surf Condition Web Reporter and Cams
   tags:
     - app-accelerator
