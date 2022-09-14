@@ -1,6 +1,7 @@
 import os
 from os import path
 import sys
+from pyservicebinding import binding
 
 basedir = os.getcwd()
 
@@ -14,6 +15,13 @@ class Binding:
 
     def getDBURL(self, bindingFolder):
         print('Binding folder: {0}'.format(bindingFolder), file=sys.stdout)
+
+        try:
+            _sb = binding.ServiceBinding()
+            for _binding in _sb.all_bindings():
+                print(f"Binding: {_binding}")
+        except binding.ServiceBindingRootMissingError as msg:
+            print("SERVICE_BINDING_ROOT env var not set")
 
         if path.exists(bindingFolder):
             print('Binding found', file=sys.stdout)
@@ -51,7 +59,7 @@ class Config:
     SESSION_COOKIE_HTTPONLY = False
     GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
     ENV = 'unset'
-    PORT = os.environ.get('PORT') or 80
+    PORT = os.environ.get('PORT') or "8000"
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('DB_TRACK_MODIFICATIONS') or False
     DATA_FILE = os.environ.get('DATA_FILE') or f'{basedir}/surfersweb/data/data.json'
