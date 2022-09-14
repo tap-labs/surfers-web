@@ -43,6 +43,8 @@ class DataManager():
                                                     region_id=_re).add()
                                 for _cam in _location['cam']:
                                     _ca = models.Cam(site=_cam['site'], url=_cam['url'], location_id=_lo).add()
+                        
+            app.logger.info(f"Data import completed")
         except:
             app.logger.error(f"Error reading data import file: {app.config['DATA_FILE']}")
 

@@ -1,6 +1,4 @@
 import os
-import sys
-from flask import current_app
 from surfersweb import create_app
 from dotenv import load_dotenv
 

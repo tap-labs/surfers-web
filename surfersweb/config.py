@@ -5,55 +5,6 @@ from pyservicebinding import binding
 
 basedir = os.getcwd()
 
-class Binding:
-    HOST = "localhost"
-    USERNAME = "user"
-    PASSWORD = "password"
-    PORT = 3306
-    DATABASE = "db"
-    SQLALCHEMY_DATABASE_URI = ""
-
-    def getDBURL(self, bindingFolder):
-        print('Binding folder: {0}'.format(bindingFolder), file=sys.stdout)
-
-        try:
-            _sb = binding.ServiceBinding()
-            for _binding in _sb.all_bindings():
-                print(f"Binding: {_binding}")
-        except binding.ServiceBindingRootMissingError as msg:
-            print("SERVICE_BINDING_ROOT env var not set")
-
-        if path.exists(bindingFolder):
-            print('Binding found', file=sys.stdout)
-            i = 0
-            for _key in os.listdir(bindingFolder):
-                valueFile = bindingFolder + "/" + _key
-                match _key:
-                    case 'port':
-                        self.PORT = open(valueFile).read()
-                        i = i + 1
-                    case 'database':
-                        self.DATABASE = open(valueFile).read()
-                        i = i + 1
-                    case 'host':
-                        self.HOST = open(valueFile).read()
-                        i = i + 1
-                    case 'username':
-                        self.USERNAME = open(valueFile).read()
-                        i = i + 1
-                    case 'password':
-                        self.PASSWORD = open(valueFile).read()
-                        i = i + 1
-            if i >= 4:
-                self.SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{self.USERNAME}:{self.PASSWORD}@{self.HOST}:{self.PORT}/{self.DATABASE}"
-                print(f'Binding DB URI: {self.SQLALCHEMY_DATABASE_URI}', file=sys.stdout)
-                return self.SQLALCHEMY_DATABASE_URI
-            else:
-                return None
-        else:
-            return None
-
-
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret'
     SESSION_COOKIE_HTTPONLY = False
@@ -65,23 +16,26 @@ class Config:
     DATA_FILE = os.environ.get('DATA_FILE') or f'{basedir}/surfersweb/data/data.json'
     API_HOST = os.environ.get('API_HOST') or "surfersapi"
     API_PORT = os.environ.get('API_PORT') or "80"
-    SERVICE_BINDING = os.environ.get('BINDING_NAME') or 'surferslookout-db'
-    BINDING_ASSIGNED = False
-    if os.path.exists("bindings"):
-        BINDING_ROOT = "bindings/"
-    else:
-        BINDING_ROOT = "/bindings/"
-    print(f'Binding list: {os.listdir(BINDING_ROOT)}', file=sys.stdout)
 
-    BINDING_FOLDER = BINDING_ROOT + SERVICE_BINDING
-    if path.exists(BINDING_FOLDER):
-        print(f'Binding root found: {BINDING_FOLDER}', file=sys.stdout)
-        _binding = Binding()
-        SQLALCHEMY_DATABASE_URI = _binding.getDBURL(BINDING_FOLDER)
+    try:
+        _sb = binding.ServiceBinding()
+    except binding.ServiceBindingRootMissingError as msg:
+        print("Environment Variable SERVICE_BINDING_ROOT not set")
     else:
-        print(f'No binding found: {BINDING_FOLDER}', file=sys.stdout)
-        print(f'Binding list: {os.listdir(BINDING_ROOT)}', file=sys.stdout)
-        
+        _db = _sb.bindings('mysql')
+        if _db:
+            SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{_db[0]['username']}:{_db[0]['password']}@{_db[0]['host']}:{_db[0]['port']}/{_db[0]['database']}"
+            print(f'Binding DB URI: {SQLALCHEMY_DATABASE_URI}')
+        else:
+            print('MySQL Binding not found, reverting to sqlite local store')
+
+        _api = _sb.bindings('api')
+        if _api:
+            API_HOST = _api[0]['host']
+            API_PORT = _api[0]['port']
+        else:
+            print('API Binding not found, reverting to environment variables or defaults')
+
 
     @staticmethod
     def init_app(app):

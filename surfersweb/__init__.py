@@ -1,4 +1,3 @@
-import sys
 from flask import Flask
 from surfersweb import config
 from flask_sqlalchemy import SQLAlchemy

@@ -1,19 +1,11 @@
-import datetime
-from enum import Enum, unique
-import socket
-import os
-import time
 import json
-import urllib.request
+from enum import Enum, unique
 from datetime import datetime
-import flask
-
-import surfersweb
-from surfersweb.services import web
-from flask import Blueprint, render_template, request, jsonify, session, redirect, url_for
+from flask import render_template, request, jsonify, redirect, url_for
 from flask import current_app as app
 from . import bp
 from surfersweb.data.models import *
+from surfersweb.services import web
 
 
 @bp.route('/', methods=["GET"])

@@ -57,8 +57,11 @@ class State(db.Model):
         except IntegrityError:
             db.session.rollback()
 
-        _resp = State.query.with_entities(State.id).filter(State.name == self.name).first()
-        _id = _resp["id"]
+        if self.id is None:
+            _resp = State.query.with_entities(State.id).filter(State.name == self.name).first()
+            _id = _resp["id"]
+        else:
+            _id = self.id
 
         return _id
 
@@ -87,8 +90,11 @@ class Region(db.Model):
         except IntegrityError:
             db.session.rollback()
 
-        _resp = Region.query.with_entities(Region.id).filter(Region.name == self.name).first()
-        _id = _resp["id"]
+        if self.id is None:
+            _resp = Region.query.with_entities(Region.id).filter(Region.name == self.name).first()
+            _id = _resp["id"]
+        else:
+            _id = self.id
 
         return _id
 
@@ -130,11 +136,17 @@ class Location(db.Model):
         db.session.add(self)
         try:
             db.session.commit()
-            app.logger.info('Location Record Added: %s', self.name)
+            app.logger.info(f'Location Record Added: {self.name}')
         except IntegrityError:
             db.session.rollback()
 
-        return self.id
+        if self.id is None:
+            _resp = Location.query.with_entities(Location.id).filter(Location.name == self.name).first()
+            _id = _resp["id"]
+        else:
+            _id = self.id
+
+        return _id
 
     def get_id(self) -> int:
         _resp = Location.query.with_entities(Location.id).filter(Location.name == self.name).first()
@@ -242,7 +254,7 @@ class Cam(db.Model):
         db.UniqueConstraint('site', 'location_id'),
     )
 
-    def add(self):
+    def add(self) -> int:
         _id = None
         db.session.add(self)
         try:
@@ -251,7 +263,14 @@ class Cam(db.Model):
         except IntegrityError:
             db.session.rollback()
 
-        return self.id
+        if self.id is None:
+            _resp = Cam.query.with_entities(Cam.id).filter(Cam.site == self.site, Cam.location_id == self.location_id).first()
+            _id = _resp['id']
+        else:
+            _id = self.id
+
+        return _id
+
 
     def get(locationid):
         _request = Cam.query.filter(Cam.location_id == locationid).all()
