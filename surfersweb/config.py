@@ -1,6 +1,4 @@
 import os
-from os import path
-import sys
 from pyservicebinding import binding
 
 basedir = os.getcwd()

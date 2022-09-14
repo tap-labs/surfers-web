@@ -1,12 +1,9 @@
 import json
-import sys
-from unicodedata import category
-from flask import jsonify, current_app
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from flask import current_app
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.mysql import insert
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy.inspection import inspect
 from surfersweb import app, db
 from .utilities import DataManager
 

@@ -1,7 +1,7 @@
 import json
 from enum import Enum, unique
 from datetime import datetime
-from flask import render_template, request, jsonify, redirect, url_for
+from flask import render_template, request, redirect
 from flask import current_app as app
 from . import bp
 from surfersweb.data.models import *
