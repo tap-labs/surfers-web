@@ -22,19 +22,31 @@
     </div>
 
     <div class="grid-container">
-        <div class="grid-cointainer-child">
+        <div class="grid-cointainer-child" title="Curent Temperature">
+            <img class="forecast" src="{{ url_for('static', filename='images/weather-temp-icon-128.png') }}">
+            <label class="forcast">{{ weather['temp'] }}</label>
+        </div>
+        <div class="grid-cointainer-child" title="Wind speed km/h">
+            <img class="forecast" src="{{ url_for('static', filename='images/wind-icon.png') }}">
+            <label class="forcast">{{ weather['wind_speed'] }}</label>
+        </div>
+        <div class="grid-cointainer-child" title="Wind direction">
+            <img class="forecast" src="{{ url_for('static', filename='images/wind-direction-icon.png') }}">
+            <label class="forcast">{{ weather['wind_direction'] }}</label>
+        </div>
+        <div class="grid-cointainer-child" title="Wave height">
             <img class="forecast" src="{{ url_for('static', filename='images/wave-icon.png') }}">
             <label class="forcast">{{ swell[0]['height'] }}</label>
         </div>
-        <div class="grid-cointainer-child">
+        <div class="grid-cointainer-child" title="Swell direction">
             <img class="forecast" src="{{ url_for('static', filename='images/compass.png') }}">
             <label class="forcast">{{ swell[0]['direction'] }}</label>
         </div>
-        <div class="grid-cointainer-child">
+        <div class="grid-cointainer-child" title="Wave interval period">
             <img class="forecast" src="{{ url_for('static', filename='images/hourglass.png') }}">
             <label class="forcast">{{ swell[0]['interval'] }}</label>
         </div>
-        <div class="grid-cointainer-child">
+        <div class="grid-cointainer-child" title="Water temperature">
             <img class="forecast" src="{{ url_for('static', filename='images/watertemp-icon.png') }}">
             <label class="forcast">{{ water[0]['temperature'] }}</label>
         </div>
@@ -44,10 +56,8 @@
 
 
     <div class="select">
-        <label for="breaks">Other Local Breaks:</label>
-        &emsp;&emsp;&emsp;
         <select id="breaks" title="Location" onchange="changeBreak();">
-            <option value="0">--- Select Break ---</option>
+            <option value="0">- Select Break -</option>
             {% for _location in locations %}
                 {% if _location.name != location.name %}
                     <option value={{ _location.id }}>{{ _location.name }}</option>

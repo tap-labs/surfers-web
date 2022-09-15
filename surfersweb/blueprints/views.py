@@ -4,8 +4,9 @@ from datetime import datetime
 from flask import render_template, request, redirect
 from flask import current_app as app
 from . import bp
-from surfersweb.data.models import *
+from surfersweb.data.models import Country, State, Region, Location, Cam
 from surfersweb.services import web
+from surfersweb.services.enums import API_URL
 
 
 @bp.route('/', methods=["GET"])
@@ -86,10 +87,11 @@ def location(locationid):
         _cams = Cam.get(locationid)
         _swell = web.get(API_URL.SWELL.set_location(_location.bom_geo_tag))
         _water = web.get(API_URL.WATER.set_location(_location.bom_geo_tag))
+        _weather = web.get(API_URL.WEATHER_CURRENT.value + _location.name.replace(' ', '+'))
 
     return render_template('location.html', locationid=locationid, location=_location, 
                                             locations=_locations, cams=_cams, 
-                                            swell=_swell, water=_water) 
+                                            swell=_swell, water=_water,weather=_weather) 
 
 
 @bp.route('/forum', methods=["GET", "POST"])
@@ -157,16 +159,16 @@ def utilities():
             return f'</td>'
 
     def locationsbyregion_asdict(regionid):
-        _request = Location.get_ByRegionSerialized(regionid)
-        return _request
+        _response = Location.get_ByRegionSerialized(regionid)
+        return _response
 
     def locationsbycountry_asdict(countryid):
-        _request = Location.get_ByCountrySerialized(countryid)
-        return _request
+        _response = Location.get_ByCountrySerialized(countryid)
+        return _response
 
     def locationsbystate_asdict(stateid):
-        _request = Location.get_ByStateSerialized(stateid)
-        return _request
+        _response = Location.get_ByStateSerialized(stateid)
+        return _response
 
 
     return dict(camlist=camlist, 
@@ -178,14 +180,3 @@ def utilities():
                 locationsbyregion_asdict=locationsbyregion_asdict, 
                 locationsbycountry_asdict=locationsbycountry_asdict,
                 locationsbystate_asdict=locationsbystate_asdict)
-
-@unique
-class API_URL(Enum):
-    ALERTS = 'http://{}:{}/api/v1/forecast/alert'.format(app.config['API_HOST'], app.config['API_PORT'])
-    SWELL = 'http://{}:{}/api/v1/forecast/swell/'.format(app.config['API_HOST'], app.config['API_PORT'])
-    WATER = 'http://{}:{}/api/v1/forecast/water/'.format(app.config['API_HOST'], app.config['API_PORT'])
-    WEATHER = 'http://{}:{}/api/v1/forecast/weather/'.format(app.config['API_HOST'], app.config['API_PORT'])
-
-    def set_location(self, locationid):
-        _url = f"{self.value}{locationid}"
-        return _url
