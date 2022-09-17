@@ -131,7 +131,7 @@ def about():
 
 @bp.route('/search/<location>', methods=["GET"])
 def search(location):
-    app.logger.info("Search requested - {}".format(location))
+    app.logger.info(f"Search requested - {location}")
     if "," in location:
         _entries = location.split(',')
         _town = _entries[0].strip()
@@ -143,6 +143,25 @@ def search(location):
     for item in json.loads(_results):
         _url = '/location/{}'.format(item['id'])
     return redirect(_url)
+
+"""
+Heath status check routine
+"""
+@bp.route('/healthz', methods=["GET"])
+def health():
+    app.logger.info("Getting service health status")
+    _status = web.get(API_URL.HEALTHZ.value)
+    if _status is not None:
+        _api = _status['health']
+    else:
+        _api = 'fail'
+    _status = {
+        "health": "ok",
+        "environment": app.config['ENV'],
+        "database": app.config['SQLALCHEMY_DATABASE_URI'][:10],
+        "api": _api
+    }
+    return _status
 
 
 ## Jinja Variables

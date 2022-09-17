@@ -8,6 +8,7 @@ class API_URL(Enum):
     WATER = f"http://{app.config['API_HOST']}:{app.config['API_PORT']}/api/v1/surf/water/"
     LOCATION = f"http://{app.config['API_HOST']}:{app.config['API_PORT']}/api/v1/weather/locations/"
     WEATHER_CURRENT = f"http://{app.config['API_HOST']}:{app.config['API_PORT']}/api/v1/weather/observation/"
+    HEALTHZ = f"http://{app.config['API_HOST']}:{app.config['API_PORT']}/api/v1/healthz"
 
     def set_location(self, locationid):
         _url = f"{self.value}{locationid}"
