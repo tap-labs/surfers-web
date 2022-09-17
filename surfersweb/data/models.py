@@ -3,6 +3,7 @@ from datetime import datetime
 from flask import current_app
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.mysql import insert
+from sqlalchemy import update
 from sqlalchemy.exc import IntegrityError
 from surfersweb import app, db
 from .utilities import DataManager
@@ -16,6 +17,9 @@ class Country(db.Model):
     name = db.Column(db.String(64), unique=True, index=True)
     latitude = db.Column(db.Text)
     longitude = db.Column(db.Text)
+
+    def __repr__(self):
+        return f'<Country: {self.name}>'
 
     def add(self) -> int:
         _id = None
@@ -44,6 +48,9 @@ class State(db.Model):
     latitude = db.Column(db.Text)
     longitude = db.Column(db.Text)
     country_id = db.Column(db.Integer, db.ForeignKey('country.id'))
+
+    def __repr__(self):
+        return f'<State: {self.name}>'
 
     def add(self) -> int:
         _id = None
@@ -77,6 +84,9 @@ class Region(db.Model):
     latitude = db.Column(db.Text)
     longitude = db.Column(db.Text)
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
+
+    def __repr__(self):
+        return f'<Region: {self.name}>'
 
     def add(self) -> int:
         _id = None
@@ -118,7 +128,7 @@ class Location(db.Model):
     willy_wind = db.Column(db.Text)
     willy_tide = db.Column(db.Text)
     willy_swell = db.Column(db.Text)
-    bom_geo_tag = db.Column(db.Text)
+    geohash = db.Column(db.Text)
     wg_site = db.Column(db.Text)
     region_id = db.Column(db.Integer, db.ForeignKey('region.id'))
     __table_args__ = (
@@ -126,7 +136,8 @@ class Location(db.Model):
     )
 
     def __repr__(self):
-        return self.id
+        return f'<Location: {self.name}>'
+
 
     def add(self) -> int:
         _id = None
@@ -239,6 +250,25 @@ class Location(db.Model):
                           })
         return json.dumps(_json)
 
+    @staticmethod
+    def get_LocationState(locationid):
+        _resp = db.session.query(Location, Region, State).filter(
+                                                            State.id==Region.state_id, 
+                                                            Region.id==Location.region_id,
+                                                            Location.id==locationid).first()
+        if _resp:
+            return _resp.State.postal
+        else:
+            return None
+
+    # Update the geohash value in the location entry specified
+    @staticmethod
+    def update_LocationGeohash(locationid, geohash):
+        _stmt = update(Location).where(Location.id == locationid).values(
+                                    geohash=geohash).execution_options(synchronize_session="fetch")
+        _result = db.session.execute(_stmt)
+        return _result.rowcount
+
 
 ## Class that stores all camera installations, Locations can have 1 or more cameras
 class Cam(db.Model):
@@ -250,6 +280,11 @@ class Cam(db.Model):
     __table_args__ = (
         db.UniqueConstraint('site', 'location_id'),
     )
+
+
+    def __repr__(self):
+        return f'<Cam: {self.site}>'
+
 
     def add(self) -> int:
         _id = None

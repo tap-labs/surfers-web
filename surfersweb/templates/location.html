@@ -21,36 +21,39 @@
         </table>
     </div>
 
-    <div class="grid-container">
-        <div class="grid-cointainer-child" title="Curent Temperature">
-            <img class="forecast" src="{{ url_for('static', filename='images/weather-temp-icon-128.png') }}">
-            <label class="forcast">{{ weather['temp'] }}</label>
+    {% if apiresults == True %}
+        <div class="grid-container">
+            <div class="grid-cointainer-child" title="Curent Temperature">
+                <img class="forecast" src="{{ url_for('static', filename='images/weather-temp-icon-128.png') }}">
+                <label class="forcast">{{ weather['temp'] }}</label>
+            </div>
+            <div class="grid-cointainer-child" title="Wind speed km/h">
+                <img class="forecast" src="{{ url_for('static', filename='images/wind-icon.png') }}">
+                <label class="forcast">{{ weather['wind_speed'] }}</label>
+            </div>
+            <div class="grid-cointainer-child" title="Wind direction">
+                <img class="forecast" src="{{ url_for('static', filename='images/wind-direction-icon.png') }}">
+                <label class="forcast">{{ weather['wind_direction'] }}</label>
+            </div>
+            <div class="grid-cointainer-child" title="Wave height">
+                <img class="forecast" src="{{ url_for('static', filename='images/wave-icon.png') }}">
+                <label class="forcast">{{ swell[0]['height'] }}</label>
+            </div>
+            <div class="grid-cointainer-child" title="Swell direction">
+                <img class="forecast" src="{{ url_for('static', filename='images/compass.png') }}">
+                <label class="forcast">{{ swell[0]['direction'] }}</label>
+            </div>
+            <div class="grid-cointainer-child" title="Wave interval period">
+                <img class="forecast" src="{{ url_for('static', filename='images/hourglass.png') }}">
+                <label class="forcast">{{ swell[0]['interval'] }}</label>
+            </div>
+            <div class="grid-cointainer-child" title="Water temperature">
+                <img class="forecast" src="{{ url_for('static', filename='images/watertemp-icon.png') }}">
+                <label class="forcast">{{ water[0]['temperature'] }}</label>
+            </div>
         </div>
-        <div class="grid-cointainer-child" title="Wind speed km/h">
-            <img class="forecast" src="{{ url_for('static', filename='images/wind-icon.png') }}">
-            <label class="forcast">{{ weather['wind_speed'] }}</label>
-        </div>
-        <div class="grid-cointainer-child" title="Wind direction">
-            <img class="forecast" src="{{ url_for('static', filename='images/wind-direction-icon.png') }}">
-            <label class="forcast">{{ weather['wind_direction'] }}</label>
-        </div>
-        <div class="grid-cointainer-child" title="Wave height">
-            <img class="forecast" src="{{ url_for('static', filename='images/wave-icon.png') }}">
-            <label class="forcast">{{ swell[0]['height'] }}</label>
-        </div>
-        <div class="grid-cointainer-child" title="Swell direction">
-            <img class="forecast" src="{{ url_for('static', filename='images/compass.png') }}">
-            <label class="forcast">{{ swell[0]['direction'] }}</label>
-        </div>
-        <div class="grid-cointainer-child" title="Wave interval period">
-            <img class="forecast" src="{{ url_for('static', filename='images/hourglass.png') }}">
-            <label class="forcast">{{ swell[0]['interval'] }}</label>
-        </div>
-        <div class="grid-cointainer-child" title="Water temperature">
-            <img class="forecast" src="{{ url_for('static', filename='images/watertemp-icon.png') }}">
-            <label class="forcast">{{ water[0]['temperature'] }}</label>
-        </div>
-    </div>
+
+    {% endif %}
 
     <div class="sidemap" id="map"></div>
 
@@ -66,7 +69,7 @@
         </select>
     </div>
 
-    <div class="center">
+    <div class="footer">
         <div class="weather-row">
             <div class="weather-column">
                 <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_weather}}" class="weather-frame" title="Weather"></iframe>

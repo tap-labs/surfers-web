@@ -1,7 +1,8 @@
 import json
 from enum import Enum, unique
 from datetime import datetime
-from flask import render_template, request, redirect
+from pickle import TRUE
+from flask import render_template, request, redirect, abort
 from flask import current_app as app
 from . import bp
 from surfersweb.data.models import Country, State, Region, Location, Cam
@@ -78,20 +79,43 @@ def beaches():
 
 @bp.route('/location/<locationid>', methods=["GET"])
 def location(locationid):
-    app.logger.info("Accessing Location page for locationid {0}", str(locationid))
+    app.logger.info(f"Accessing Location page for locationid {locationid}")
+    _swell={}
+    _water={}
+    _weather={}
     _cams={}
 
     if locationid != 0:
         _location = Location.get_ById(locationid)
         _locations = Location.get_ByRegion(_location.region_id)
         _cams = Cam.get(locationid)
-        _swell = web.get(API_URL.SWELL.set_location(_location.bom_geo_tag))
-        _water = web.get(API_URL.WATER.set_location(_location.bom_geo_tag))
-        _weather = web.get(API_URL.WEATHER_CURRENT.value + _location.name.replace(' ', '+'))
+        # Need the Geohash tag for getting data from BOM API (ref https://en.wikipedia.org/wiki/Geohash)
+        if not _location.geohash:
+            # use BOM location search query to get geohash. Need both location name and state to ensure correct location
+            _state = Location.get_LocationState(locationid)
+            _searchstring = f'{_location.name}+{_state}'.replace(' ', '+')
 
-    return render_template('location.html', locationid=locationid, location=_location, 
-                                            locations=_locations, cams=_cams, 
-                                            swell=_swell, water=_water,weather=_weather) 
+            _result = web.get(API_URL.LOCATION.set_location(_searchstring))
+            if len(_result) > 0:
+                # Update record with geohash value
+                _location.geohash = _result[0]['geohash']
+                Location.update_LocationGeohash(locationid, _location.geohash)
+
+        # Query current conditions from API Service if geohash value present
+        if _location.geohash:
+            _swell = web.get(API_URL.SWELL.set_location(_location.geohash))
+            _water = web.get(API_URL.WATER.set_location(_location.geohash))
+            _weather = web.get(API_URL.WEATHER_CURRENT.set_location(_location.geohash))
+            _apiresults = True
+        else:
+            _apiresults = False
+
+        return render_template('location.html', locationid=locationid, location=_location, 
+                                                locations=_locations, cams=_cams, 
+                                                swell=_swell, water=_water,weather=_weather,
+                                                apiresults=_apiresults) 
+    else:
+        abort(404)
 
 
 @bp.route('/forum', methods=["GET", "POST"])
@@ -124,8 +148,8 @@ def search(location):
 ## Jinja Variables
 @bp.context_processor
 def inject_locationnames():
-    _request = Location.get_AllNamesSerialized()
-    return dict(locationnames=_request)
+    _response = Location.get_AllNamesSerialized()
+    return dict(locationnames=_response)
 
 ## Jinja Functions 
 @bp.context_processor

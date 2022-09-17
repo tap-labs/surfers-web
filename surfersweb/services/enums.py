@@ -6,6 +6,7 @@ class API_URL(Enum):
     ALERTS = f"http://{app.config['API_HOST']}:{app.config['API_PORT']}/api/v1/weather/alert"
     SWELL = f"http://{app.config['API_HOST']}:{app.config['API_PORT']}/api/v1/surf/swell/"
     WATER = f"http://{app.config['API_HOST']}:{app.config['API_PORT']}/api/v1/surf/water/"
+    LOCATION = f"http://{app.config['API_HOST']}:{app.config['API_PORT']}/api/v1/weather/locations/"
     WEATHER_CURRENT = f"http://{app.config['API_HOST']}:{app.config['API_PORT']}/api/v1/weather/observation/"
 
     def set_location(self, locationid):
