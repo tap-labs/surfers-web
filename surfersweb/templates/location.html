@@ -60,7 +60,7 @@
 
     <div class="select">
         <select id="breaks" title="Location" onchange="changeBreak();">
-            <option value="0">- Select Break -</option>
+            <option value="0">- Local Breaks -</option>
             {% for _location in locations %}
                 {% if _location.name != location.name %}
                     <option value={{ _location.id }}>{{ _location.name }}</option>

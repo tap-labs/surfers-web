@@ -8,6 +8,7 @@ from . import bp
 from surfersweb.data.models import Country, State, Region, Location, Cam
 from surfersweb.services import web
 from surfersweb.services.enums import API_URL
+from surfersweb.data.utilities import DataManager
 
 
 @bp.route('/', methods=["GET"])
@@ -126,7 +127,30 @@ def forum():
 @bp.route('/about', methods=["GET"])
 def about():
     app.logger.info("Accessing About page")
-    return render_template('about.html')
+
+
+    _health = health()
+    if _health is not None:
+        if _health['health'] == 'ok':
+            _service_health = '&#10004;'
+        else:
+            _service_health = '&#9747;'
+        if _health['api'] == 'ok':
+            _api_health = '&#10004;'
+        else:
+            _api_health = '&#9747;'
+        if _health['database'] == 'ok':
+            _database_health = '&#10004;'
+        else:
+            _database_health = '&#9747;'
+    else:
+        _service_health = '?'
+        _api_health = '?'
+        _database_health = '?'
+
+    return render_template('about.html', service_health=_service_health,
+                                        api_health=_api_health,
+                                        database_health=_database_health)
 
 
 @bp.route('/search/<location>', methods=["GET"])
@@ -155,10 +179,16 @@ def health():
         _api = _status['health']
     else:
         _api = 'fail'
+    if DataManager.testdb():
+        _database = 'ok'
+    else:
+        _database= 'fail'
+
+
     _status = {
         "health": "ok",
         "environment": app.config['ENV'],
-        "database": app.config['SQLALCHEMY_DATABASE_URI'][:10],
+        "database": _database,
         "api": _api
     }
     return _status

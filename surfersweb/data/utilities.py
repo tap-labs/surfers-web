@@ -1,8 +1,9 @@
+from cgitb import text
 import json
 import sys
-from surfersweb import app
+from surfersweb import app, db
 from . import models
-
+from sqlalchemy.sql import text
 
 class DataManager():
 
@@ -45,3 +46,12 @@ class DataManager():
                                 _ca = models.Cam(site=_cam['site'], url=_cam['url'], location_id=_lo).add()
             app.logger.info(f"Data import completed")
 
+
+    @staticmethod
+    def testdb():
+        try:
+            db.session.execute('SELECT 1')
+            return True
+        except Exception as e:
+            app.logger.error(f'Database connection attempt failed: {str(e)}')
+            return False

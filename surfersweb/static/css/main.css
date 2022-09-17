@@ -691,5 +691,40 @@ label.forecast {
   font-size: 24px;
   font-weight: bold;
   text-align: right;
-  padding-right: ;
+}
+
+.health {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.health-child {
+  text-align: left;
+  border-style: solid;
+  border-color: #000000;
+  background-color: var(--darkgray);
+  color: snow;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+label.health-item {
+  border: none;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: right;
+}
+
+img.health-item {
+  border-radius: 2px;
+  border: none;
+  padding: 1px;
+  padding-right: 5px;
+  width: 32px;
+  margin-top: .1em;
 }

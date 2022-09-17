@@ -1,3 +1,4 @@
+from cgitb import text
 import json
 from datetime import datetime
 from flask import current_app
@@ -9,7 +10,6 @@ from surfersweb import app, db
 from .utilities import DataManager
 
 app.logger.info('Define DB Models')
-
 ## Table that stores regional data
 class Country(db.Model):
     __tablename__ = 'country'

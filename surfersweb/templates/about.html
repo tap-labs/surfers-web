@@ -24,5 +24,22 @@
     </p>
 </div>
 
+<div class="footer">
+    <div class="health">
+        <div class="health-child" title="Service Health">
+            <img class="health-item" src="{{ url_for('static', filename='images/web-128.png') }}">
+            <label class="health-item">{{ service_health | safe }}</label>
+        </div>
+        <div class="health-child" title="Database Health">
+            <img class="health-item" src="{{ url_for('static', filename='images/database-128.png') }}">
+            <label class="health-item">{{ database_health | safe }}</label>
+        </div>
+        <div class="health-child" title="API Health">
+            <img class="health-item" src="{{ url_for('static', filename='images/api-128.png') }}">
+            <label class="health-item">{{ api_health | safe }}</label>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
