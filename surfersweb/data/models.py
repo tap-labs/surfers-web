@@ -267,6 +267,11 @@ class Location(db.Model):
         _stmt = update(Location).where(Location.id == locationid).values(
                                     geohash=geohash).execution_options(synchronize_session="fetch")
         _result = db.session.execute(_stmt)
+        try:
+            db.session.commit()
+            app.logger.info(f'Location record updated: {locationid}')
+        except IntegrityError:
+            db.session.rollback()        
         return _result.rowcount
 
 
