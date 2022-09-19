@@ -3,43 +3,44 @@
 
 {% block content %}
 
-<h1><a href="*">Information</a></h1>
-
-
-<div class="info">
-    <p>
-        Still in early development but doing this site to show that it is still possible to 
-        get surf spot information and feeds without having to be:
-    </p>
-
-    <ul>
-        <li>be flooded with adds</li>
-        <li>have web sites collect excessive personal information</li>
-        <li>pay recurring fees</li>
-    </ul>
-
-    <p>
-        I have brought this together initially while out of the water injured so have some
-        time to kill. I am not a web designer so I am doing this the hard way :)
-    </p>
-</div>
-
-<div class="footer">
-    <div class="health">
-        <div class="health-child" title="Service Health">
-            <img class="health-item" src="{{ url_for('static', filename='images/web-128.png') }}">
-            <label class="health-item">{{ service_health | safe }}</label>
-        </div>
-        <div class="health-child" title="Database Health">
-            <img class="health-item" src="{{ url_for('static', filename='images/database-128.png') }}">
-            <label class="health-item">{{ database_health | safe }}</label>
-        </div>
-        <div class="health-child" title="API Health">
-            <img class="health-item" src="{{ url_for('static', filename='images/api-128.png') }}">
-            <label class="health-item">{{ api_health | safe }}</label>
+    <div class="container-title">
+        <h1><a href="*">Information</a></h1>
+    </div>
+    <div class="container-middle">
+        <div class="info">
+            <p>
+                Still in early development but doing this site to show that it is still possible to 
+                get surf spot information and feeds without having to be:
+            </p>
+        
+            <ul>
+                <li>be flooded with adds</li>
+                <li>have web sites collect excessive personal information</li>
+                <li>pay recurring fees</li>
+            </ul>
+        
+            <p>
+                I have brought this together initially while out of the water injured so have some
+                time to kill. I am not a web designer so I am doing this the hard way :)
+            </p>
         </div>
     </div>
-</div>
+    <div class="container-footer">
+        <div class="health">
+            <div class="health-child" title="Service Health">
+                <img class="health-item" src="{{ url_for('static', filename='images/web-128.png') }}">
+                <label class="health-item">{{ service_health | safe }}</label>
+            </div>
+            <div class="health-child" title="Database Health">
+                <img class="health-item" src="{{ url_for('static', filename='images/database-128.png') }}">
+                <label class="health-item">{{ database_health | safe }}</label>
+            </div>
+            <div class="health-child" title="API Health">
+                <img class="health-item" src="{{ url_for('static', filename='images/api-128.png') }}">
+                <label class="health-item">{{ api_health | safe }}</label>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
 

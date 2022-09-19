@@ -1,0 +1,105 @@
+/* 
+
+Styles related to the menu bar and header section of the base page 
+
+*/ 
+
+
+/*
+***************************************************
+Header settings as applied to the common base page 
+*/
+
+header {
+    background-color: black;
+    height: 40px;
+    width: 100%;
+    opacity: .9;
+}
+  
+header h1.logo {
+    margin: 2;
+    font-size: 1.3em;
+    color: #fff;
+    text-align: center;
+  }
+  
+header h1.logo:hover {
+    color: red;
+    text-decoration: none;
+}
+  
+header img.logo{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    margin:auto;
+    height: 50px;
+    width: 50px;
+}
+  
+.mainlogo {
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    margin:auto;
+    bottom:0;
+}
+  
+/*
+***************************************************
+Menu bar elements
+*/
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu li {
+    float: left;
+}
+
+.menu li p {
+    text-align: left;
+    padding: 10px 16px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+}
+
+.menu li a:hover {
+    background-color: rgb(43, 45, 45);
+}
+
+.menu li label {
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    padding: 10px 16px;
+}
+
+.menu li input {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.menu .active {
+    background-color: #04AA6D;
+}
+
+img.search {
+    height: 18px;
+    width: 18px;
+    margin-right: 10px;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+  

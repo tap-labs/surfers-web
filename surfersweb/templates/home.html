@@ -2,16 +2,29 @@
 
 {% block content %}
 
-
-    <div class="center">
+    <div class="container-middle">
         <img class="mainlogo" src="{{ url_for('static', filename='images/surferslookout-logo.png') }}">
     </div>
 
-    <div class="footer">
-        <div class="banner">
-            <p>{{ message | safe }}</p>
+    <div class="container-footer">
+
+        <div class="marquee">
+            {{ message | safe }}
         </div>
+
     </div>
+
+    <script>
+        $(function(){
+            $('.marquee').marquee({
+                duration: 12000,
+                gap: 100,
+                delayBeforeStart: 0,
+                direction: 'left',
+                duplicated: true    
+            });
+        });
+    </script>
 
 {% endblock %}
 

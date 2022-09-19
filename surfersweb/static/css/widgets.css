@@ -1,0 +1,209 @@
+
+.footer {
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+/* Marquee capabiity added to home screen */
+
+
+.marquee {
+  overflow: hidden;
+  width: 99vw;
+}
+
+
+.marquee a {
+  color: rgb(131, 162, 219);
+  font-weight: normal;
+}
+
+.marquee a:link {
+  text-decoration:none;
+}
+
+.marquee a:hover { 
+  text-decoration: underline; 
+}
+
+/* Info banners */
+
+
+.info {
+    border: 5px solid #b7bac1;
+    padding: 20px;
+    color: #dbdfe2; 
+    font-family: 'Verdana', sans-serif; 
+}
+  
+.info ul {
+    list-style-type: square;
+    list-style-position: outside;
+    list-style-image: none;
+    margin-left:30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  
+.info p {
+    font-size: 16px; 
+    line-height: 26px; 
+    margin: 0;
+}
+  
+.info a { 
+    color: #c64119; 
+    border-bottom: 1px solid #c64119; 
+    text-decoration: none; 
+}
+
+  
+
+
+
+/* System Health check sections as shown in the about page */
+
+
+.health {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    width: fit-content;
+}
+  
+.health-child {
+    text-align: left;
+    border-style: solid;
+    border-color: #000000;
+    background-color: var(--darkgray);
+    color: snow;
+    padding: 4px;
+    border-radius: 8px;
+}
+  
+label.health-child {
+    border: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+}
+  
+img.health-item {
+    border-radius: 2px;
+    border: none;
+    padding: 1px;
+    padding-right: 5px;
+    width: 32px;
+    margin-top: .1em;
+}
+
+
+/*
+***********************************
+Weather sections
+*/
+
+.weather-container {
+    position:absolute;
+    width:300px;
+    height:200px;
+    bottom:0px;
+    right:-50%;
+    left:50%;
+  }
+  
+.weather-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content:space-between;
+  text-align: center;  
+  margin: 0 auto;
+}
+  
+.weather-column {
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: auto;
+}
+  
+.weather-frame {
+    width: 300px;
+    height: 171px;
+    border: 0;
+}
+  
+@media screen and (max-width: 800px) {
+    .weather-frame {
+      width: 250px;
+      height: 171px;
+      border: 0;
+    }
+} 
+
+
+/* Single instance weather and surf report sections */
+
+
+.grid-container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    width: fit-content;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+.grid-cointainer-child {
+    text-align: left;
+    border-style: solid;
+    border-color: #000000;
+    background-color: #2c3e50;
+    color: snow;
+    padding: 4px;
+    border-radius: 8px;
+  }
+  
+
+.forecast {
+    border-radius: 2px;
+    padding: 1px;
+    padding-right: 5px;
+    width: 20px;
+    margin-top: .1em;
+}
+
+label.forecast {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+}
+  
+
+ /*
+***********************************
+Map layoout
+*/
+
+.map {
+    margin: auto;
+    margin-top: 100px;
+    height: 400px;
+    width: 800px;
+}
+  
+  
+.sidemap {
+    height: 300px;
+    width:150px;
+    margin:50px ;
+    right:0;
+}
+  
+   
+  

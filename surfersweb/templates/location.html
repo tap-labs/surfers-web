@@ -2,74 +2,78 @@
 
 {% block content %}
 
-    <h1><a href="#0">{{ location.name }}</a></h1>
-
-
-    <div class="center">
-
-        <table class="video-table">
-            {% for _cam in cams %}
-                {{ rowstart(loop.index)|safe }}
-                <div class="video-cell">
-                    <video id="{{ getvideoid(loop.index) }}" class="video-js vjs-default-skin" controls muted preload="none" poster="{{ url_for('static', filename='images/video-icon.png') }}">
-                        <source src="{{ _cam.url }}" type="application/x-mpegURL">
-                    </video>
-                </div>
-                <label class="video-title">{{ _cam.site }}</label>
-                {{ rowend(loop.index)|safe }}
-            {% endfor %}
-        </table>
+    <div class="container-title">
+        <h1><a href="#0">{{ location.name }}</a></h1>
     </div>
 
-    {% if apiresults == True %}
-        <div class="grid-container">
-            <div class="grid-cointainer-child" title="Curent Temperature">
-                <img class="forecast" src="{{ url_for('static', filename='images/weather-temp-icon-128.png') }}">
-                <label class="forcast">{{ weather['temp'] }}</label>
+    <div class="container-middle">
+
+            <div class="video-container">
+                {% for _cam in cams %}
+                    <div class="video-cell" title="{{ _cam.site }}">
+                        <video id="{{ getvideoid(loop.index) }}" class="video-js vjs-default-skin" controls muted preload="none" poster="{{ url_for('static', filename='images/video-icon.png') }}">
+                            <source src="{{ _cam.url }}" type="application/x-mpegURL">
+                        </video>
+                    </div>
+                {% endfor %}
             </div>
-            <div class="grid-cointainer-child" title="Wind speed km/h">
-                <img class="forecast" src="{{ url_for('static', filename='images/wind-icon.png') }}">
-                <label class="forcast">{{ weather['wind_speed'] }}</label>
-            </div>
-            <div class="grid-cointainer-child" title="Wind direction">
-                <img class="forecast" src="{{ url_for('static', filename='images/wind-direction-icon.png') }}">
-                <label class="forcast">{{ weather['wind_direction'] }}</label>
-            </div>
-            <div class="grid-cointainer-child" title="Wave height">
-                <img class="forecast" src="{{ url_for('static', filename='images/wave-icon.png') }}">
-                <label class="forcast">{{ swell[0]['height'] }}</label>
-            </div>
-            <div class="grid-cointainer-child" title="Swell direction">
-                <img class="forecast" src="{{ url_for('static', filename='images/compass.png') }}">
-                <label class="forcast">{{ swell[0]['direction'] }}</label>
-            </div>
-            <div class="grid-cointainer-child" title="Wave interval period">
-                <img class="forecast" src="{{ url_for('static', filename='images/hourglass.png') }}">
-                <label class="forcast">{{ swell[0]['interval'] }}</label>
-            </div>
-            <div class="grid-cointainer-child" title="Water temperature">
-                <img class="forecast" src="{{ url_for('static', filename='images/watertemp-icon.png') }}">
-                <label class="forcast">{{ water[0]['temperature'] }}</label>
-            </div>
+
+    </div>
+
+    <div class="container-rightsidebar">
+        <div class="sidemap" id="map"></div>
+
+
+        <div class="select">
+            <select id="breaks" title="Location" onchange="changeBreak();">
+                <option value="0">- Local Breaks -</option>
+                {% for _location in locations %}
+                    {% if _location.name != location.name %}
+                        <option value={{ _location.id }}>{{ _location.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
         </div>
 
-    {% endif %}
+    </div>
+    <div class="container-sub">
 
-    <div class="sidemap" id="map"></div>
+        {% if apiresults == True %}
+            <div class="grid-container">
+                <div class="grid-cointainer-child" title="Curent Temperature">
+                    <img class="forecast" src="{{ url_for('static', filename='images/weather-temp-icon-128.png') }}">
+                    <label class="forcast">{{ weather['temp'] }}</label>
+                </div>
+                <div class="grid-cointainer-child" title="Wind speed km/h">
+                    <img class="forecast" src="{{ url_for('static', filename='images/wind-icon.png') }}">
+                    <label class="forcast">{{ weather['wind_speed'] }}</label>
+                </div>
+                <div class="grid-cointainer-child" title="Wind direction">
+                    <img class="forecast" src="{{ url_for('static', filename='images/wind-direction-icon.png') }}">
+                    <label class="forcast">{{ weather['wind_direction'] }}</label>
+                </div>
+                <div class="grid-cointainer-child" title="Wave height">
+                    <img class="forecast" src="{{ url_for('static', filename='images/wave-icon.png') }}">
+                    <label class="forcast">{{ swell[0]['height'] }}</label>
+                </div>
+                <div class="grid-cointainer-child" title="Swell direction">
+                    <img class="forecast" src="{{ url_for('static', filename='images/compass.png') }}">
+                    <label class="forcast">{{ swell[0]['direction'] }}</label>
+                </div>
+                <div class="grid-cointainer-child" title="Wave interval period">
+                    <img class="forecast" src="{{ url_for('static', filename='images/hourglass.png') }}">
+                    <label class="forcast">{{ swell[0]['interval'] }}</label>
+                </div>
+                <div class="grid-cointainer-child" title="Water temperature">
+                    <img class="forecast" src="{{ url_for('static', filename='images/watertemp-icon.png') }}">
+                    <label class="forcast">{{ water[0]['temperature'] }}</label>
+                </div>
+            </div>
 
-
-    <div class="select">
-        <select id="breaks" title="Location" onchange="changeBreak();">
-            <option value="0">- Local Breaks -</option>
-            {% for _location in locations %}
-                {% if _location.name != location.name %}
-                    <option value={{ _location.id }}>{{ _location.name }}</option>
-                {% endif %}
-            {% endfor %}
-        </select>
+        {% endif %}
     </div>
 
-    <div class="footer">
+    <div class="container-footer">
         <div class="weather-row">
             <div class="weather-column">
                 <iframe src="https://cdnres.willyweather.com.au/widget/loadView.html?id={{location.willy_weather}}" class="weather-frame" title="Weather"></iframe>
@@ -90,29 +94,6 @@
         </div>
     </div>
 
-    <div class="center">
-
-        <div class="weather-container">
-
-            {% if location.wg_site == 99 %}
-                <script id="windguru_widget">
-                    (function (window, document) {
-                    var loader = function () {
-                        var arg = ["s={{ location.wg_site }}" ,"m=100","mw=83","uid=windguru_widget" ,"wj=kmh" ,"tj=c" ,"waj=ft" ,"odh=0" ,"doh=24" ,"fhours=168" ,"hrsm=2" ,"vt=forecasts" ,"lng=en" ,"idbs=1" ,"ts=2" ,"p=WINDSPD,GUST,SMER,SWELL1,SWPER1,SWDIR1,TMP,WCHILL"];
-                        var script = document.createElement("script");
-                        var tag = document.getElementsByTagName("script")[0];
-                        script.src = "https://www.windguru.cz/js/widget.php?"+(arg.join("&"));
-                        tag.parentNode.insertBefore(script, tag);
-                    };
-                    window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
-                    })(window, document);
-                </script>
-            {% endif %}
-
-        </div>
-
-
-    </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key={{ config.GOOGLE_API_KEY }}&callback=initMap&v=weekly" defer></script>
 
@@ -156,7 +137,7 @@
 
     </script>
 
-    {% endblock %}
+{% endblock %}
 
 
 

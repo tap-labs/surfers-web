@@ -3,10 +3,15 @@
 
 {% block content %}
 
-    <h1><a href="#0">Forum</a></h1>
-    <div class="center">
+    <div class="container-title">
+        <h1><a href="#0">Forum</a></h1>
+    </div>
+    <div class="container-middle">
         <img src="{{ url_for('static', filename='images/underdevelopment.png') }}">
     </div>
+    <div class="container-footer">
+        footer
+    </div>
 
-    {% endblock %}
+{% endblock %}
 
