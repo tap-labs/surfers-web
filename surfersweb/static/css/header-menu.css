@@ -89,6 +89,7 @@ Menu bar elements
 .menu li input {
     margin-top: 10px;
     margin-right: 10px;
+    max-width: 15em;
 }
 
 .menu .active {
