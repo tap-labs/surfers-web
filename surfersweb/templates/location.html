@@ -21,21 +21,26 @@
     </div>
 
     <div class="container-rightsidebar">
-        <div class="sidemap" id="map"></div>
+
+        <div style="float:right;">
+            <div class="sidemap" id="map"></div>
 
 
-        <div class="select">
-            <select id="breaks" title="Location" onchange="changeBreak();">
-                <option value="0">- Local Breaks -</option>
-                {% for _location in locations %}
-                    {% if _location.name != location.name %}
-                        <option value={{ _location.id }}>{{ _location.name }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select>
+            <div class="select">
+                <select id="breaks" title="Location" onchange="changeBreak();">
+                    <option value="0">- Local Breaks -</option>
+                    {% for _location in locations %}
+                        {% if _location.name != location.name %}
+                            <option value={{ _location.id }}>{{ _location.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+
         </div>
 
     </div>
+
     <div class="container-sub">
 
         {% if apiresults == True %}

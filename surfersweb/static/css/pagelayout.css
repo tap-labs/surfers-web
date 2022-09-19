@@ -81,8 +81,11 @@ html, body {
   grid-column-end: span 1;
   grid-row-start: 3;
   grid-row-end: span 1;
-  align-content: center;
   color: white;
+  justify-content: space-evenly;
+  justify-items: right;
+  align-content: space-evenly;
+  align-items: stretch;
 }
 
 
