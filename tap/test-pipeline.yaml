@@ -25,9 +25,11 @@ spec:
             image: python
             script: |-
               # running python pytest
+              echo "ls with root"
               ls /workspace
+              echo "ls without root"
               ls workspace
-              pip install -r workspace/requirements.txt
+              pip install -r /workspace/requirements.txt
               python -m pytest
 
               
