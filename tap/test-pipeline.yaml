@@ -24,15 +24,15 @@ spec:
           - name: test
             image: python
             script: |-
-              echo "python version"
+              echo "+++ python version"
               python --version
-              echo "Make temp area"
+              echo "+++ Make temp area"
               cd `mktemp -d`
-              echo "unpacking source"
+              echo "+++ unpacking source"
               wget -qO- $(params.source-url) | tar xvz -m
-              echo "install requirements"
+              echo "+++ install requirements"
               pip install -r requirements.txt
-              echo "run pytest"
+              echo "+++ run pytest"
               python -m pytest
 
               
