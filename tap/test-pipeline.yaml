@@ -25,12 +25,14 @@ spec:
             image: python
             script: |-
               # running python pytest
-              echo "ls without root"
-              ls
+              echo "ls usr"
+              ls usr
+              echo "ls us/srcr"
+              ls usr/src
+              echo "ls /usr/src/app"
+              ls /usr/src/app
               echo "python version"
               python --version
-              echo "python3 version"
-              python3 --version
               echo "find requirements"
               find . -name requirements.txt
               pip install -r workspace/requirements.txt
