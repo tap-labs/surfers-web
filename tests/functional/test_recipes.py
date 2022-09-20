@@ -1,5 +1,3 @@
-from http.client import FOUND
-from surfersweb import create_app
 
 # Test web app home page
 def test_home_page(test_client):

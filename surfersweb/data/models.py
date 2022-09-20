@@ -17,7 +17,6 @@ class Country(db.Model):
     latitude = db.Column(db.Text)
     longitude = db.Column(db.Text)
 
-
     def __init__(self, name: str, latitude: str, longitude: str):
         self.name = name
         self.latitude = latitude
@@ -55,6 +54,14 @@ class State(db.Model):
     longitude = db.Column(db.Text)
     country_id = db.Column(db.Integer, db.ForeignKey('country.id'))
 
+    def __init__(self, name: str, postal: str, latitude: str, longitude: str, country_id: int):
+        self.name = name
+        self.postal = postal
+        self.latitude = latitude
+        self.longitude = longitude
+        self.country_id = country_id
+        self.id = self.add()
+
     def __repr__(self):
         return f'<State: {self.name}>'
 
@@ -90,6 +97,13 @@ class Region(db.Model):
     latitude = db.Column(db.Text)
     longitude = db.Column(db.Text)
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
+
+    def __init__(self, name: str, latitude: str, longitude: str, state_id: int):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+        self.state_id = state_id
+        self.id = self.add()
 
     def __repr__(self):
         return f'<Region: {self.name}>'
@@ -127,7 +141,6 @@ class Location(db.Model):
     __tablename__ = 'location'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=False, index=True)
-    cam = db.Column(db.Text)
     latitude = db.Column(db.Text)
     longitude = db.Column(db.Text)
     willy_weather = db.Column(db.Text)
@@ -140,6 +153,19 @@ class Location(db.Model):
     __table_args__ = (
         db.UniqueConstraint('name', 'region_id'),
     )
+
+    def __init__(self, name: str, willy_weather: str, willy_wind: str, 
+                willy_tide: str, willy_swell: str, 
+                latitude: str, longitude: str, state_id: int):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+        self.willy_weather = willy_weather
+        self.willy_tide = willy_tide
+        self.willy_wind = willy_wind
+        self.willy_swell = willy_swell
+        self.state_id = state_id
+        self.id = self.add()
 
     def __repr__(self):
         return f'<Location: {self.name}>'
@@ -292,9 +318,15 @@ class Cam(db.Model):
         db.UniqueConstraint('site', 'location_id'),
     )
 
-
     def __repr__(self):
         return f'<Cam: {self.site}>'
+
+
+    def __init__(self, site: str, url: str, location_id: int):
+        self.site = site
+        self.url = url
+        self.location_id = location_id
+        self.id = self.add()
 
 
     def add(self) -> int:
