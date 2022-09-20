@@ -197,21 +197,33 @@ Map layoout
     width: 800px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .map {
     margin: auto;
     margin-top: 100px;
     height: 200px;
     width: 400px;
+  }
 }
 
-  
-  
 .sidemap {
     height: 300px;
     width: 150px;
-    margin: 50px ;
+    margin: 50px;
 }
-  
+
+@media screen and (min-width: 801px) {
+  .location-sidebar {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .location-sidebar {
+    display: none;
+  }
+}
+
    
   
