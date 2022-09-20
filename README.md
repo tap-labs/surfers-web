@@ -4,25 +4,26 @@ Writing this as want to create a Surf report web site, including Live CAMs witho
 
 ## Current features
 - Map based navigation
-- location search bar
+- location search bar with autocomplete
+- surf cams 
 - Persistence via MySQL or sqlite
 - Support for k8s service binding
+- Weather alert ticker from BOM RSS feeds
+- Spot based current weather forecast from BOM API
 
 ## Being worked on
-- Weather alert ticker from BOM RSS feeds
-- Spot based current forecast 
-
-## To Do
-- Add authentication to bring user context to the app
 - Site specific information  to add **(done this kind of with willyweather widgets but needs to be better)**
     - Weather
     - Tide
     - Wave buoy informtion
+
+
+## To Do
+- Add authentication to bring user context to the app
 - Add chat forum, location aligned (and general chat?)
 - Add information into panels to allow users to customise their own page layouts
 - Enable session context to be externalised to Redis (flask-session module maybe?)
 - Add admin screen to allow locations to be added/managed via web UI
-- Make freiendly for small screen devices such as mobile phones
 
 ## The Website ingredients
 *Language:*   **Python** (initially), minimum version 3.10
@@ -40,7 +41,6 @@ Writing this as want to create a Surf report web site, including Live CAMs witho
 
 
 **Currently Under Investigation**
-- Windguru / weatherwidget.io for weather information (also looking at self made options)
 - Various Wave Buoy feeds for swell and tidal information
 - OSS HTML movable element modules vs self defined  
 
