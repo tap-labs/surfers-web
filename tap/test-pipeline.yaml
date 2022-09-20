@@ -31,7 +31,7 @@ spec:
               python version
               echo "find requirements"
               find . -name requirements.txt
-              pip install -r /workspace/requirements.txt
+              pip install -r workspace/requirements.txt
               python -m pytest
 
               
