@@ -28,7 +28,7 @@ spec:
               echo "ls without root"
               ls
               echo "python version"
-              python version
+              python --version
               echo "find requirements"
               find . -name requirements.txt
               pip install -r workspace/requirements.txt
