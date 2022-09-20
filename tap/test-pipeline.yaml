@@ -24,18 +24,15 @@ spec:
           - name: test
             image: python
             script: |-
-              # running python pytest
-              echo "ls usr"
-              ls usr
-              echo "ls us/srcr"
-              ls usr/src
-              echo "ls /usr/src/app"
-              ls /usr/src/app
               echo "python version"
               python --version
-              echo "find requirements"
-              find . -name requirements.txt
-              pip install -r workspace/requirements.txt
+              echo "Make temp area"
+              cd `mktemp -d`
+              echo "unpacking source"
+              wget -qO- $(params.source-url) | tar xvz -m
+              echo "install requirements"
+              pip install -r requirements.txt
+              echo "run pytest"
               python -m pytest
 
               
