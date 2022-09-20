@@ -102,14 +102,14 @@ def location(locationid):
                 _location.geohash = _result[0]['geohash']
                 Location.update_LocationGeohash(locationid, _location.geohash)
 
-        # Query current conditions from API Service if geohash value present
-        if _location.geohash:
-            _swell = web.get(API_URL.SWELL.set_location(_location.geohash))
-            _water = web.get(API_URL.WATER.set_location(_location.geohash))
-            _weather = web.get(API_URL.WEATHER_CURRENT.set_location(_location.geohash))
-            _apiresults = True
-        else:
-            _apiresults = False
+        _apiresults = False
+        if len(web.get(API_URL.HEALTHZ.value)) > 0:
+            # Query current conditions from API Service if geohash value present
+            if _location.geohash:
+                _swell = web.get(API_URL.SWELL.set_location(_location.geohash))
+                _water = web.get(API_URL.WATER.set_location(_location.geohash))
+                _weather = web.get(API_URL.WEATHER_CURRENT.set_location(_location.geohash))
+                _apiresults = True
 
         return render_template('location.html', locationid=locationid, location=_location, 
                                                 locations=_locations, cams=_cams, 
@@ -175,7 +175,7 @@ Heath status check routine
 def health():
     app.logger.info("Getting service health status")
     _status = web.get(API_URL.HEALTHZ.value)
-    if _status is not None:
+    if len(_status) > 0:
         _api = _status['health']
     else:
         _api = 'fail'

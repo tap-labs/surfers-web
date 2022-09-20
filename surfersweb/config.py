@@ -4,13 +4,13 @@ from pyservicebinding import binding
 basedir = os.getcwd()
 
 class Config:
-    VERSION = '11'
+    VERSION = '12'
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret'
     SESSION_COOKIE_HTTPONLY = False
     GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
     ENV = 'unset'
     PORT = os.environ.get('PORT') or "8000"
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite://'
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('DB_TRACK_MODIFICATIONS') or False
     DATA_FILE = os.environ.get('DATA_FILE') or f'{basedir}/surfersweb/data/data.json'
     API_HOST = os.environ.get('API_HOST') or "surfersapi"

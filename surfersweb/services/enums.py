@@ -1,5 +1,5 @@
 from enum import Enum, unique
-from surfersweb import app
+from flask import current_app as app
 
 @unique
 class API_URL(Enum):

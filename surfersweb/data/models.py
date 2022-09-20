@@ -1,15 +1,14 @@
 from cgitb import text
 import json
 from datetime import datetime
-from flask import current_app
+from flask import current_app as app
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.mysql import insert
 from sqlalchemy import update
 from sqlalchemy.exc import IntegrityError
-from surfersweb import app, db
-from .utilities import DataManager
 
-app.logger.info('Define DB Models')
+db = SQLAlchemy()
+
 ## Table that stores regional data
 class Country(db.Model):
     __tablename__ = 'country'
@@ -17,6 +16,13 @@ class Country(db.Model):
     name = db.Column(db.String(64), unique=True, index=True)
     latitude = db.Column(db.Text)
     longitude = db.Column(db.Text)
+
+
+    def __init__(self, name: str, latitude: str, longitude: str):
+        self.name = name
+        self.latitude = latitude
+        self.longitude = longitude
+        self.id = self.add()
 
     def __repr__(self):
         return f'<Country: {self.name}>'
@@ -312,15 +318,4 @@ class Cam(db.Model):
     def get(locationid):
         _request = Cam.query.filter(Cam.location_id == locationid).all()
         return _request
-
-
-app.logger.info('DB URI: %s',app.config['SQLALCHEMY_DATABASE_URI'])
-app.logger.info('Create DB')
-with app.app_context():
-    db.create_all()
-    db.session.commit()
-    DataManager.importData()
-
-
-
 
