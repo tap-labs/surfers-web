@@ -25,7 +25,6 @@
                                     "willy_tide": "69049",
                                     "willy_swell": "69048",
                                     "geohash": "",
-                                    "wg_site": "823",
                                     "cam": [
                                         {
                                             "site": "Bondi Main",
@@ -46,7 +45,6 @@
                                     "willy_tide": "69053",
                                     "willy_swell": "69052",
                                     "geohash": "",
-                                    "wg_site": "823",
                                     "cam": [
                                         {
                                             "site": "Maroubra South",
@@ -77,7 +75,6 @@
                                     "willy_wind": "68993",
                                     "willy_tide": "68995",
                                     "willy_swell": "68994",
-                                    "wg_site": "889975",
                                     "geohash": "",
                                     "cam": [
                                         {
@@ -103,7 +100,6 @@
                                     "willy_tide": "69006",
                                     "willy_swell": "69007",
                                     "geohash": "",
-                                    "wg_site": "208692",
                                     "cam": [
                                         {
                                             "site": "Avalon",
@@ -123,7 +119,6 @@
                                     "willy_wind": "69009",
                                     "willy_tide": "69011",
                                     "willy_swell": "69010",
-                                    "wg_site": "208683",
                                     "geohash": "",
                                     "cam": [
                                         {
@@ -140,7 +135,6 @@
                                     "willy_wind": "69013",
                                     "willy_tide": "69014",
                                     "willy_swell": "69015",
-                                    "wg_site": "208683",
                                     "geohash": "",
                                     "cam": [
                                         {
@@ -157,7 +151,6 @@
                                     "willy_wind": "69018",
                                     "willy_tide": "69019",
                                     "willy_swell": "69020",
-                                    "wg_site": "208683",
                                     "geohash": "",
                                     "cam": [
                                         {
@@ -178,7 +171,6 @@
                                     "willy_wind": "68989",
                                     "willy_tide": "68991",
                                     "willy_swell": "68990",
-                                    "wg_site": "208690",
                                     "geohash": "",
                                     "cam": [
                                         {
@@ -195,7 +187,6 @@
                                     "willy_wind": "69001",
                                     "willy_tide": "69003",
                                     "willy_swell": "69002",
-                                    "wg_site": "208702",
                                     "geohash": "",
                                     "cam": [
                                         {
@@ -225,7 +216,6 @@
                                     "willy_tide": "69023",
                                     "willy_swell": "69024",
                                     "geohash": "",
-                                    "wg_site": "208689",
                                     "cam": [
                                         {
                                             "site": "Narrabeen",
@@ -250,7 +240,6 @@
                                     "willy_tide": "69027",
                                     "willy_swell": "69028",
                                     "geohash": "",
-                                    "wg_site": "208702",
                                     "cam": [
                                         {
                                             "site": "Freshwater",
@@ -266,7 +255,6 @@
                                     "willy_wind": "69030",
                                     "willy_tide": "69032",
                                     "willy_swell": "69033",
-                                    "wg_site": "208692",
                                     "geohash": "",
                                     "cam": [
                                         {
@@ -283,7 +271,6 @@
                                     "willy_wind": "69035",
                                     "willy_tide": "69036",
                                     "willy_swell": "69037",
-                                    "wg_site": "208690",
                                     "geohash": "",
                                     "cam": [
                                         {
@@ -320,7 +307,6 @@
                                     "willy_tide": "69045",
                                     "willy_swell": "69044",
                                     "geohash": "",
-                                    "wg_site": "62159",
                                     "cam": [
                                         {
                                             "site": "Burleigh Heads",
@@ -337,7 +323,6 @@
                                     "willy_tide": "68999",
                                     "willy_swell": "68998",
                                     "geohash": "",
-                                    "wg_site": "62159",
                                     "cam": [
                                         {
                                             "site": "Palm Beach",
@@ -354,7 +339,6 @@
                                     "willy_tide": "69041",
                                     "willy_swell": "69040",
                                     "geohash": "",
-                                    "wg_site": "63299",
                                     "cam": [
                                         {
                                             "site": "North",

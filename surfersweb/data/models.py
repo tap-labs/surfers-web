@@ -148,15 +148,14 @@ class Location(db.Model):
     willy_tide = db.Column(db.Text)
     willy_swell = db.Column(db.Text)
     geohash = db.Column(db.Text)
-    wg_site = db.Column(db.Text)
     region_id = db.Column(db.Integer, db.ForeignKey('region.id'))
     __table_args__ = (
         db.UniqueConstraint('name', 'region_id'),
     )
 
     def __init__(self, name: str, willy_weather: str, willy_wind: str, 
-                willy_tide: str, willy_swell: str, 
-                latitude: str, longitude: str, state_id: int):
+                willy_tide: str, willy_swell: str, geohash: str,
+                latitude: str, longitude: str, region_id: int):
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
@@ -164,7 +163,8 @@ class Location(db.Model):
         self.willy_tide = willy_tide
         self.willy_wind = willy_wind
         self.willy_swell = willy_swell
-        self.state_id = state_id
+        self.geohash = geohash
+        self.region_id = region_id
         self.id = self.add()
 
     def __repr__(self):

@@ -7,11 +7,6 @@ def app():
     app = create_app('testing')
     return app
 
-@pytest.fixture(scope="session")
-def _db(app):
-    db.init_app(app)
-    return db
-
 
 @pytest.fixture(scope='module')
 def new_country(app):

@@ -53,7 +53,6 @@ class DataManager():
                                                 willy_wind=_location['willy_wind'], 
                                                 willy_tide=_location['willy_tide'], 
                                                 willy_swell=_location['willy_swell'], 
-                                                wg_site=_location['wg_site'], 
                                                 geohash=_location['geohash'],
                                                 region_id=_re).add()
                             for _cam in _location['cam']:
