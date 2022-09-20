@@ -45,7 +45,9 @@
                 <ul class="menu">
                   <li><p><a href="{{ url_for('main.home') }}">Home</a></p></li>
                   <li><p><a href="{{ url_for('main.beaches') }}">Beaches</a></p></li>
-                  <li><p><a href="{{ url_for('main.forum') }}">Forum</a></p></li>
+                  {% if request.remote_addr == '127.0.0.1' %}
+                    <li><p><a href="{{ url_for('main.forum') }}">Forum</a></p></li>
+                  {% endif %}
                   <li><p><a href="{{ url_for('main.about') }}">About</a></p></li>
                   <li style="float:right">
                     <input id="searchtext">
