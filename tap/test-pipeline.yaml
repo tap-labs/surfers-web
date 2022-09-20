@@ -29,6 +29,8 @@ spec:
               ls
               echo "python version"
               python --version
+              echo "python3 version"
+              python3 --version
               echo "find requirements"
               find . -name requirements.txt
               pip install -r workspace/requirements.txt
