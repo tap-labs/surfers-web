@@ -27,8 +27,8 @@ spec:
               # running python pytest
               echo "ls without root"
               ls
-              echo "ls with root"
-              ls /
+              echo "python version"
+              python version
               echo "find requirements"
               find . -name requirements.txt
               pip install -r /workspace/requirements.txt
