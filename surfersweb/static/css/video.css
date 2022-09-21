@@ -11,8 +11,8 @@ Video screen section settings
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-content:space-between;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
   align-items: stretch;
   margin: auto;
   height: 100%;
@@ -21,7 +21,7 @@ Video screen section settings
   
 .video-cell {
   margin: 10px;
-  padding: 10px;
+  padding: 5px;
   width: 90%;
 }
   

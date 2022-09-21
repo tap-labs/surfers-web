@@ -106,15 +106,7 @@ img.health-item {
 Weather sections
 */
 
-.weather-container {
-    position:absolute;
-    width:300px;
-    height:200px;
-    bottom:0px;
-    right:-50%;
-    left:50%;
-  }
-  
+
 .weather-row {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -123,9 +115,9 @@ Weather sections
   margin: 0 auto;
 }
   
-.weather-column {
-    padding-top: 20px;
-    padding-left: 10px;
+.weather-cell {
+    padding-top: 10px;
+    padding-left: 5px;
     padding-right: 10px;
     width: auto;
 }
@@ -152,10 +144,10 @@ Weather sections
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 5px;
     width: fit-content;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
   
 .grid-cointainer-child {
