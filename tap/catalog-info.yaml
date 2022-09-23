@@ -14,3 +14,7 @@ spec:
   type: service
   lifecycle: experimental
   owner: default-team
+  dependsOn:
+    - resource:alpha/surferslookout-db
+    - component:surfersapi
+  

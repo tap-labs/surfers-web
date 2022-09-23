@@ -47,6 +47,7 @@ metadata:
   name: surferslookout-db
   labels:
     app: surferslookout-db
+    app.kubernetes.io/part-of: surferslookout
 spec:
   selector:
     matchLabels:

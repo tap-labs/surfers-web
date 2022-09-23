@@ -1,8 +1,7 @@
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: surferslookout-surfersweb
-  namespace: alpha
+  name: surfersweb-surferslookout-domain
 spec:
   routes:
   - conditions:
@@ -14,7 +13,7 @@ spec:
     requestHeadersPolicy:
       set:
       - name: K-Network-Hash
-        value: 4343eed5c2e806b1dde56c642a9bb6b24e6b4d89280aa77990e062636c680204
+        value: 9f89108f86e2828d7d206e0cb5c3091a33cc94e02c9e5f31cf101482ceef9522
     retryPolicy:
       count: 2
       retryOn:
@@ -25,14 +24,14 @@ spec:
       - retriable-status-codes
       - reset
     services:
-    - name: surfersweb-00033
+    - name: surfersweb-00004
       port: 80
       requestHeadersPolicy:
         set:
         - name: Knative-Serving-Namespace
           value: alpha
         - name: Knative-Serving-Revision
-          value: surfersweb-00033
+          value: surfersweb-00004
       weight: 100
     timeoutPolicy:
       idle: infinity
@@ -50,14 +49,14 @@ spec:
       - retriable-status-codes
       - reset
     services:
-    - name: surfersweb-00033
+    - name: surfersweb-00004
       port: 80
       requestHeadersPolicy:
         set:
         - name: Knative-Serving-Namespace
           value: alpha
         - name: Knative-Serving-Revision
-          value: surfersweb-00033
+          value: surfersweb-00004
       weight: 100
     timeoutPolicy:
       idle: infinity
