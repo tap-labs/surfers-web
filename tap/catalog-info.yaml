@@ -13,8 +13,10 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: default-team
+  owner: surfer-crew
   dependsOn:
     - resource:alpha/surferslookout-db
     - component:surfersapi
+  consumesApis:
+    - alpha/surfersapi-tap3.tanzu.rocks
   
