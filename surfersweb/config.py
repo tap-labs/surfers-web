@@ -9,7 +9,7 @@ class Config:
     SESSION_COOKIE_HTTPONLY = False
     GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
     ENV = 'unset'
-    WEB_PORT = os.environ.get('WEB_PORT') or "8000"
+    USER_PORT = os.environ.get('USER_PORT') or "8080"
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite://'
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('DB_TRACK_MODIFICATIONS') or False
     DATA_FILE = os.environ.get('DATA_FILE') or f'{basedir}/surfersweb/data/data.json'
