@@ -5,6 +5,6 @@ metadata:
   namespace: accelerator-system
 spec:
   git:
-    url: https://github.com/davlloyd/surfersweb
+    url: https://github.com/davlloyd/surfers-web
     ref:
       branch: main

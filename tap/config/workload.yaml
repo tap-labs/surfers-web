@@ -5,6 +5,8 @@ metadata:
   labels:
     apps.tanzu.vmware.com/workload-type: web
     app.kubernetes.io/part-of: surferslookout
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/language: python
 spec:
   params:
   - name: clusterBuilder
@@ -21,14 +23,22 @@ spec:
       autoscaling.knative.dev/target: "60"
   source:
     git:
-      url: https://github.com/davlloyd/surfersweb
+      url: https://github.com/davlloyd/surfers-web
       ref:
         branch: main
+  serviceClaims:
+    - name: db
+      ref:
+        apiVersion: v1
+        kind: Secret
+        name: surferslookout-db
+    - name: api
+      ref:
+        apiVersion: v1
+        kind: Secret
+        name: surfersweb-api
   env:
   - name: GOOGLE_API_KEY
     value: yourapikey
-  - name: API_HOST
-    value: "surfersapi.alpha.apps.tap2.tanzu.rocks"
-  - name: API_PORT
-    value: "80"
+
     

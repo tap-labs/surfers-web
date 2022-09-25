@@ -24,14 +24,14 @@ spec:
       - retriable-status-codes
       - reset
     services:
-    - name: surfersweb-00006
+    - name: surfersweb-00004
       port: 80
       requestHeadersPolicy:
         set:
         - name: Knative-Serving-Namespace
           value: alpha
         - name: Knative-Serving-Revision
-          value: surfersweb-00006
+          value: surfersweb-00004
       weight: 100
     timeoutPolicy:
       idle: infinity
@@ -49,14 +49,14 @@ spec:
       - retriable-status-codes
       - reset
     services:
-    - name: surfersweb-00006
+    - name: surfersweb-00004
       port: 80
       requestHeadersPolicy:
         set:
         - name: Knative-Serving-Namespace
           value: alpha
         - name: Knative-Serving-Revision
-          value: surfersweb-00006
+          value: surfersweb-00004
       weight: 100
     timeoutPolicy:
       idle: infinity
