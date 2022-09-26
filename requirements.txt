@@ -5,6 +5,6 @@ mysqldbmodel
 pysqlite3
 python-dotenv
 WTForms
-redis
 pyservicebinding
 pytest
+pyyaml==6.0
