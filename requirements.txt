@@ -7,4 +7,4 @@ python-dotenv
 WTForms
 pyservicebinding
 pytest
-pyyaml==6.0
+pyyaml>=6.0
