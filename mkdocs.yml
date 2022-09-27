@@ -1,4 +1,4 @@
-site_name: 'example-docs'
+site_name: 'SurfersLookout Frontend'
 
 nav:
   - Home: index.md
