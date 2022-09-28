@@ -7,3 +7,5 @@ nav:
   - Home: index.md
   - Tasks: tasks.md
   - Bugs: bugs.md
+plugins:
+  - techdocs-core
