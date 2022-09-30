@@ -1,5 +1,3 @@
-from surfersweb.data.models import Country
-
 
 # Test to ensure a new record can be created from the models imported
 def test_new_country(new_country):

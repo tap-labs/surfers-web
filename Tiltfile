@@ -1,7 +1,7 @@
+APP_NAME = "surfersweb"
 SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='us.gcr.io/lloyd-266015/supply-chain/surfersweb-source')
 LOCAL_PATH = os.getenv("LOCAL_PATH", default='.')
 NAMESPACE = os.getenv("NAMESPACE", default='alpha')
-APP_NAME = "surfersweb"
 K8S_CONTEXT = os.getenv("K8S_CONTEXT", default="tap-aus-2")
 WORKLOAD_FILE = "../surfersweb-workload-db.yaml"
 
