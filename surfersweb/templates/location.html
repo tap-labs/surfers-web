@@ -60,19 +60,19 @@
                 </div>
                 <div class="grid-cointainer-child" title="Wave height">
                     <img class="forecast" src="{{ url_for('static', filename='images/wave-icon.png') }}">
-                    <label class="forcast">{{ swell[0]['height'] }}</label>
+                    <label class="forcast">{{ swell['height'] }}</label>
                 </div>
                 <div class="grid-cointainer-child" title="Swell direction">
                     <img class="forecast" src="{{ url_for('static', filename='images/compass.png') }}">
-                    <label class="forcast">{{ swell[0]['direction'] }}</label>
+                    <label class="forcast">{{ swell['direction'] }}</label>
                 </div>
                 <div class="grid-cointainer-child" title="Wave interval period">
                     <img class="forecast" src="{{ url_for('static', filename='images/hourglass.png') }}">
-                    <label class="forcast">{{ swell[0]['interval'] }}</label>
+                    <label class="forcast">{{ swell['interval'] }}</label>
                 </div>
                 <div class="grid-cointainer-child" title="Water temperature">
                     <img class="forecast" src="{{ url_for('static', filename='images/watertemp-icon.png') }}">
-                    <label class="forcast">{{ water[0]['temperature'] }}</label>
+                    <label class="forcast">{{ water['temperature'] }}</label>
                 </div>
             </div>
 
