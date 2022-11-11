@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Lookout: app.py launch",
+            "name": "Web: app.py launch",
             "type": "python",
             "request": "launch",
             "program": "app.py",
@@ -13,7 +13,7 @@
             "justMyCode": true
         },
         {
-            "name": "Lookout: Flask",
+            "name": "Web: Flask",
             "type": "python",
             "request": "launch",
             "module": "flask",
@@ -32,7 +32,7 @@
             "justMyCode": true
         },
         {
-            "name": "Lookout: PyTest",
+            "name": "Web: PyTest",
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
