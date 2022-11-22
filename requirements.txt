@@ -9,3 +9,4 @@ pyservicebinding
 pytest
 pyyaml>=6.0
 cryptography
+PyMySQL[rsa]
