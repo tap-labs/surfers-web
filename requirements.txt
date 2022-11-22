@@ -8,3 +8,4 @@ WTForms
 pyservicebinding
 pytest
 pyyaml>=6.0
+cryptography
