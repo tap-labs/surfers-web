@@ -5,5 +5,3 @@ python-dotenv
 WTForms
 pyservicebinding
 pytest
-certifi
-ssl
