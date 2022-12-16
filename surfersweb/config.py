@@ -13,8 +13,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite://'
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('DB_TRACK_MODIFICATIONS') or False
     DATA_FILE = os.environ.get('DATA_FILE') or f'{basedir}/surfersweb/data/data.json'
-    API_HOST = os.environ.get('API_HOST') or "surfersapi"
-    API_PORT = os.environ.get('API_PORT') or "80"
+    API_URL = os.environ.get('API_URL') or "http://surfersapi/api/v1"
 
     try:
         _sb = binding.ServiceBinding()
@@ -30,8 +29,7 @@ class Config:
 
         _api = _sb.bindings('api')
         if _api:
-            API_HOST = _api[0]['host']
-            API_PORT = _api[0]['port']
+            API_URL = _api[0]['url']
         else:
             print('API Binding not found, reverting to environment variables or defaults')
 
