@@ -18,10 +18,10 @@ class Config:
 
     try:
         _sb = binding.ServiceBinding()
-    except binding.ServiceBindingRootMissingError as msg:
+        _db = _sb.bindings('mysql')
+    except binding.ServiceBindingRootMissingError:
         print("Environment Variable SERVICE_BINDING_ROOT not set")
     else:
-        _db = _sb.bindings('mysql')
         if _db:
             SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{_db[0]['username']}:{_db[0]['password']}@{_db[0]['host']}:{_db[0]['port']}/{_db[0]['database']}"
             print(f'Binding DB URI: {SQLALCHEMY_DATABASE_URI}')

@@ -26,7 +26,8 @@
                 "run",
                 "--debugger",
                 "--reload",
-                "--port", "8000"
+                "--port",
+                "8000"
             ],
             "jinja": true,
             "justMyCode": true
@@ -37,8 +38,7 @@
             "request": "launch",
             "stopOnEntry": false,
             "module": "pytest",
-            "args": [
-            ],
+            "args": [],
             "env": {
                 "FLASK_ENV": "testing",
                 "FLASK_DEBUG": "1"

@@ -28,11 +28,11 @@
                                     "cam": [
                                         {
                                             "site": "Bondi Main",
-                                            "url": "https://streamzy.ml/cdn-au/au-midbondi/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-midbondi/chunklist.m3u8"
                                         },
                                         {
                                             "site": "Bondi North",
-                                            "url": "https://streamzy.ml/cdn-au/au-bondinorth/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-bondinorth/chunklist.m3u8"
                                         }
                                     ]
                                 },
@@ -48,15 +48,15 @@
                                     "cam": [
                                         {
                                             "site": "Maroubra South",
-                                            "url": "https://streamzy.ml/cdn-au/au-southmaroubra/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-southmaroubra/chunklist.m3u8"
                                         },
                                         {
                                             "site": "Maroubra North",
-                                            "url": "https://streamzy.ml/cdn-au/au-northmaroubra/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-northmaroubra/chunklist.m3u8"
                                         },
                                         {
                                             "site": "Maroubra",
-                                            "url": "https://streamzy.ml/cdn-au/au-maroubra/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-maroubra/chunklist.m3u8"
                                         }
                                     ]
                                 }
@@ -79,7 +79,7 @@
                                     "cam": [
                                         {
                                             "site": "Wanda",
-                                            "url": "https://streamzy.ml/cdn-au/au-cronullawanda/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-cronullawanda/chunklist.m3u8"
                                         }
                                     ]
                                 }
@@ -123,7 +123,7 @@
                                     "cam": [
                                         {
                                             "site": "Collaroy",
-                                            "url": "https://streamzy.ml/cdn-au/au-collaroy/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-collaroy/chunklist.m3u8"
                                         }
                                     ]
                                 },
@@ -139,7 +139,7 @@
                                     "cam": [
                                         {
                                             "site": "Curl Curl",
-                                            "url": "https://streamzy.ml/cdn-au/au-curlcurl/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-curlcurl/chunklist.m3u8"
                                         }
                                     ]
                                 },
@@ -155,11 +155,11 @@
                                     "cam": [
                                         {
                                             "site": "Dee Why",
-                                            "url": "https://streamzy.ml/cdn-au/au-deewhy/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-deewhy/chunklist.m3u8"
                                         },
                                         {
                                             "site": "Dee Why Point",
-                                            "url": "https://streamzy.ml/cdn-au/au-deewhypoint/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-deewhypoint/chunklist.m3u8"
                                         }
                                     ]
                                 },
@@ -175,7 +175,7 @@
                                     "cam": [
                                         {
                                             "site": "Main Beach",
-                                            "url": "https://streamzy.ml/cdn-au/au-monavale/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-monavale/chunklist.m3u8"
                                         }
                                     ]
                                 },
@@ -191,19 +191,19 @@
                                     "cam": [
                                         {
                                             "site": "Fairy Bower",
-                                            "url": "https://streamzy.ml/cdn-au/au-manlyfairy/playlist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-manlyfairy/playlist.m3u8"
                                         },
                                         {
                                             "site": "Manly Hotel",
-                                            "url": "https://streamzy.ml/cdn-au/au-manlyhotel/playlist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-manlyhotel/playlist.m3u8"
                                         },
                                         {
                                             "site": "North Manly",
-                                            "url": "https://streamzy.ml/cdn-au/au-manlynorth/playlist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-manlynorth/playlist.m3u8"
                                         },
                                         {
                                             "site": "Queenscliff",
-                                            "url": "https://streamzy.ml/cdn-au/au-queenscliff/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-queenscliff/chunklist.m3u8"
                                         }
                                     ]
                                 },
@@ -219,7 +219,7 @@
                                     "cam": [
                                         {
                                             "site": "Narrabeen",
-                                            "url": "https://streamzy.ml/cdn-au/au-narrabeen/playlist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-narrabeen/playlist.m3u8"
                                         },
                                         {
                                             "site": "Narrabeen Club",
@@ -227,7 +227,7 @@
                                         },
                                         {
                                             "site": "Narrabeen South",
-                                            "url": "https://streamzy.ml/cdn-au/au-narrabeensouth/playlist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-narrabeensouth/playlist.m3u8"
                                         }
                                    ]
                                 },
@@ -243,7 +243,7 @@
                                     "cam": [
                                         {
                                             "site": "Freshwater",
-                                            "url": "https://streamzy.ml/cdn-au/au-freshwater/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-freshwater/chunklist.m3u8"
                                         }
                                    ]
                                 },
@@ -259,7 +259,7 @@
                                     "cam": [
                                         {
                                             "site": "Palm Beach",
-                                            "url": "https://streamzy.ml/cdn-au/au-palmbeachnsw/playlist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-palmbeachnsw/playlist.m3u8"
                                         }
                                    ]
                                 },
@@ -275,11 +275,11 @@
                                     "cam": [
                                         {
                                             "site": "Newport",
-                                            "url": "https://streamzy.ml/cdn-au/au-newport/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-newport/chunklist.m3u8"
                                         },
                                         {
                                             "site": "Newport Peak",
-                                            "url": "https://streamzy.ml/cdn-au/au-newportpeak/chunklist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-newportpeak/chunklist.m3u8"
                                         }
                                    ]
                                 }
@@ -310,7 +310,7 @@
                                     "cam": [
                                         {
                                             "site": "Burleigh Heads",
-                                            "url": "https://streamzy.ml/cdn-au/au-burleighheadsov/playlist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-burleighheadsov/playlist.m3u8"
                                         }
                                     ]
                                 },
@@ -326,7 +326,7 @@
                                     "cam": [
                                         {
                                             "site": "Palm Beach",
-                                            "url": "https://streamzy.ml/cdn-au/au-palmbeachqld/playlist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-palmbeachqld/playlist.m3u8"
                                         }
                                     ]
                                 },
@@ -342,11 +342,11 @@
                                     "cam": [
                                         {
                                             "site": "North",
-                                            "url": "https://streamzy.ml/cdn-au/au-snapperrocksnorth/playlist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-snapperrocksnorth/playlist.m3u8"
                                         },
                                         {
                                             "site": "South",
-                                            "url": "https://streamzy.ml/cdn-au/au-snapperoverview/playlist.m3u8"
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-snapperoverview/playlist.m3u8"
                                         }
                                     ]
                                 }

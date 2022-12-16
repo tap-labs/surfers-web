@@ -1,12 +1,8 @@
 Flask
 flask_sqlalchemy
-pymysql
 mysqldbmodel
-pysqlite3
 python-dotenv
 WTForms
 pyservicebinding
 pytest
-pyyaml>=6.0
-cryptography
-PyMySQL[rsa]
+
