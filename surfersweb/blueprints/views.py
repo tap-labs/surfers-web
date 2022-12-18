@@ -184,12 +184,18 @@ def health():
     else:
         _database= 'fail'
 
+    if ':' in app.config['SQLALCHEMY_DATABASE_URI']:
+        _database_type = app.config['SQLALCHEMY_DATABASE_URI'].split(':')[0]
+    else:
+        _database_type = "not set"
 
     _status = {
         "health": "ok",
         "environment": app.config['ENV'],
         "database": _database,
-        "api": _api
+        "database_type": _database_type,
+        "api": _api,
+        "api_url": API_URL.HEALTHZ.value
     }
     return _status
 
