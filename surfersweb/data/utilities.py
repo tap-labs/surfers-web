@@ -63,7 +63,7 @@ class DataManager():
     @staticmethod
     def testdb():
         try:
-            db.session.execute(text('SELECT foo'))
+            db.session.execute(text('SELECT 1'))
             return True
         except Exception as e:
             app.logger.error(f'Database connection attempt failed: {str(e)}')
