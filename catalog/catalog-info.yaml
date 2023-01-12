@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: surfersweb
-  namespace: alpha
+  namespace: default
   description: Surf Condition Web Reporter and Cams
   tags:
     - app-accelerator
@@ -22,5 +22,5 @@ spec:
     - component:surferslookout-db
     - component:surfersapi
   consumesApis:
-    - alpha/surfersapi-tap2.tanzu.rocks
+    - surfersapi-tap1.tanzu.rocks
   

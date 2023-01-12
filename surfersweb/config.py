@@ -4,7 +4,7 @@ from pyservicebinding import binding
 basedir = os.getcwd()
 
 class Config:
-    VERSION = '16'
+    VERSION = '17'
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'secret'
     SESSION_COOKIE_HTTPONLY = False
     GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
@@ -17,7 +17,7 @@ class Config:
 
     try:
         _sb = binding.ServiceBinding()
-        _db = _sb.bindings('mysql')
+        _db = _sb.bindings('db')
     except binding.ServiceBindingRootMissingError:
         print("Environment Variable SERVICE_BINDING_ROOT not set")
     else:
