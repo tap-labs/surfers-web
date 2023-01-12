@@ -17,7 +17,7 @@ class Config:
 
     try:
         _sb = binding.ServiceBinding()
-        _db = _sb.bindings('db')
+        _db = _sb.bindings('mysql')
     except binding.ServiceBindingRootMissingError:
         print("Environment Variable SERVICE_BINDING_ROOT not set")
     else:
