@@ -24,7 +24,7 @@ spec:
       - retriable-status-codes
       - reset
     services:
-    - name: surfersweb-00007
+    - name: surfersweb-00008
       port: 80
       requestHeadersPolicy:
         set:

@@ -12,6 +12,288 @@
                     "postal": "NSW",
                     "region": [
                         {
+                            "name": "Central Coast",
+                            "latitude": "-33.3137692",
+                            "longitude": "151.0309957",
+                            "location": [
+                                {
+                                    "name": "Umina",
+                                    "latitude": "-33.5191409",
+                                    "longitude": "151.2950781",
+                                    "willy_weather": "71040",
+                                    "willy_wind": "71041",
+                                    "willy_tide": "71042",
+                                    "willy_swell": "71043",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "Umina",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-umina/playlist.m3u8"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Box Head",
+                                    "latitude": "-33.5509321",
+                                    "longitude": "151.2987466",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "Box Head",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-boxhead/playlist.m3u8"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Avoca",
+                                    "latitude": "-33.4704898",
+                                    "longitude": "151.4195439",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "Avoca",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-avoca/playlist.m3u8"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Terrigal",
+                                    "latitude": "-33.4452744",
+                                    "longitude": "151.4419153",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "Terrigal",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-terrigal/playlist.m3u8"
+                                        },
+                                        {
+                                            "site": "Terrigal Haven",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-terrigalhaven/playlist.m3u8"
+                                        }
+                                    ]
+
+                                },
+                                {
+                                    "name": "Swansea",
+                                    "latitude": "-33.0893939",
+                                    "longitude": "151.6183176",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "Swansea",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-swansea/playlist.m3u8"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Newcastle",
+                            "latitude": "-32.9760465",
+                            "longitude": "151.4026006",
+                            "location": [
+                                {
+                                    "name": "",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "",
+                                            "url": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "",
+                                            "url": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "",
+                                            "url": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "",
+                                            "url": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "",
+                                            "url": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Mid Coast",
+                            "latitude": "-32.0697834",
+                            "longitude": "151.5435782",
+                            "location": [
+                                {
+                                    "name": "",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "",
+                                            "url": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "",
+                                            "url": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "",
+                                            "url": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "",
+                                            "url": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "",
+                                            "url": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "",
+                                    "latitude": "",
+                                    "longitude": "",
+                                    "willy_weather": "",
+                                    "willy_wind": "",
+                                    "willy_tide": "",
+                                    "willy_swell": "",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "",
+                                            "url": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "name": "Sydney East",
                             "latitude": "-33.943568812867056",
                             "longitude": "151.2110862204764",
@@ -27,7 +309,11 @@
                                     "geohash": "",
                                     "cam": [
                                         {
-                                            "site": "Bondi Main",
+                                            "site": "Bondi South",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-bondisouth/playlist.m3u8"
+                                        },
+                                        {
+                                            "site": "Bondi Mid",
                                             "url": "https://cams.cdn-surfline.com/cdn-au/au-midbondi/chunklist.m3u8"
                                         },
                                         {
@@ -55,7 +341,7 @@
                                             "url": "https://cams.cdn-surfline.com/cdn-au/au-northmaroubra/chunklist.m3u8"
                                         },
                                         {
-                                            "site": "Maroubra",
+                                            "site": "Maroubra Main",
                                             "url": "https://cams.cdn-surfline.com/cdn-au/au-maroubra/chunklist.m3u8"
                                         }
                                     ]
@@ -138,8 +424,16 @@
                                     "geohash": "",
                                     "cam": [
                                         {
-                                            "site": "Curl Curl",
+                                            "site": "Curl Curl South",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-curlcurlsouth/playlist.m3u8"
+                                        },
+                                        {
+                                            "site": "Curl Curl Main",
                                             "url": "https://cams.cdn-surfline.com/cdn-au/au-curlcurl/chunklist.m3u8"
+                                        },
+                                        {
+                                            "site": "Curl Curl North",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-curlcurlnorth/playlist.m3u8"
                                         }
                                     ]
                                 },
@@ -164,6 +458,22 @@
                                     ]
                                 },
                                 {
+                                    "name": "Long Reef",
+                                    "latitude": "-33.745735234874786",
+                                    "longitude": "151.30403728695399",
+                                    "willy_weather": "69016",
+                                    "willy_wind": "69018",
+                                    "willy_tide": "69019",
+                                    "willy_swell": "69020",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                        "site": "White Rock",
+                                        "url": "https://cams.cdn-surfline.com/cdn-au/au-whiterocknsw"
+                                        }
+                                    ]
+                                },
+                                {
                                     "name": "Mona Vale",
                                     "latitude": "-33.67880572818772",
                                     "longitude": "151.31355677497828",
@@ -176,6 +486,10 @@
                                         {
                                             "site": "Main Beach",
                                             "url": "https://cams.cdn-surfline.com/cdn-au/au-monavale/chunklist.m3u8"
+                                        },
+                                        {
+                                            "site": "Mona Vale Basin",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-monavalebasin/playlist.m3u8"
                                         }
                                     ]
                                 },
@@ -198,12 +512,12 @@
                                             "url": "https://cams.cdn-surfline.com/cdn-au/au-manlyhotel/playlist.m3u8"
                                         },
                                         {
-                                            "site": "North Manly",
+                                            "site": "Manly North",
                                             "url": "https://cams.cdn-surfline.com/cdn-au/au-manlynorth/playlist.m3u8"
                                         },
                                         {
-                                            "site": "Queenscliff",
-                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-queenscliff/chunklist.m3u8"
+                                            "site": "Manly Winkipop",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-manlywinki/playlist.m3u8"
                                         }
                                     ]
                                 },
@@ -218,7 +532,7 @@
                                     "geohash": "",
                                     "cam": [
                                         {
-                                            "site": "Narrabeen",
+                                            "site": "Narrabeen Main",
                                             "url": "https://cams.cdn-surfline.com/cdn-au/au-narrabeen/playlist.m3u8"
                                         },
                                         {
@@ -260,6 +574,10 @@
                                         {
                                             "site": "Palm Beach",
                                             "url": "https://cams.cdn-surfline.com/cdn-au/au-palmbeachnsw/playlist.m3u8"
+                                        },
+                                        {
+                                            "site": "Palm Beach North",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-northpalmbeachnsw/playlist.m3u8"
                                         }
                                    ]
                                 },
@@ -282,6 +600,22 @@
                                             "url": "https://cams.cdn-surfline.com/cdn-au/au-newportpeak/chunklist.m3u8"
                                         }
                                    ]
+                                },
+                                {
+                                    "name": "Queenscliff",
+                                    "latitude": "-33.786002",
+                                    "longitude": "151.289068",
+                                    "willy_weather": "69000",
+                                    "willy_wind": "69001",
+                                    "willy_tide": "69003",
+                                    "willy_swell": "69002",
+                                    "geohash": "",
+                                    "cam": [
+                                        {
+                                            "site": "Queenscliff",
+                                            "url": "https://cams.cdn-surfline.com/cdn-au/au-queenscliff/chunklist.m3u8"
+                                        }
+                                    ]
                                 }
                             ]
                         }
