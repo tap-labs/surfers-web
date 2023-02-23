@@ -37,7 +37,7 @@ class Country(db.Model):
 
         if self.id is None:
             _resp = Country.query.with_entities(Country.id).filter(Country.name == self.name).first()
-            _id = _resp["id"]
+            _id = _resp.id
         else:
             _id = self.id
 
@@ -76,7 +76,7 @@ class State(db.Model):
 
         if self.id is None:
             _resp = State.query.with_entities(State.id).filter(State.name == self.name).first()
-            _id = _resp["id"]
+            _id = _resp.id
         else:
             _id = self.id
 
@@ -119,7 +119,7 @@ class Region(db.Model):
 
         if self.id is None:
             _resp = Region.query.with_entities(Region.id).filter(Region.name == self.name).first()
-            _id = _resp["id"]
+            _id = _resp.id
         else:
             _id = self.id
 
@@ -182,7 +182,7 @@ class Location(db.Model):
 
         if self.id is None:
             _resp = Location.query.with_entities(Location.id).filter(Location.name == self.name).first()
-            _id = _resp["id"]
+            _id = _resp.id
         else:
             _id = self.id
 
@@ -193,7 +193,7 @@ class Location(db.Model):
         if(_resp is None):
             _id = self.add()
         else:
-            _id = _resp["id"]
+            _id = _resp.id
         return _id
 
     @staticmethod
@@ -340,7 +340,7 @@ class Cam(db.Model):
 
         if self.id is None:
             _resp = Cam.query.with_entities(Cam.id).filter(Cam.site == self.site, Cam.location_id == self.location_id).first()
-            _id = _resp['id']
+            _id = _resp.id
         else:
             _id = self.id
 
