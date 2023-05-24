@@ -24,7 +24,7 @@ spec:
       autoscaling.knative.dev/target: "60"
   source:
     git:
-      url: https://github.com/davlloyd/surfers-web
+      url: https://github.com/tap-labs/surfers-web
       ref:
         branch: main
   serviceClaims:
