@@ -8,10 +8,14 @@ metadata:
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/language: python
     component: frontend
+    tanzu.app.live.view: "true"
 spec:
   params:
   - name: clusterBuilder
     value: full
+  - name: testing_pipeline_matching_labels
+    value:
+      apps.tanzu.vmware.com/language: python
   - name: annotations
     value:
       autoscaling.knative.dev/min-scale: "1"
